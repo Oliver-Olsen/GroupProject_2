@@ -16,7 +16,23 @@
 
 
 
+
+  /*
+  * CODE STRUCTURE
+  *
+  * MEASURED DATA (TEMP/HUM)
+  * MEASURE CO2
+  * UPLOAD TO THINKSPEAK
+  * GET CLOAD DATA
+  * HANDLE/ACT ON DATA
+  * 
+  * 
+  * 
+  */
+ 
+
 void setup() {
+
   
 }
 
