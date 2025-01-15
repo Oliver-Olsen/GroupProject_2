@@ -37,8 +37,12 @@
 
 
 
+
 DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
 MQ135 mq135_sensor(MQ_PIN);
+
+// WiFi Variables
+WiFiClient client;
 
 // DHT11 Variables
 float temperature = 0;  // Stores temperature in Celsius
@@ -134,4 +138,38 @@ void mq135_measurement(float *resistance_zero, float *corrected_zero, float *res
   Serial.print(*ppm_corrected);
   Serial.println(" ppm");
 
+}
+
+
+
+/**
+* @author Marcus & Emil
+* @brief sends data to our Thingspeak cloud (Requires WiFi.Begin in setup)
+* @param port which Thingspeak field the data is sent to (1-8)
+* @param data the data send 
+* @param channelID The channel ID
+* @param Write_APIKey The key to write to Thingspeak
+* Port 1 = CO2 , Port 2 = Sound, Port 3 = Temperature, Port 4 Humidity
+*/
+void senddata(int port,int data, unsigned long channelID,const char *Write_APIKey){
+  ThingSpeak.begin(client);
+  client.connect("api.thingspeak.com", 80); //connect(URL, Port)
+  ThingSpeak.setField(port, data);
+  ThingSpeak.writeFields(channelID, Write_APIKey);
+}
+
+
+/**
+* @author Marcus & Emil
+* @brief recieves data from Thingspeak (Requires WiFi.Begin in setup)
+* @param port which Thingspeak field the data is read from (1-8) 
+* @param channelID The channel ID
+* @param Read_APIKey The key to read to Thingspeak
+* Port 5 = window motor control, port 6 = sound led control
+*/
+
+int recievedata(int port,long channelID,const char *Read_APIKey){
+  ThingSpeak.begin(client);
+  client.connect("api.thingspeak.com", 80); //connect(URL, Port)
+  return ThingSpeak.readIntField(channelID,port,Read_APIKey); //returns the read data from Thingspeak
 }
