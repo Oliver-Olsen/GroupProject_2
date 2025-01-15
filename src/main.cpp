@@ -8,6 +8,21 @@
  * @copyright Copyright (c) 2025
  * 
  */
+
+
+
+
+  /*
+  * CODE STRUCTURE
+  *
+  * MEASURED DATA (TEMP/HUM)
+  * MEASURE CO2
+  * UPLOAD TO THINKSPEAK
+  * GET CLOAD DATA
+  * HANDLE/ACT ON DATA
+  */
+
+ 
 #include <Arduino.h>
 #include <Adafruit_Sensor.h>
 #include <ESP8266WiFi.h>
@@ -51,7 +66,7 @@ dht_sensor.begin(); // initialize the DHT sensor
 
 void loop() {
 
-    /*
+  /*
   * CODE STRUCTURE
   *
   * MEASURED DATA (TEMP/HUM)
