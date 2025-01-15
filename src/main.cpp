@@ -124,7 +124,7 @@ void temp_humi(float *temperature, float *humidity){
 * @author Marcus & Emil
 * @brief sends data to our Thingspeak cloud (Requires WiFi.Begin in setup)
 * @param port which Thingspeak field the data is sent to (1-8)
-* @param data the data send 
+* @param data the data send
 * @param channelID The channel ID
 * @param Write_APIKey The key to write to Thingspeak
 * Port 1 = CO2 , Port 2 = Sound, Port 3 = Temperature, Port 4 Humidity
@@ -140,7 +140,7 @@ void senddata(int port,int data, unsigned long channelID,const char *Write_APIKe
 /**
 * @author Marcus & Emil
 * @brief recieves data from Thingspeak (Requires WiFi.Begin in setup)
-* @param port which Thingspeak field the data is read from (1-8) 
+* @param port which Thingspeak field the data is read from (1-8)
 * @param channelID The channel ID
 * @param Read_APIKey The key to read to Thingspeak
 * Port 5 = window motor control, port 6 = sound led control
