@@ -41,8 +41,8 @@ DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
 MQ135 mq135_sensor(MQ_PIN);
 
 // DHT11 Variables
-float temperature = 0;  // Stores temperature in Celsius and convert to deci-celcius
-float humi  = 0;        // Stores humidity as float
+float temperature = 0;  // Stores temperature in Celsius
+float humi  = 0;        // Stores  humidity   in percent
 
 // MQ135 Variables
 float resistance_zero   = 0;
@@ -113,7 +113,15 @@ void temp_humi(float *temperature, float *humi){
 
 
 
-
+/**
+ * @brief Measures the air quality in ppm. Sensor is calibrated, each time
+ * 
+ * @param resistance_zero   Measures the lowest resistance
+ * @param corrected_zero    Correction of the measured lowest resistance
+ * @param resistance        Measures the resistance
+ * @param ppm_measured      Measured ppm
+ * @param ppm_corrected     Correction of measured ppm. This is the variable we need/use
+ */
 void mq135_measurement(float *resistance_zero, float *corrected_zero, float *resistance, float *ppm_measured,  float *ppm_corrected)
 {
   *resistance_zero = mq135_sensor.getRZero();
