@@ -22,7 +22,7 @@
   * HANDLE/ACT ON DATA
   */
 
- 
+
 #include <Arduino.h>
 #include <Adafruit_Sensor.h>
 #include <ESP8266WiFi.h>
@@ -60,7 +60,8 @@ void mq135_measurement(float *resistance_zero, float *corrected_zero, float *res
  
 
 void setup() {
-dht_sensor.begin(); // initialize the DHT sensor
+  Serial.begin(11500);
+  dht_sensor.begin(); // initialize the DHT sensor
   
 }
 
