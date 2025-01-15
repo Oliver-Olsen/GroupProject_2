@@ -133,5 +133,5 @@ void mq135_measurement(float *resistance_zero, float *corrected_zero, float *res
   
   Serial.print(*ppm_corrected);
   Serial.println(" ppm");
-
+  
 }
