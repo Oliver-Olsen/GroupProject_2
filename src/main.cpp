@@ -88,7 +88,12 @@ void loop() {
 
 
 
-
+/**
+ * @brief 
+ * 
+ * @param temperature reads the temperature as a float.
+ * @param humi reads the humitity as a float.
+ */
 void temp_humi(float *temperature, float *humi){
   *humi  = dht_sensor.readHumidity();
   *temperature = dht_sensor.readTemperature();
