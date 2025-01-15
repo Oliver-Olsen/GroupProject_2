@@ -1,9 +1,10 @@
-#ifndef airQual.h
-#define airQual.h
-
-#include <MQ135.h>
-
-void mq135_measurement(float *resistance_zero, float *corrected_zero, float *resistance, float *ppm_measured,  float *ppm_corrected);
+#ifndef AIRQUAL_H
+#define AIRQUAL_H
 
 
-#endif
+void airQual_init();
+void airQual_measurement(float *temperature, float *humidity);
+float airQual_get_Value();
+
+
+#endif // AIRQUAL_H
