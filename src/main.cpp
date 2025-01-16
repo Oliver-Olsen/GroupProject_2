@@ -28,19 +28,7 @@
 #include <ThingSpeak.h>
 #include "airQual.h"
 #include "tempHumi.h"
-
-
-
-
-
-#define Motion_Sensor_PIN  D5 // Sets the motion sensor as pin  
-int motion_state = LOW;              // Initial state of the room. 
-int motion_val = 0;                  // Intial Value of the Sensor.
-
-
-
-
-
+#include "motionSensor.h"
 
 
 // WiFi Variables
@@ -50,20 +38,17 @@ WiFiClient client;
 float temperature = 0;
 float humidity    = 0;
 float airquality  = 0;
+bool motion_state = false;  // Initial state of the room. 
+bool motion_val   = false;  // Intial Value of the Sensor.
 
 
-
-
-// Function Declarations
-
-void Motion_Sensor(int *motion_state, int *motion_val);
 
 
 
 void setup() {
   Serial.begin(11500);
-  pinMode(Motion_Sensor_PIN, INPUT); // PIR motion sensor sat as input. 
 
+  motionSensor_init(); // PIR motion sensor sat as input. 
   tempHumi_Init();
 
 }
@@ -87,7 +72,7 @@ void loop() {
   */
   tempHumi_read(&temperature, &humidity);
   airQual_measurement(&temperature, &humidity);
-  Motion_Sensor(&motion_state, &motion_val);
+  motionSensor_detect(&motion_state, &motion_val);
   delay(10000);
 }
 
@@ -96,32 +81,7 @@ void loop() {
 
 
 
-/**
- * @author Markus Kenno
- * @brief Detects if there is motion using a HC-SR501 PIR MOTION DETECTOR.
- * @param motion_state motion state of the room.
- * @param motion_val motion value. Reads the motion sensors value.
- */
 
-void Motion_Sensor(int *motion_state, int *motion_val){
-    *motion_val = digitalRead(Motion_Sensor_PIN);   //value of motion sensor by reading pin 5.
-  //checks if there is motion and if there previous was no motion. 
-  if  (*motion_val == HIGH) {     
-    delay(500);           
-    if (*motion_state == LOW) {
-      Serial.println("  Motion detected "); 
-      *motion_state = HIGH; //Motion detected.
-    }
-  } 
-  // When motion stops.
-  else {          
-      if  (*motion_state == HIGH){
-        Serial.println("Motion Stopped");
-        delay(500);
-        *motion_state = LOW; //Motion stopped in the room.
-    }
-  }
-}
 
 
 
