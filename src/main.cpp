@@ -9,22 +9,19 @@
  *
  */
 
-
-
-
-  /*
-  * CODE STRUCTURE
-  *
-  * MEASURED DATA (TEMP/HUM)
-  * MEASURE CO2
-  * UPLOAD TO THINKSPEAK
-  * GET CLOAD DATA
-  * HANDLE/ACT ON DATA
-  */
+/*
+ * CODE STRUCTURE
+ *
+ * MEASURED DATA (TEMP/HUM)
+ * MEASURE CO2
+ * UPLOAD TO THINKSPEAK
+ * GET CLOAD DATA
+ * HANDLE/ACT ON DATA
+ */
 
 
 #include <Arduino.h>
-#include "sendData.h"
+#include "sendRecieveData.h"
 #include "airQual.h"
 #include "tempHumi.h"
 #include "motionSensor.h"
@@ -37,9 +34,6 @@ float humidity    = 0;
 float airquality  = 0;
 bool motion_state = false;  // Initial state of the room. 
 bool motion_val   = false;  // Intial Value of the Sensor.
-
-
-
 
 
 

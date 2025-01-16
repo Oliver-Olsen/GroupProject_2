@@ -9,10 +9,10 @@
  * 
  */
 
-#ifndef SENDDATA_H
-#define SENDDATA_H
+#ifndef SENDRECIEVEDATA_H
+#define SENDRECIEVEDATA_H
 
 void sendData_payload(int port,int data, unsigned long channelID,const char *Write_APIKey);
 void sendData_finished();
 
-#endif // SENDDATA_
+#endif // SENDRECIEVEDATA_H

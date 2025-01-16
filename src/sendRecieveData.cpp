@@ -31,7 +31,6 @@ WiFiClient client;
 * @param data data to be sent
 * @param channelID The channel ID
 * @param Write_APIKey The key to write to Thingspeak
-* 
 */
 void sendData_payload(int port,int data, unsigned long channelID,const char *Write_APIKey){
   ThingSpeak.begin(client);
@@ -51,7 +50,6 @@ void sendData_payload(int port,int data, unsigned long channelID,const char *Wri
 * @param Read_APIKey The key to read to Thingspeak
 * Port 5 = window motor control, port 6 = sound led control
 */
-
 int recievedata(int port,long channelID,const char *Read_APIKey){
   ThingSpeak.begin(client);
   client.connect("api.thingspeak.com", 80); //connect(URL, Port)
