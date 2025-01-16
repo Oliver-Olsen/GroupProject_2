@@ -1,7 +1,7 @@
 /**
  * @file airQual.cpp
- * @author Oliver Skou Olsen
- * @brief   Measures the Air Quality (MQ135)
+ * @author Oliver Olsen
+ * @brief Measures the Air Quality (MQ135)
  * @version 0.1
  * @date 2025-01-15
  *
@@ -13,7 +13,7 @@
 #include <MQ135.h>
 #include "airQual.h"
 
-#define MQ_PIN          A0
+#define MQ_PIN A0
 
 
 
@@ -35,11 +35,9 @@ typedef struct
 mq135_env_t mq135_data;
 
 
-
-
 /**
  * @brief Initializes variables
- *
+ * @author Oliver Olsen
  */
 void airQual_init()
 {
@@ -53,9 +51,9 @@ void airQual_init()
 
 /**
  * @brief Measures the air quality in ppm. Sensor is calibrated each reading
- *
+ * @author Oliver Olsen
  * @param temperature Measured temperature
- * @param humidity    Measured humidity
+ * @param humidity Measured humidity
  */
 
 void airQual_measurement(float *temperature, float *humidity)
@@ -75,6 +73,11 @@ void airQual_measurement(float *temperature, float *humidity)
 
 
 
+/**
+ * @brief Returns the corrected ppm value
+ * @author Oliver Olsen
+ * @return float ppm
+ */
 float airQual_get_Value()
 {
     return mq135_data.ppm_corrected;

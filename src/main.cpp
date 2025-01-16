@@ -24,16 +24,14 @@
 
 
 #include <Arduino.h>
-#include <Adafruit_Sensor.h>
 #include <ESP8266WiFi.h>
 #include <ThingSpeak.h>
-#include <DHT.h>
 #include "airQual.h"
+#include "tempHumi.h"
 
 
 
-#define DHT_SENSOR_PIN  D7 // The ESP8266 pin D7 connected to DHT11 sensor
-#define DHT_SENSOR_TYPE DHT11
+
 
 #define Motion_Sensor_PIN  D5 // Sets the motion sensor as pin  
 int motion_state = LOW;              // Initial state of the room. 
@@ -42,29 +40,31 @@ int motion_val = 0;                  // Intial Value of the Sensor.
 
 
 
-DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
+
 
 
 // WiFi Variables
 WiFiClient client;
 
-// DHT11 Variables
-float temperature = 0;  // Stores temperature in Celsius
-float humidity  = 0;        // Stores  humidity   in percent
+
+float temperature = 0;
+float humidity    = 0;
+float airquality  = 0;
 
 
 
 
 // Function Declarations
-void temp_humi(float *temperature, float *humi);
+
 void Motion_Sensor(int *motion_state, int *motion_val);
 
 
 
 void setup() {
   Serial.begin(11500);
-  dht_sensor.begin(); // initialize the DHT sensor
   pinMode(Motion_Sensor_PIN, INPUT); // PIR motion sensor sat as input. 
+
+  tempHumi_Init();
 
 }
 
@@ -85,9 +85,7 @@ void loop() {
   *   UPDATE WEB
   *   
   */
-
-
-  temp_humi(&temperature, &humidity);
+  tempHumi_read(&temperature, &humidity);
   airQual_measurement(&temperature, &humidity);
   Motion_Sensor(&motion_state, &motion_val);
   delay(10000);
@@ -97,29 +95,6 @@ void loop() {
 
 
 
-
-/**
- *
- * @author Markus Kenno
- * @brief Reads the temperature in "°dC" [Deci-celcius] and hunitity in "%"" (percentage) using a DH11 module.
- *
- * @param temperature reads the temperature as a float.
- * @param humidity reads the humitity as a float.
- */
-void temp_humi(float *temperature, float *humidity){
-    *humidity  = dht_sensor.readHumidity();
-    *temperature = dht_sensor.readTemperature();
-    //Prints to Serial.
-    Serial.print("Humidity: ");
-    Serial.print(*humidity);
-    Serial.print("%");
-    Serial.print("  |  ");
-    Serial.print("Temperature: ");
-    Serial.print(*temperature);
-    Serial.println("°dC");
-  // wait a 2 seconds between readings
-  delay(2000);
-}
 
 /**
  * @author Markus Kenno
