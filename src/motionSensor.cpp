@@ -17,7 +17,7 @@
 
 
 
-#define MOTIONSENSOR_PIN  D5 // Sets the motion sensor as pin  
+#define MOTIONSENSOR_PIN  D5 // Sets the motion sensor as pin
 
 
 
@@ -39,23 +39,22 @@ void motionSensor_init()
  * @param motion_state motion state of the room.
  * @param motion_val motion value. Reads the motion sensors value.
  */
-void motionSensor_detect(bool *motion_state, bool *motion_val){
+void motionSensor_detect(bool *motion_state, bool *motion_val)
+{
     *motion_val = digitalRead(MOTIONSENSOR_PIN);   //value of motion sensor by reading pin 5.
-    
-    //checks if there is motion and if there previous was no motion. 
-    if  (*motion_val == HIGH) {     
-        delay(500);           
+
+    //checks if there is motion and if there previous was no motion.
+    if  (*motion_val == HIGH) {
         if (*motion_state == LOW) {
-            Serial.println("  Motion detected "); 
+            Serial.println("  Motion detected ");
             *motion_state = HIGH; //Motion detected.
+        }
     }
-  } 
-  // When motion stops.
-  else {          
-      if (*motion_state == HIGH){
-        Serial.println("Motion Stopped");
-        delay(500);
-        *motion_state = LOW; //Motion stopped in the room.
+    // When motion stops.
+    else {
+        if (*motion_state == HIGH) {
+            Serial.println("Motion Stopped");
+            *motion_state = LOW; //Motion stopped in the room.
+        }
     }
-  }
 }
