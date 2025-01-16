@@ -35,6 +35,10 @@
 #define DHT_SENSOR_PIN  D7 // The ESP8266 pin D7 connected to DHT11 sensor
 #define DHT_SENSOR_TYPE DHT11
 
+#define Motion_Sensor_PIN  D5 // Sets the motion sensor as pin  
+int motion_state = LOW;              // Initial state of the room. 
+int motion_val = 0;                  // Intial Value of the Sensor.
+
 
 
 
@@ -53,12 +57,14 @@ float humidity  = 0;        // Stores  humidity   in percent
 
 // Function Declarations
 void temp_humi(float *temperature, float *humi);
+void Motion_Sensor(int *motion_state, int *motion_val);
 
 
 
 void setup() {
   Serial.begin(11500);
   dht_sensor.begin(); // initialize the DHT sensor
+  pinMode(Motion_Sensor_PIN, INPUT); // PIR motion sensor sat as input. 
 
 }
 
@@ -83,6 +89,7 @@ void loop() {
 
   temp_humi(&temperature, &humidity);
   airQual_measurement(&temperature, &humidity);
+  Motion_Sensor(&motion_state, &motion_val);
   delay(10000);
 }
 
@@ -92,7 +99,9 @@ void loop() {
 
 
 /**
- * @brief
+ *
+ * @author Markus Kenno
+ * @brief Reads the temperature in "°dC" [Deci-celcius] and hunitity in "%"" (percentage) using a DH11 module.
  *
  * @param temperature reads the temperature as a float.
  * @param humidity reads the humitity as a float.
@@ -100,12 +109,11 @@ void loop() {
 void temp_humi(float *temperature, float *humidity){
     *humidity  = dht_sensor.readHumidity();
     *temperature = dht_sensor.readTemperature();
+    //Prints to Serial.
     Serial.print("Humidity: ");
     Serial.print(*humidity);
     Serial.print("%");
-
     Serial.print("  |  ");
-
     Serial.print("Temperature: ");
     Serial.print(*temperature);
     Serial.println("°dC");
@@ -113,6 +121,32 @@ void temp_humi(float *temperature, float *humidity){
   delay(2000);
 }
 
+/**
+ * @author Markus Kenno
+ * @brief Detects if there is motion using a HC-SR501 PIR MOTION DETECTOR.
+ * @param motion_state motion state of the room.
+ * @param motion_val motion value. Reads the motion sensors value.
+ */
+
+void Motion_Sensor(int *motion_state, int *motion_val){
+    *motion_val = digitalRead(Motion_Sensor_PIN);   //value of motion sensor by reading pin 5.
+  //checks if there is motion and if there previous was no motion. 
+  if  (*motion_val == HIGH) {     
+    delay(500);           
+    if (*motion_state == LOW) {
+      Serial.println("  Motion detected "); 
+      *motion_state = HIGH; //Motion detected.
+    }
+  } 
+  // When motion stops.
+  else {          
+      if  (*motion_state == HIGH){
+        Serial.println("Motion Stopped");
+        delay(500);
+        *motion_state = LOW; //Motion stopped in the room.
+    }
+  }
+}
 
 
 
