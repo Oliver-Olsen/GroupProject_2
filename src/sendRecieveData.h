@@ -14,6 +14,7 @@
 
 
 
+
 #define THINGSPEAK_TEMPERATURE      3
 #define THINGSPEAK_HUMIDITY         4
 #define THINGSPEAK_AIRQUALITY       1

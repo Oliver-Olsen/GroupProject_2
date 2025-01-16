@@ -9,15 +9,6 @@
  *
  */
 
-/*
- * CODE STRUCTURE
- *
- * MEASURED DATA (TEMP/HUM)
- * MEASURE CO2
- * UPLOAD TO THINKSPEAK
- * GET CLOAD DATA
- * HANDLE/ACT ON DATA
- */
 
 
 #include <Arduino.h>
@@ -36,6 +27,7 @@ bool motion_state = false;  // Initial state of the room.
 bool motion_val   = false;  // Intial Value of the Sensor.
 
 
+
 int update_web = 0;
 
 
@@ -48,7 +40,7 @@ void setup() {
 
 }
 
-void test_loop() {
+
 
   /*
   * CODE STRUCTURE
@@ -65,12 +57,7 @@ void test_loop() {
   *   UPDATE WEB
   *
   */
-  tempHumi_read(&temperature, &humidity);
-  airQual_measurement(&temperature, &humidity);
-  motionSensor_detect(&motion_state, &motion_val);
-  sendData_fieldValue(THINGSPEAK_AIRQUALITY, airQual_get_Value());
-  delay(20000);
-}
+
 
 
 void loop()
