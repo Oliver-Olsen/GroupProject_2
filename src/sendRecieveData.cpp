@@ -2,7 +2,7 @@
  * @file sendData.cpp
  * @author Oliver Olsen
  * @brief Handles data to be sent
- * @section Can sent data with the function sendData_payload()
+ * @section Can send data with the function sendData_payload()
  *
  * @version 0.1
  * @date 2025-01-16
@@ -17,6 +17,7 @@
 
 unsigned long channelID = 2810501;
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
+const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
 
 const char* ssid = "Connection Error";
 const char* pswrd = "Gasvo012";
