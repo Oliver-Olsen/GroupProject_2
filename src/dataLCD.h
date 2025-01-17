@@ -20,4 +20,4 @@ void dataLCD_setup();
 void dataLCD_print(float data, int dataType);
 
 
-#endif DATALCD_H
+#endif // DATALCD_H
