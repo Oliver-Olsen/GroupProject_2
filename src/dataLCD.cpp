@@ -8,12 +8,15 @@
  * @copyright Copyright (c) 2025
  * 
  */
+
+
 #include <Arduino.h>
 #include <LiquidCrystal_I2C.h>
 #include "dataLCD.h"
 
 
 LiquidCrystal_I2C lcd(0x27,20,4);
+
 
 
 /**
@@ -52,6 +55,7 @@ void dataLCD_setup()
  * @param data sensor measurements
  * @param dataType type of data
  */
+
 void dataLCD_print(float data, int dataType)
 {
     switch (dataType)
