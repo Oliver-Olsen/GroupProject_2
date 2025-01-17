@@ -16,6 +16,7 @@
 #include "airQual.h"
 #include "tempHumi.h"
 #include "motionSensor.h"
+#include "dataLCD.h"
 
 
 
@@ -37,6 +38,7 @@ void setup() {
   wifi_init();
   motionSensor_init(); // PIR motion sensor sat as input.
   tempHumi_Init();
+  dataLCD_setup();
 
 }
 
@@ -65,19 +67,10 @@ void loop()
 
   switch (update_web)
   {
-  case THINGSPEAK_TEMPERATURE:
-    tempHumi_read(&temperature, &humidity);
-    sendData_fieldValue(THINGSPEAK_TEMPERATURE, temperature);
-    break;
-
-  case THINGSPEAK_HUMIDITY:
-    tempHumi_read(&temperature, &humidity);
-    sendData_fieldValue(THINGSPEAK_HUMIDITY, humidity);
-    break;
-
   case THINGSPEAK_AIRQUALITY:
     tempHumi_read(&temperature, &humidity);
     airQual_measurement(&temperature, &humidity);
+    dataLCD_print(airQual_get_Value(), THINGSPEAK_AIRQUALITY);
     sendData_fieldValue(THINGSPEAK_AIRQUALITY, airQual_get_Value());
     break;
 
@@ -86,6 +79,17 @@ void loop()
     sendData_fieldValue(THINGSPEAK_MOTION, 1);
     break;
 
+  case THINGSPEAK_TEMPERATURE:
+    tempHumi_read(&temperature, &humidity);
+    dataLCD_print(temperature, THINGSPEAK_TEMPERATURE);
+    sendData_fieldValue(THINGSPEAK_TEMPERATURE, temperature);
+    break;
+
+  case THINGSPEAK_HUMIDITY:
+    tempHumi_read(&temperature, &humidity);
+    dataLCD_print(humidity, THINGSPEAK_HUMIDITY);
+    sendData_fieldValue(THINGSPEAK_HUMIDITY, humidity);
+    break;
 
   default:
     break;
