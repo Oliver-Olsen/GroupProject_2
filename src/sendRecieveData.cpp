@@ -60,8 +60,6 @@ void sendData_payload(int port,int data, unsigned long channelID,const char *Wri
   client.connect("api.thingspeak.com", 80); //connect(URL, Port)
   ThingSpeak.setField(port, data);
   ThingSpeak.writeFields(channelID, Write_APIKey);
-  // Delay of 5 seconds to make sure the data is recieved correctly by thingspeak
-  //delay(5000);
 }
 
 
@@ -77,8 +75,6 @@ int recievedata(int port,long channelID,const char *Read_APIKey){
   ThingSpeak.begin(client);
   client.connect("api.thingspeak.com", 80); //connect(URL, Port)
   return ThingSpeak.readIntField(channelID, port, Read_APIKey); //returns the read data from Thingspeak
-  //Delay of 30 seconds to avoid using too many
-  //delay(30000);
 }
 
 
