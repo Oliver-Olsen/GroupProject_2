@@ -76,6 +76,7 @@ void airQual_measurement(float *temperature, float *humidity)
 /**
  * @brief Returns the corrected ppm value
  * @author Oliver Olsen
+ * @see Simipar to @p airQual_measurement()
  * @return float ppm
  */
 float airQual_get_Value()

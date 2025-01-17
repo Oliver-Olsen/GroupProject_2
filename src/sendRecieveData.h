@@ -23,7 +23,10 @@
 
 
 
-
+/**
+ * @brief Function declarations
+ * 
+ */
 void wifi_init();
 void sendData_fieldValue(int port,float data);
 void sendData_fieldValue(int port,int data);

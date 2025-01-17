@@ -13,8 +13,7 @@
 
 
 /**
- * @see dataLCD.cpp
- * 
+ @brief Function declarations
  */
 void dataLCD_setup();
 void dataLCD_print(float data, int dataType);

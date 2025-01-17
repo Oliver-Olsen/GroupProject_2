@@ -13,7 +13,6 @@
 
 /**
  * @brief function declarations
- * @see airQual.cpp
  */
 void airQual_init();
 void airQual_measurement(float *temperature, float *humidity);

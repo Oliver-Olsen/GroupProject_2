@@ -19,21 +19,32 @@ unsigned long channelID = 2810501;
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
 const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
 
-const char* ssid = "Connection Error";
-const char* pswrd = "Gasvo012";
+const char* ssid = "LW_POCO";
+const char* pswrd = "ezpz42069";
 
 
 
 // WiFi Variables
 WiFiClient client;
 
-
+/**
+* @author oliver Olsen
+* @brief Wifi ini
+*/
 void wifi_init()
 {
   WiFi.begin(ssid, pswrd);
 }
 
 
+/**
+ * @author Oliver Olsen
+ * @brief Handles float to int
+ * 
+ * @see works with @p sendData_fieldValue()
+ * @param port 
+ * @param data 
+ */
 void sendData_fieldValue(int port, float data)
 {
   int value = (int)(data * 100);
@@ -41,10 +52,27 @@ void sendData_fieldValue(int port, float data)
 }
 
 
+/**
+ * @author Oliver Olsen
+ * @brief Handles int to int
+ * 
+ * @section The two functions @p sendData_fieldValue() ans @p sendData_fieldValue(). Deppending on if it's an int or a float, the correct function will be chosen automatically.
+ * @see works with @p sendData_fieldValue()
+ * @param port 
+ * @param data 
+ */
 void sendData_fieldValue(int port, int data)
 {
   sendData_payload(port, data, channelID, Write_APIKey);
 }
+
+
+void recieveData(int data)
+{
+  connectTingSpeak();
+}
+
+
 
 
 /**

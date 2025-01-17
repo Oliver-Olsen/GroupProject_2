@@ -34,7 +34,7 @@ void motionSensor_init()
 
 /**
  * @author Markus Kenno
- * @brief Detects if there is motion
+ * @brief Detects motion
  * @section  We are using a HC-SR501 PIR MOTION DETECTOR.
  * @param motion_state motion state of the room.
  * @param motion_val motion value. Reads the motion sensors value.
@@ -46,14 +46,12 @@ void motionSensor_detect(bool *motion_state, bool *motion_val)
     //checks if there is motion and if there previous was no motion.
     if  (*motion_val == HIGH) {
         if (*motion_state == LOW) {
-            Serial.println("  Motion detected ");
             *motion_state = HIGH; //Motion detected.
         }
     }
     // When motion stops.
     else {
         if (*motion_state == HIGH) {
-            Serial.println("Motion Stopped");
             *motion_state = LOW; //Motion stopped in the room.
         }
     }

@@ -69,7 +69,7 @@ unsigned long timer = 0;
  * @param heaterCh 
  * @param lightCh 
  */
-void init(int windowCh, int heaterCh, int lightCh) {
+void receiverModule_init(int windowCh, int heaterCh, int lightCh) {
   //Assigns the correct channel values
   servoChannel = windowCh; 
   stepperChannel = heaterCh; 
@@ -87,12 +87,12 @@ void init(int windowCh, int heaterCh, int lightCh) {
  * @param channelID 
  * @param APIKey 
  */
-void update(const int server, const int channelID, char * APIKey, unsigned long delay) {
+void receiverModule_update(const int channelID,  unsigned long delay) {
   if ((millis() + timer) >= delay) { //Inserts a non-blocking delay
     connectTingSpeak();
 
     for (int i = 0; i < 3; i++) { //Loopes through all modules
-        data[i][0] = readThingSpeak(channelID, data[i][2], APIKey); //Reads the relevant ThingSpeak data for the current modules
+        data[i][0] = readThingSpeak(data[i][2]); //Reads the relevant ThingSpeak data for the current modules
 
         if (data[i][0] != data[i][1]) { //Checks if an update has occured in the data for the current module
         switch (i) { //Runs different function depending on what module is currently active
