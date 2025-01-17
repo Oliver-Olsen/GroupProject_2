@@ -14,7 +14,7 @@
 #define MOTIONSENSOR_H
 
 /**
- * @see motionSensor.cpp
+ * @brief Function declarations
  */
 void motionSensor_init();
 void motionSensor_detect(bool *motion_state, bool *motion_val);

@@ -19,6 +19,11 @@
 
 DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
 
+
+/**
+ * @author Oliver Olsen
+ * @brief Init
+ */
 void tempHumi_Init()
 {
     dht_sensor.begin();

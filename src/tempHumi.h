@@ -13,7 +13,6 @@
 
 /**
  * @brief Function declarations
- * @see tempHumi.cpp
  */
 void tempHumi_Init();
 void tempHumi_read(float *temperature, float *humi);
