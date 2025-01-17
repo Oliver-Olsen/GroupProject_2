@@ -15,6 +15,7 @@
 #include <Servo.h>
 #include <ThingSpeak.h>
 #include "recieverModule.h"
+#include "sendRecieveData.h"
 
 /* Pin definitions
 *  Four pins are used to control the stepper motor (Heating control)
@@ -33,7 +34,6 @@
 Stepper tempControl = Stepper(stepsPerRevolution, IN1, IN3, IN2, IN4); //Creates a Stepper class called 'tempControl'
 Servo windowControl; //Creates a Servo class called 'windowControl'
 
-WiFiClient client; 
 
 // Values for the active elements
 //The ThingSpeak channel IDs of the different elements
@@ -59,7 +59,7 @@ int data[3][3] = {
 }; 
 
 //Timer for delay
-int time = 0; 
+unsigned long timer = 0; 
 
 
 /**
@@ -87,13 +87,12 @@ void init(int windowCh, int heaterCh, int lightCh) {
  * @param channelID 
  * @param APIKey 
  */
-void update(const int server, const int channelID, char * APIKey, int delay) {
-  if ((millis() + time) >= delay) { //Inserts a non-blocking delay
-    ThingSpeak.begin(client); //Begins communication with ThingSpeak
-    client.connect(server, 80); //Connects to the ThingSpeak server
+void update(const int server, const int channelID, char * APIKey, unsigned long delay) {
+  if ((millis() + timer) >= delay) { //Inserts a non-blocking delay
+    connectTingSpeak();
 
     for (int i = 0; i < 3; i++) { //Loopes through all modules
-        data[i][0] = ThingSpeak.readIntField(channelID, data[i][2], APIKey); //Reads the relevant ThingSpeak data for the current modules
+        data[i][0] = readThingSpeak(channelID, data[i][2], APIKey); //Reads the relevant ThingSpeak data for the current modules
 
         if (data[i][0] != data[i][1]) { //Checks if an update has occured in the data for the current module
         switch (i) { //Runs different function depending on what module is currently active
@@ -117,9 +116,9 @@ void update(const int server, const int channelID, char * APIKey, int delay) {
         }
     }
 
-    client.stop(); //Ends WiFi communication
+    sendData_finished(); //Ends WiFi communication
 
-    time = millis(); //Updates the timer
+    timer = millis(); //Updates the timer
   }
 }
 
