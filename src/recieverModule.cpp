@@ -21,12 +21,12 @@
 *  One pin is used to control the servo motor (Window actuation)
 *  One pint is used to control the lights
 */
-#define IN1 8
-#define IN3 10
-#define IN2 9
-#define IN4 11
-#define servoPin 18
-#define lightPin 22
+#define IN1 5
+#define IN3 7
+#define IN2 6
+#define IN4 8
+#define servoPin 2
+#define lightPin 0
 
 // Motor configuration
 #define stepsPerRevolution 2038 //The amount of steps in a rotation from the stepper motor
