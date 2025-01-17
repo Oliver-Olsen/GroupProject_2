@@ -28,23 +28,13 @@ void tempHumi_Init()
 /**
  *
  * @author Markus Kenno
- * @brief Reads the temperature in "°dC" [Deci-celcius] and hunitity in "%"" (percentage) using a DH11 module.
+ * @brief Reads the temperature in "°C" [Celcius] and humidity in "%"" (percentage) using a DH11 module.
  *
  * @param temperature reads the temperature as a float.
- * @param humidity reads the humitity as a float.
+ * @param humidity reads the humidity as a float.
  */
 void tempHumi_read(float *temperature, float *humidity)
 {
     *temperature = dht_sensor.readTemperature();
     *humidity = dht_sensor.readHumidity();
-    
-    Serial.print("Humidity: ");
-    Serial.print(*humidity);
-    Serial.print("%");
-
-    Serial.print("  |  ");
-
-    Serial.print("Temperature: ");
-    Serial.print(*temperature);
-    Serial.println("°dC");
 }
