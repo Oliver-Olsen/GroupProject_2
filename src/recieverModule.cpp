@@ -58,6 +58,9 @@ int data[3][3] = {
   {lightD, lightP, lightChannel}
 }; 
 
+//Timer for delay
+int time = 0; 
+
 
 /**
  * @brief Sets up initial values
@@ -84,36 +87,40 @@ void init(int windowCh, int heaterCh, int lightCh) {
  * @param channelID 
  * @param APIKey 
  */
-void update(const int server, const int channelID, char * APIKey) {
-  ThingSpeak.begin(client); //Begins communication with ThingSpeak
-  client.connect(server, 80); //Connects to the ThingSpeak server
+void update(const int server, const int channelID, char * APIKey, int delay) {
+  if ((millis() + time) >= delay) { //Inserts a non-blocking delay
+    ThingSpeak.begin(client); //Begins communication with ThingSpeak
+    client.connect(server, 80); //Connects to the ThingSpeak server
 
-  for (int i = 0; i < 3; i++) { //Loopes through all modules
-    data[i][0] = ThingSpeak.readIntField(channelID, data[i][2], APIKey); //Reads the relevant ThingSpeak data for the current modules
+    for (int i = 0; i < 3; i++) { //Loopes through all modules
+        data[i][0] = ThingSpeak.readIntField(channelID, data[i][2], APIKey); //Reads the relevant ThingSpeak data for the current modules
 
-    if (data[i][0] != data[i][1]) { //Checks if an update has occured in the data for the current module
-      switch (i) { //Runs different function depending on what module is currently active
-        case 0: 
-        servoControl(data[i][0]); //Runs the servo motor
-        break;
+        if (data[i][0] != data[i][1]) { //Checks if an update has occured in the data for the current module
+        switch (i) { //Runs different function depending on what module is currently active
+            case 0: 
+            servoControl(data[i][0]); //Runs the servo motor
+            break;
 
-        case 1: 
-        stepperControl(data[i][0]); //Runs the stepper motor
-        break; 
+            case 1: 
+            stepperControl(data[i][0]); //Runs the stepper motor
+            break; 
 
-        case 2: 
-        lightControl(lightD); //Switches the light
-        break; 
+            case 2: 
+            lightControl(lightD); //Switches the light
+            break; 
 
-        default: 
-        break; 
-      }
+            default: 
+            break; 
+        }
 
-      data[i][1] = data[i][0]; //Updates the previous value
+        data[i][1] = data[i][0]; //Updates the previous value
+        }
     }
-  }
 
-  client.stop(); //Ends WiFi communication
+    client.stop(); //Ends WiFi communication
+
+    time = millis(); //Updates the timer
+  }
 }
 
 /**
