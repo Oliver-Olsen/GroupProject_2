@@ -17,6 +17,7 @@
 #include "tempHumi.h"
 #include "motionSensor.h"
 #include "dataLCD.h"
+#include "recieverModule.h"
 
 
 

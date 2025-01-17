@@ -37,7 +37,9 @@ void dataLCD_setup()
     lcd.setCursor(9, 0);
     lcd.print("N/A");
     lcd.setCursor(13, 0);
-    lcd.print((char)223+"C");
+    lcd.print((char)223);
+    lcd.setCursor(14, 0);
+    lcd.print("C");
 
     lcd.setCursor(0, 1);
     lcd.print("N/A");
