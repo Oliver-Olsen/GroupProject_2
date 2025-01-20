@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author your name (you@domain.com)
+ * @author 
  * @brief
  * @version 0.1
  * @date 2025-01-14
@@ -20,8 +20,7 @@
 #include "recieverModule.h"
 
 
-#define SENDING_STATION   false
-#define RECEIVING_STATION true
+#define SENDING_STATION   true
 
 
 float temperature = 0;
@@ -46,6 +45,8 @@ int update_web = 0;
  * @section Inits the correct elements, depending on if the station is on the recieving end or sending end
  */
 void setup() {
+
+  Serial.begin(9600);
 
   if (SENDING_STATION == true){
     wifi_init();
@@ -79,6 +80,7 @@ void loop()
       airQual_measurement(&temperature, &humidity);
       dataLCD_print(airQual_get_Value(), THINGSPEAK_AIRQUALITY);
       sendData_fieldValue(THINGSPEAK_AIRQUALITY, airQual_get_Value());
+      //Serial.print(temperature, humidity);
       break;
 
     case THINGSPEAK_MOTION:
