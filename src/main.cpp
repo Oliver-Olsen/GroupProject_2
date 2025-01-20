@@ -34,6 +34,8 @@ int heaterCh = 7;
 int lightCh = 6;
 
 
+unsigned short int seconds_15 = 15000;
+
 
 int update_web = 0;
 
@@ -112,11 +114,11 @@ void loop()
     {
       update_web = 0;
     }
-      delay(15000);
+      delay(seconds_15);
       update_web++;
   }
 
-  //else {
-  //  receiverModule_update();
-  //}
+  else {
+    receiverModule_update(seconds_15);
+  }
 }

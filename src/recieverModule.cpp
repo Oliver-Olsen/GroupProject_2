@@ -84,10 +84,8 @@ void receiverModule_init(int windowCh, int heaterCh, int lightCh) {
 /**
  * @brief Updates all the attached modules
  * 
- * @param channelID 
- * @param APIKey 
  */
-void receiverModule_update(const int channelID,  unsigned long delay) {
+void receiverModule_update(unsigned short delay) {
   if ((millis() + timer) >= delay) { //Inserts a non-blocking delay
     connectTingSpeak();
 

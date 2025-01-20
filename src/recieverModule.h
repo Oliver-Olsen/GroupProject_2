@@ -14,7 +14,7 @@
 //Initializes custom functions
 void receiverModule_init(int windowCh, int heaterCh, int lightCh); 
 
-void receiverModule_update(const int channelID, const int APIKey); 
+void receiverModule_update(unsigned short delay); 
 
 void servoControl(int input); 
 
