@@ -12,9 +12,9 @@
 #define RECIEVERMODULE_H
 
 //Initializes custom functions
-void receiverModule_init(int windowCh, int heaterCh, int lightCh); 
+void receiverModule_init(void); 
 
-void receiverModule_update(unsigned short delay); 
+void receiverModule_update(uint32_t field); 
 
 void servoControl(int input); 
 

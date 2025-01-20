@@ -28,50 +28,26 @@
 #define lightPin 0
 
 // Motor configuration
-#define stepsPerRevolution 2038 //The amount of steps in a rotation from the stepper motor
-Stepper tempControl = Stepper(stepsPerRevolution, IN1, IN3, IN2, IN4); //Creates a Stepper class called 'tempControl'
+#define stepsPerRevolution 32 //The amount of steps in a rotation from the stepper motor
+Stepper tempControl(stepsPerRevolution, IN1, IN3, IN2, IN4); //Creates a Stepper class called 'tempControl'
 Servo windowControl; //Creates a Servo class called 'windowControl'
 
 
-// Values for the active elements
-//The ThingSpeak channel IDs of the different elements
-int servoChannel = 0;
-int stepperChannel = 0;
-int lightChannel = 0;
-
-//The current values read from ThingSpeak
-int servoD = 0;
-int stepperD = 0;
-int lightD = 0;
-
-//The previous values from ThingSpeak
-int servoP = 0;
-int stepperP = 0;
-int lightP = 0;
-
-//Creates an array from all the different values to ease optimization
-int data[3][3] = {
-  {servoD, servoP, servoChannel},
-  {stepperD, stepperP, stepperChannel},
-  {lightD, lightP, lightChannel}
-};
-
-//Timer for delay
-unsigned long timer = 0;
+typedef struct
+{
+  int servo;
+  int stepper;
+  int light;
+} Previous_Values;
 
 
-/**
- * @brief Sets up initial values
- *
- * @param windowCh
- * @param heaterCh
- * @param lightCh
- */
-void receiverModule_init(int windowCh, int heaterCh, int lightCh) {
-  //Assigns the correct channel values
-  servoChannel = windowCh;
-  stepperChannel = heaterCh;
-  lightChannel = lightCh;
+Previous_Values pv;
+
+
+
+void receiverModule_init(void) 
+{
+  memset(&pv, 0, sizeof(pv));
 
   tempControl.setSpeed(10); //Sets the stepper motors speed to 10RPM
   windowControl.attach(servoPin); //Attaches the pin 18 to the servo motor class
@@ -79,42 +55,45 @@ void receiverModule_init(int windowCh, int heaterCh, int lightCh) {
 }
 
 
-/**
- * @brief Updates all the attached modules
- *
- */
-void receiverModule_update(unsigned short delay) {
-  if ((millis() + timer) >= delay) { //Inserts a non-blocking delay
-    connectTingSpeak();
 
-    for (int i = 0; i < 3; i++) { //Loopes through all modules
-        data[i][0] = readThingSpeak(data[i][2]); //Reads the relevant ThingSpeak data for the current modules
+void receiverModule_update(uint32_t field) 
+{
+    connectThingSpeak();
 
-        if (data[i][0] != data[i][1]) { //Checks if an update has occured in the data for the current module
-        switch (i) { //Runs different function depending on what module is currently active
-            case 0:
-            servoControl(data[i][0]); //Runs the servo motor
-            break;
-
-            case 1:
-            stepperControl(data[i][0]); //Runs the stepper motor
-            break;
-
-            case 2:
-            lightControl(lightD); //Switches the light
-            break;
-
-            default:
-            break;
+    int reading;
+    //Serial.print(field);
+    switch (field)
+    {
+      case THINGSPEAK_AIRQUALITY:
+        reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
+        if (pv.servo != reading)
+        {
+          pv.servo = reading;
+          servoControl(pv.servo);
         }
+        break;
 
-        data[i][1] = data[i][0]; //Updates the previous value
+      case THINGSPEAK_TEMPERATURE:
+      case THINGSPEAK_HUMIDITY:
+        reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
+        if (pv.stepper != reading)
+        {
+          pv.stepper = reading;
+          stepperControl(pv.stepper);
         }
-    }
+        break;
 
-    //sendData_finished(); //Ends WiFi communication
-
-    timer = millis(); //Updates the timer
+      case THINGSPEAK_MOTION:
+        reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
+        if (pv.light != reading)
+        {
+          pv.light = reading;
+          lightControl(pv.light);
+        }
+        break;
+        default:
+        
+        break;
   }
 }
 
@@ -127,12 +106,12 @@ void servoControl(int input) {
   switch (input) {
     case -1: //If the input value is -1, closes the window
     windowControl.write(0); //Sets the target value of the servo to 0°
-    delay(3000); //Waits for three seconds while the servo turns
+    //delay(3000); //Waits for three seconds while the servo turns
     break;
 
     case 1: //If the input value is 1, opens the window
     windowControl.write(180); //Sets the target value of the servo to 180°
-    delay(3000); //Waits for three seconds while the servo turns
+    //delay(3000); //Waits for three seconds while the servo turns
     break;
 
     default: //All other values don't change the window status
@@ -147,8 +126,8 @@ void servoControl(int input) {
  * @param rotations
  */
 void stepperControl(int rotations) {
-  tempControl.step(stepsPerRevolution * rotations); //Rotates the stepper motor for a defined number of rotations
-  delay(1000); //Waits for a second before continuing
+  tempControl.step(1); //Rotates the stepper motor for a defined number of rotations
+  //delay(1000); //Waits for a second before continuing
 }
 
 /**
