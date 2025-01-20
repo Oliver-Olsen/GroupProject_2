@@ -13,12 +13,10 @@
 #define SENDRECIEVEDATA_H
 
 
-
-
-#define THINGSPEAK_TEMPERATURE      3
-#define THINGSPEAK_HUMIDITY         4
 #define THINGSPEAK_AIRQUALITY       1
 #define THINGSPEAK_MOTION           2
+#define THINGSPEAK_TEMPERATURE      3
+#define THINGSPEAK_HUMIDITY         4
 #define THINGSPEAK_MAX              THINGSPEAK_HUMIDITY
 
 
@@ -33,7 +31,7 @@ void sendData_fieldValue(int field, int data);
 void sendData_payload(int field,int data, unsigned long channelID,const char *Write_APIKey);
 int recievedata(int field,long channelID,const char *Read_APIKey);
 void connectTingSpeak();
-int readThingSpeak(int field);
+//int readThingSpeak(int field);
 void sendData_finished();
 
 #endif // SENDRECIEVEDATA_H

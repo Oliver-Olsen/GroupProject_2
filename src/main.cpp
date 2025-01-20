@@ -17,10 +17,12 @@
 #include "tempHumi.h"
 #include "motionSensor.h"
 #include "dataLCD.h"
-#include "recieverModule.h"
+#include "debug.h"
+//#include "recieverModule.h"
 
 
-#define SENDING_STATION   true
+//#define SENDING_STATION   true
+
 
 
 float temperature = 0;
@@ -28,9 +30,9 @@ float humidity    = 0;
 float airquality  = 0;
 bool motion_state = false;  // Initial state of the room.
 bool motion_val   = false;  // Intial Value of the Sensor.
-int windowCh = 5;
-int heaterCh = 7;
-int lightCh = 6;
+//int windowCh = 5;
+//int heaterCh = 7;
+//int lightCh = 6;
 
 
 unsigned short int seconds_15 = 15000; // ThingSpeak read/write speed (free subscription)
@@ -46,13 +48,16 @@ int update_web = 0;
  */
 void setup() {
 
-  //Serial.begin(115200);
+#ifdef SERIAL_TRACE
+    Serial.begin(115200);
+#endif
+
     wifi_init();
     motionSensor_init(); // PIR motion sensor sat as input.
     tempHumi_Init();
     dataLCD_setup();
 
-    receiverModule_init(windowCh, heaterCh, lightCh);
+    //receiverModule_init(windowCh, heaterCh, lightCh);
 
 
   //Serial.println("Setup Complete");
@@ -102,7 +107,7 @@ void loop()
         break;
     }
 
-    if (update_web >= THINGSPEAK_MAX)
+    //if (update_web >= THINGSPEAK_MAX)
     {
         update_web = 0;
     }

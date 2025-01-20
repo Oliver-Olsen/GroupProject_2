@@ -9,7 +9,8 @@
  * @copyright Copyright (c) 2025
  */
 #include <Arduino.h>
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
+//#include <ESP8266WiFi.h>
 #include <ThingSpeak.h>
 #include "sendRecieveData.h"
 
@@ -17,7 +18,7 @@
 
 #define CHANNEL_NUMBER 2810501UL
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
-const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
+//const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
 
 const char* ssid = "Connection Error";
 const char* pswrd = "Gasvo012";
@@ -126,10 +127,10 @@ void connectTingSpeak()
  * @param Read_APIKey
  * @return int
  */
-int readThingSpeak(int field)
-{
-  return ThingSpeak.readIntField(CHANNEL_NUMBER, field, Read_APIKey);
-}
+//int readThingSpeak(int field)
+//{
+//  return ThingSpeak.readIntField(CHANNEL_NUMBER, field, Read_APIKey);
+//}
 
 
 /**
