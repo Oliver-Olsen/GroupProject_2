@@ -134,7 +134,7 @@ void connectTingSpeak()
  * @param Read_APIKey 
  * @return int 
  */
-int readThingSpeak(int port, long channelID, const char *Read_APIKey)
+int readThingSpeak(int port)
 {
   return ThingSpeak.readIntField(channelID, port, Read_APIKey);
 }

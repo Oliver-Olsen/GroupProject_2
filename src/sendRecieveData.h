@@ -33,7 +33,7 @@ void sendData_fieldValue(int port,int data);
 void sendData_payload(int port,int data, unsigned long channelID,const char *Write_APIKey);
 int recievedata(int port,long channelID,const char *Read_APIKey);
 void connectTingSpeak();
-int readThingSpeak(int port, long channelID, const char *Read_APIKey);
+int readThingSpeak(int port);
 void sendData_finished();
 
 #endif // SENDRECIEVEDATA_H
