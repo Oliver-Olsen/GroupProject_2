@@ -5,9 +5,9 @@
  * @section Moved to a seperate .h file. This clears up the main function, and allows us to controll the functions easier.
  * @version 0.1
  * @date 2025-01-16
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 #include <Adafruit_Sensor.h>
 #include <DHT.h>

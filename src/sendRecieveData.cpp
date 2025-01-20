@@ -19,8 +19,8 @@ unsigned long channelID = 2810501;
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
 const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
 
-const char* ssid = "LW_POCO";
-const char* pswrd = "EZPZ42069";
+const char* ssid = "Connection Error";
+const char* pswrd = "Gasvo012";
 
 
 
@@ -40,10 +40,10 @@ void wifi_init()
 /**
  * @author Oliver Olsen
  * @brief Handles float to int
- * 
+ *
  * @see works with @p sendData_fieldValue()
- * @param port 
- * @param data 
+ * @param port
+ * @param data
  */
 void sendData_fieldValue(int port, float data)
 {
@@ -55,11 +55,11 @@ void sendData_fieldValue(int port, float data)
 /**
  * @author Oliver Olsen
  * @brief Handles int to int
- * 
+ *
  * @section The two functions @p sendData_fieldValue() ans @p sendData_fieldValue(). Deppending on if it's an int or a float, the correct function will be chosen automatically.
  * @see works with @p sendData_fieldValue()
- * @param port 
- * @param data 
+ * @param port
+ * @param data
  */
 void sendData_fieldValue(int port, int data)
 {
@@ -67,10 +67,11 @@ void sendData_fieldValue(int port, int data)
 }
 
 
-void recieveData(int data)
-{
-  connectTingSpeak();
-}
+
+
+
+
+
 
 
 
@@ -112,6 +113,14 @@ int recievedata(int port,long channelID,const char *Read_APIKey){
 
 
 
+void recieveData(int data)
+{
+  connectTingSpeak();
+}
+
+
+
+
 /**
  * @author Oliver Olsen
  * @brief Similar to @p recieveData()
@@ -129,10 +138,10 @@ void connectTingSpeak()
  * @brief Similar to @p recieveData()
  * @see recieveData()
  * @section used to smoothly merge with recieverModule.cpp
- * @param port 
- * @param channelID 
- * @param Read_APIKey 
- * @return int 
+ * @param port
+ * @param channelID
+ * @param Read_APIKey
+ * @return int
  */
 int readThingSpeak(int port)
 {

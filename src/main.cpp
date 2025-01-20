@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author 
+ * @author
  * @brief
  * @version 0.1
  * @date 2025-01-14
@@ -47,13 +47,13 @@ int update_web = 0;
 void setup() {
 
   //Serial.begin(115200);
-  wifi_init();
-  motionSensor_init(); // PIR motion sensor sat as input.
-  tempHumi_Init();
-  dataLCD_setup();
-  
-  receiverModule_init(windowCh, heaterCh, lightCh);
-  
+    wifi_init();
+    motionSensor_init(); // PIR motion sensor sat as input.
+    tempHumi_Init();
+    dataLCD_setup();
+
+    receiverModule_init(windowCh, heaterCh, lightCh);
+
 
   //Serial.println("Setup Complete");
 }
@@ -63,7 +63,7 @@ void setup() {
 /**
  * @author Oliver Olsen
  * @brief Updates ThingSpeak or gets data from ThingSpeak
- * @section Updates ThingSpeak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.  
+ * @section Updates ThingSpeak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.
  */
 void loop()
 {
@@ -71,46 +71,41 @@ void loop()
   //Serial.println(update_web);
 
   //if (SENDING_STATION == true){
-    
+
     switch (update_web)
     {
     case THINGSPEAK_AIRQUALITY:
-      tempHumi_read(&temperature, &humidity);
-      airQual_measurement(&temperature, &humidity);
-      dataLCD_print(airQual_get_Value(), THINGSPEAK_AIRQUALITY);
-      sendData_fieldValue(THINGSPEAK_AIRQUALITY, airQual_get_Value());
-      
-      
-      //Serial.print(temperature, humidity);
-      
-      
-      break;
+        tempHumi_read(&temperature, &humidity);
+        airQual_measurement(&temperature, &humidity);
+        dataLCD_print(airQual_get_Value(), THINGSPEAK_AIRQUALITY);
+        sendData_fieldValue(THINGSPEAK_AIRQUALITY, airQual_get_Value());
+        break;
 
     case THINGSPEAK_MOTION:
-      motionSensor_detect(&motion_state, &motion_val);
-      sendData_fieldValue(THINGSPEAK_MOTION, 1);
-      break;
+        motionSensor_detect(&motion_state, &motion_val);
+        sendData_fieldValue(THINGSPEAK_MOTION, 1);
+        break;
 
     case THINGSPEAK_TEMPERATURE:
-      tempHumi_read(&temperature, &humidity);
-      dataLCD_print(temperature, THINGSPEAK_TEMPERATURE);
-      sendData_fieldValue(THINGSPEAK_TEMPERATURE, temperature);
-      break;
+        tempHumi_read(&temperature, &humidity);
+        dataLCD_print(temperature, THINGSPEAK_TEMPERATURE);
+        sendData_fieldValue(THINGSPEAK_TEMPERATURE, temperature);
+        break;
 
     case THINGSPEAK_HUMIDITY:
-      tempHumi_read(&temperature, &humidity);
-      dataLCD_print(humidity, THINGSPEAK_HUMIDITY);
-      sendData_fieldValue(THINGSPEAK_HUMIDITY, humidity);
-      break;
+        tempHumi_read(&temperature, &humidity);
+        dataLCD_print(humidity, THINGSPEAK_HUMIDITY);
+        sendData_fieldValue(THINGSPEAK_HUMIDITY, humidity);
+        break;
 
     default:
-      break;
+        break;
     }
 
     if (update_web >= THINGSPEAK_MAX)
     {
-      update_web = 0;
+        update_web = 0;
     }
-      delay(seconds_15);
-      update_web++;
+        delay(seconds_15);
+        update_web++;
 }
