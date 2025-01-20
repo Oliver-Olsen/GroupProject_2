@@ -106,6 +106,6 @@ void loop()
     {
         update_web = 0;
     }
-        delay(seconds_15);
-        update_web++;
+    delay(seconds_15);
+    update_web++;
 }
