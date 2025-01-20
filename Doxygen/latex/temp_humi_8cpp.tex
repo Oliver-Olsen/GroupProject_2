@@ -1,0 +1,85 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/temp\+Humi.cpp File Reference}
+\hypertarget{temp_humi_8cpp}{}\label{temp_humi_8cpp}\index{C:/Users/olive/GroupProject\_2-\/1/src/tempHumi.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/tempHumi.cpp}}
+
+
+Handles the temp/humi measurement.  
+
+
+{\ttfamily \#include $<$Adafruit\+\_\+\+Sensor.\+h$>$}\newline
+{\ttfamily \#include $<$DHT.\+h$>$}\newline
+{\ttfamily \#include "{}temp\+Humi.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb}\label{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb} 
+\#define {\bfseries DHT\+\_\+\+SENSOR\+\_\+\+PIN}~D7
+\item 
+\Hypertarget{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f}\label{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f} 
+\#define {\bfseries DHT\+\_\+\+SENSOR\+\_\+\+TYPE}~DHT11
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}\label{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94} 
+DHT {\bfseries dht\+\_\+sensor} (DHT\+\_\+\+SENSOR\+\_\+\+PIN, DHT\+\_\+\+SENSOR\+\_\+\+TYPE)
+\item 
+void \mbox{\hyperlink{temp_humi_8cpp_aa268dd6357cd9b08b6135c91d6bcd882}{temp\+Humi\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Init. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}{temp\+Humi\+\_\+read}} (float \texorpdfstring{$\ast$}{*}temperature, float \texorpdfstring{$\ast$}{*}humidity)
+\begin{DoxyCompactList}\small\item\em Reads the temperature in "{}°\+C"{} \mbox{[}Celcius\mbox{]} and humidity in "{}\%"{}"{} (percentage) using a DH11 module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles the temp/humi measurement. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{temp_humi_8cpp_Moved}{}\doxysubsection{\texorpdfstring{to a seperate .h file. This clears up the main function, and allows us to controll the functions easier.}{to a seperate .h file. This clears up the main function, and allows us to controll the functions easier.}}\label{temp_humi_8cpp_Moved}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/16
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{temp_humi_8cpp_aa268dd6357cd9b08b6135c91d6bcd882}\index{tempHumi.cpp@{tempHumi.cpp}!tempHumi\_Init@{tempHumi\_Init}}
+\index{tempHumi\_Init@{tempHumi\_Init}!tempHumi.cpp@{tempHumi.cpp}}
+\doxysubsubsection{\texorpdfstring{tempHumi\_Init()}{tempHumi\_Init()}}
+{\footnotesize\ttfamily \label{temp_humi_8cpp_aa268dd6357cd9b08b6135c91d6bcd882} 
+void temp\+Humi\+\_\+\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Init. 
+
+Function declarations.
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\Hypertarget{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}\index{tempHumi.cpp@{tempHumi.cpp}!tempHumi\_read@{tempHumi\_read}}
+\index{tempHumi\_read@{tempHumi\_read}!tempHumi.cpp@{tempHumi.cpp}}
+\doxysubsubsection{\texorpdfstring{tempHumi\_read()}{tempHumi\_read()}}
+{\footnotesize\ttfamily \label{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a} 
+void temp\+Humi\+\_\+read (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{temperature}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{humidity}{}\end{DoxyParamCaption})}
+
+
+
+Reads the temperature in "{}°\+C"{} \mbox{[}Celcius\mbox{]} and humidity in "{}\%"{}"{} (percentage) using a DH11 module. 
+
+\begin{DoxyAuthor}{Author}
+Markus Kenno 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em temperature} & reads the temperature as a float. \\
+\hline
+{\em humidity} & reads the humidity as a float. \\
+\hline
+\end{DoxyParams}

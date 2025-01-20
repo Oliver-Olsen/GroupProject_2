@@ -1,0 +1,189 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/reciever\+Module.cpp File Reference}
+\hypertarget{reciever_module_8cpp}{}\label{reciever_module_8cpp}\index{C:/Users/olive/GroupProject\_2-\/1/src/recieverModule.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/recieverModule.cpp}}
+{\ttfamily \#include $<$ESP8266\+Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$Stepper.\+h$>$}\newline
+{\ttfamily \#include $<$Servo.\+h$>$}\newline
+{\ttfamily \#include $<$Thing\+Speak.\+h$>$}\newline
+{\ttfamily \#include "{}reciever\+Module.\+h"{}}\newline
+{\ttfamily \#include "{}send\+Recieve\+Data.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{reciever_module_8cpp_aa118db89564189dcf8c48ecbd79937d8}\label{reciever_module_8cpp_aa118db89564189dcf8c48ecbd79937d8} 
+\#define {\bfseries IN1}~5
+\item 
+\Hypertarget{reciever_module_8cpp_ae24e8a55f5b9660a35dc5cf8a5e8ba4a}\label{reciever_module_8cpp_ae24e8a55f5b9660a35dc5cf8a5e8ba4a} 
+\#define {\bfseries IN3}~7
+\item 
+\Hypertarget{reciever_module_8cpp_ac2c663eb7de5a963911af77b65451fb6}\label{reciever_module_8cpp_ac2c663eb7de5a963911af77b65451fb6} 
+\#define {\bfseries IN2}~6
+\item 
+\Hypertarget{reciever_module_8cpp_a38caa48612155e36696b60d2aabc25ff}\label{reciever_module_8cpp_a38caa48612155e36696b60d2aabc25ff} 
+\#define {\bfseries IN4}~8
+\item 
+\Hypertarget{reciever_module_8cpp_a58a46f380ee350cbfd6bcf2e028efdbe}\label{reciever_module_8cpp_a58a46f380ee350cbfd6bcf2e028efdbe} 
+\#define {\bfseries servo\+Pin}~2
+\item 
+\Hypertarget{reciever_module_8cpp_ad00b753306ae72af33e1a360193ada86}\label{reciever_module_8cpp_ad00b753306ae72af33e1a360193ada86} 
+\#define {\bfseries light\+Pin}~0
+\item 
+\Hypertarget{reciever_module_8cpp_a3f6ba33716d8ab9664efd36f48fc0663}\label{reciever_module_8cpp_a3f6ba33716d8ab9664efd36f48fc0663} 
+\#define {\bfseries steps\+Per\+Revolution}~2038
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{reciever_module_8cpp_abb29e68063ad7e19c1f54fca22b2e122}{receiver\+Module\+\_\+init}} (int window\+Ch, int heater\+Ch, int light\+Ch)
+\begin{DoxyCompactList}\small\item\em Sets up initial values. \end{DoxyCompactList}\item 
+\Hypertarget{reciever_module_8cpp_a87828a98b79eda61fd7f3e837f46f35f}\label{reciever_module_8cpp_a87828a98b79eda61fd7f3e837f46f35f} 
+void {\bfseries receiver\+Module\+\_\+update} (unsigned short delay)
+\begin{DoxyCompactList}\small\item\em Updates all the attached modules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reciever_module_8cpp_a1db4d83ac39452a5c73b3858f22a97d5}{servo\+Control}} (int input)
+\begin{DoxyCompactList}\small\item\em Code to control the servo motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reciever_module_8cpp_ad78e6bae49ea282cee0b50a21955dc09}{stepper\+Control}} (int rotations)
+\begin{DoxyCompactList}\small\item\em Controls the stepper motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{reciever_module_8cpp_ab96459f3c8d5b2326e8708fdd411e459}{light\+Control}} (int state)
+\begin{DoxyCompactList}\small\item\em Turns on/off the lights. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{reciever_module_8cpp_ab48064880ef594a109c7a9ca1403c425}\label{reciever_module_8cpp_ab48064880ef594a109c7a9ca1403c425} 
+Stepper {\bfseries temp\+Control} = Stepper(steps\+Per\+Revolution, IN1, IN3, IN2, IN4)
+\item 
+\Hypertarget{reciever_module_8cpp_a885d553fa36a80c2e953c6cbc8836dd0}\label{reciever_module_8cpp_a885d553fa36a80c2e953c6cbc8836dd0} 
+Servo {\bfseries window\+Control}
+\item 
+\Hypertarget{reciever_module_8cpp_ab58936b6ac33b6640a9fdf9ee2dd3920}\label{reciever_module_8cpp_ab58936b6ac33b6640a9fdf9ee2dd3920} 
+int {\bfseries servo\+Channel} = 0
+\item 
+\Hypertarget{reciever_module_8cpp_a3efa2e37d5e6e12ef940dc452d323e8e}\label{reciever_module_8cpp_a3efa2e37d5e6e12ef940dc452d323e8e} 
+int {\bfseries stepper\+Channel} = 0
+\item 
+\Hypertarget{reciever_module_8cpp_a25ef5e6a8337cb9c74903c5472e6aa82}\label{reciever_module_8cpp_a25ef5e6a8337cb9c74903c5472e6aa82} 
+int {\bfseries light\+Channel} = 0
+\item 
+\Hypertarget{reciever_module_8cpp_aa26daf4c5409a7746706ce22bb224cbc}\label{reciever_module_8cpp_aa26daf4c5409a7746706ce22bb224cbc} 
+int {\bfseries servoD} = 0
+\item 
+\Hypertarget{reciever_module_8cpp_aa3bf635d68cfde82b56a11c12227aebb}\label{reciever_module_8cpp_aa3bf635d68cfde82b56a11c12227aebb} 
+int {\bfseries stepperD} = 0
+\item 
+\Hypertarget{reciever_module_8cpp_a7a01c4b5f444439378b706ea5ff92372}\label{reciever_module_8cpp_a7a01c4b5f444439378b706ea5ff92372} 
+int {\bfseries lightD} = 0
+\item 
+\Hypertarget{reciever_module_8cpp_a5fa85a8db66a01b528d322c6ed64f59a}\label{reciever_module_8cpp_a5fa85a8db66a01b528d322c6ed64f59a} 
+int {\bfseries servoP} = 0
+\item 
+\Hypertarget{reciever_module_8cpp_a68c24c18fc679d8445fee20ae1781aa6}\label{reciever_module_8cpp_a68c24c18fc679d8445fee20ae1781aa6} 
+int {\bfseries stepperP} = 0
+\item 
+\Hypertarget{reciever_module_8cpp_a0afd8b88ed35ec24d1bb9315c841372b}\label{reciever_module_8cpp_a0afd8b88ed35ec24d1bb9315c841372b} 
+int {\bfseries lightP} = 0
+\item 
+int \mbox{\hyperlink{reciever_module_8cpp_ab398fc6f770b65d721d8f38ba390f290}{data}} \mbox{[}3\mbox{]}\mbox{[}3\mbox{]}
+\item 
+\Hypertarget{reciever_module_8cpp_a61d9ef65d75b66821896182b133b31de}\label{reciever_module_8cpp_a61d9ef65d75b66821896182b133b31de} 
+unsigned long {\bfseries timer} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Nils Linus Metsälä Wulff, \href{mailto:s223968@student.dtu.dk}{\texttt{ s223968@student.\+dtu.\+dk}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/16
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{reciever_module_8cpp_ab96459f3c8d5b2326e8708fdd411e459}\index{recieverModule.cpp@{recieverModule.cpp}!lightControl@{lightControl}}
+\index{lightControl@{lightControl}!recieverModule.cpp@{recieverModule.cpp}}
+\doxysubsubsection{\texorpdfstring{lightControl()}{lightControl()}}
+{\footnotesize\ttfamily \label{reciever_module_8cpp_ab96459f3c8d5b2326e8708fdd411e459} 
+void light\+Control (\begin{DoxyParamCaption}\item[{int}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Turns on/off the lights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reciever_module_8cpp_abb29e68063ad7e19c1f54fca22b2e122}\index{recieverModule.cpp@{recieverModule.cpp}!receiverModule\_init@{receiverModule\_init}}
+\index{receiverModule\_init@{receiverModule\_init}!recieverModule.cpp@{recieverModule.cpp}}
+\doxysubsubsection{\texorpdfstring{receiverModule\_init()}{receiverModule\_init()}}
+{\footnotesize\ttfamily \label{reciever_module_8cpp_abb29e68063ad7e19c1f54fca22b2e122} 
+void receiver\+Module\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{window\+Ch}{, }\item[{int}]{heater\+Ch}{, }\item[{int}]{light\+Ch}{}\end{DoxyParamCaption})}
+
+
+
+Sets up initial values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+Ch} & \\
+\hline
+{\em heater\+Ch} & \\
+\hline
+{\em light\+Ch} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reciever_module_8cpp_a1db4d83ac39452a5c73b3858f22a97d5}\index{recieverModule.cpp@{recieverModule.cpp}!servoControl@{servoControl}}
+\index{servoControl@{servoControl}!recieverModule.cpp@{recieverModule.cpp}}
+\doxysubsubsection{\texorpdfstring{servoControl()}{servoControl()}}
+{\footnotesize\ttfamily \label{reciever_module_8cpp_a1db4d83ac39452a5c73b3858f22a97d5} 
+void servo\+Control (\begin{DoxyParamCaption}\item[{int}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Code to control the servo motor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{reciever_module_8cpp_ad78e6bae49ea282cee0b50a21955dc09}\index{recieverModule.cpp@{recieverModule.cpp}!stepperControl@{stepperControl}}
+\index{stepperControl@{stepperControl}!recieverModule.cpp@{recieverModule.cpp}}
+\doxysubsubsection{\texorpdfstring{stepperControl()}{stepperControl()}}
+{\footnotesize\ttfamily \label{reciever_module_8cpp_ad78e6bae49ea282cee0b50a21955dc09} 
+void stepper\+Control (\begin{DoxyParamCaption}\item[{int}]{rotations}{}\end{DoxyParamCaption})}
+
+
+
+Controls the stepper motor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em steps} & \\
+\hline
+{\em rotations} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{reciever_module_8cpp_ab398fc6f770b65d721d8f38ba390f290}\index{recieverModule.cpp@{recieverModule.cpp}!data@{data}}
+\index{data@{data}!recieverModule.cpp@{recieverModule.cpp}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{reciever_module_8cpp_ab398fc6f770b65d721d8f38ba390f290} 
+int data\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \{servoD,\ servoP,\ servoChannel\},\ }
+\DoxyCodeLine{\ \ \{stepperD,\ stepperP,\ stepperChannel\},\ }
+\DoxyCodeLine{\ \ \{lightD,\ lightP,\ lightChannel\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

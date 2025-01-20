@@ -1,0 +1,90 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/air\+Qual.h File Reference}
+\hypertarget{air_qual_8h}{}\label{air_qual_8h}\index{C:/Users/olive/GroupProject\_2-\/1/src/airQual.h@{C:/Users/olive/GroupProject\_2-\/1/src/airQual.h}}
+
+
+Function forward declarations and safety declarations.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{air_qual_8h_a842cf0555399e98067e0ad2bed527507}{air\+Qual\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em function declarations \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{air_qual_8h_a782c29a2d034b6aaa192f42d20574893}{air\+Qual\+\_\+measurement}} (float \texorpdfstring{$\ast$}{*}temperature, float \texorpdfstring{$\ast$}{*}humidity)
+\begin{DoxyCompactList}\small\item\em Measures the air quality in ppm. Sensor is calibrated each reading. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{air_qual_8h_aa568756610bf17c42cc602370389c513}{air\+Qual\+\_\+get\+\_\+\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Returns the corrected ppm value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Function forward declarations and safety declarations. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/16
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{air_qual_8h_aa568756610bf17c42cc602370389c513}\index{airQual.h@{airQual.h}!airQual\_get\_Value@{airQual\_get\_Value}}
+\index{airQual\_get\_Value@{airQual\_get\_Value}!airQual.h@{airQual.h}}
+\doxysubsubsection{\texorpdfstring{airQual\_get\_Value()}{airQual\_get\_Value()}}
+{\footnotesize\ttfamily \label{air_qual_8h_aa568756610bf17c42cc602370389c513} 
+float air\+Qual\+\_\+get\+\_\+\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns the corrected ppm value. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+Simipar to {\ttfamily \doxylink{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}{air\+Qual\+\_\+measurement()}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+float ppm 
+\end{DoxyReturn}
+\Hypertarget{air_qual_8h_a842cf0555399e98067e0ad2bed527507}\index{airQual.h@{airQual.h}!airQual\_init@{airQual\_init}}
+\index{airQual\_init@{airQual\_init}!airQual.h@{airQual.h}}
+\doxysubsubsection{\texorpdfstring{airQual\_init()}{airQual\_init()}}
+{\footnotesize\ttfamily \label{air_qual_8h_a842cf0555399e98067e0ad2bed527507} 
+void air\+Qual\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+function declarations 
+
+function declarations
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\Hypertarget{air_qual_8h_a782c29a2d034b6aaa192f42d20574893}\index{airQual.h@{airQual.h}!airQual\_measurement@{airQual\_measurement}}
+\index{airQual\_measurement@{airQual\_measurement}!airQual.h@{airQual.h}}
+\doxysubsubsection{\texorpdfstring{airQual\_measurement()}{airQual\_measurement()}}
+{\footnotesize\ttfamily \label{air_qual_8h_a782c29a2d034b6aaa192f42d20574893} 
+void air\+Qual\+\_\+measurement (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{temperature}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{humidity}{}\end{DoxyParamCaption})}
+
+
+
+Measures the air quality in ppm. Sensor is calibrated each reading. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em temperature} & Measured temperature \\
+\hline
+{\em humidity} & Measured humidity \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,76 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/data\+LCD.cpp File Reference}
+\hypertarget{data_l_c_d_8cpp}{}\label{data_l_c_d_8cpp}\index{C:/Users/olive/GroupProject\_2-\/1/src/dataLCD.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/dataLCD.cpp}}
+
+
+Printing data to the LCD using I2C.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Liquid\+Crystal\+\_\+\+I2\+C.\+h$>$}\newline
+{\ttfamily \#include "{}data\+LCD.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{data_l_c_d_8cpp_ac21d052bacaf620de472c9d000f0be38}\label{data_l_c_d_8cpp_ac21d052bacaf620de472c9d000f0be38} 
+Liquid\+Crystal\+\_\+\+I2C {\bfseries lcd} (0x27, 20, 4)
+\item 
+void \mbox{\hyperlink{data_l_c_d_8cpp_aa1d91adeff3d04ca9a3007ad79633d71}{data\+LCD\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Init. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{data_l_c_d_8cpp_afdf5a562a9c2c02addd3d4edeb7be709}{data\+LCD\+\_\+print}} (float data, int data\+Type)
+\begin{DoxyCompactList}\small\item\em Prints measured data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Printing data to the LCD using I2C. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/17
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{data_l_c_d_8cpp_afdf5a562a9c2c02addd3d4edeb7be709}\index{dataLCD.cpp@{dataLCD.cpp}!dataLCD\_print@{dataLCD\_print}}
+\index{dataLCD\_print@{dataLCD\_print}!dataLCD.cpp@{dataLCD.cpp}}
+\doxysubsubsection{\texorpdfstring{dataLCD\_print()}{dataLCD\_print()}}
+{\footnotesize\ttfamily \label{data_l_c_d_8cpp_afdf5a562a9c2c02addd3d4edeb7be709} 
+void data\+LCD\+\_\+print (\begin{DoxyParamCaption}\item[{float}]{data}{, }\item[{int}]{data\+Type}{}\end{DoxyParamCaption})}
+
+
+
+Prints measured data. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & sensor measurements \\
+\hline
+{\em data\+Type} & type of data \\
+\hline
+\end{DoxyParams}
+\Hypertarget{data_l_c_d_8cpp_aa1d91adeff3d04ca9a3007ad79633d71}\index{dataLCD.cpp@{dataLCD.cpp}!dataLCD\_setup@{dataLCD\_setup}}
+\index{dataLCD\_setup@{dataLCD\_setup}!dataLCD.cpp@{dataLCD.cpp}}
+\doxysubsubsection{\texorpdfstring{dataLCD\_setup()}{dataLCD\_setup()}}
+{\footnotesize\ttfamily \label{data_l_c_d_8cpp_aa1d91adeff3d04ca9a3007ad79633d71} 
+void data\+LCD\+\_\+setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Init. 
+
+Function declarations.
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{data_l_c_d_8h_Initialization}{}\doxysubsection{\texorpdfstring{, and lcd layout setup}{, and lcd layout setup}}\label{data_l_c_d_8h_Initialization}

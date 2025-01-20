@@ -1,0 +1,104 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{C:/Users/olive/GroupProject\_2-\/1/src/main.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/main.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}send\+Recieve\+Data.\+h"{}}\newline
+{\ttfamily \#include "{}air\+Qual.\+h"{}}\newline
+{\ttfamily \#include "{}temp\+Humi.\+h"{}}\newline
+{\ttfamily \#include "{}motion\+Sensor.\+h"{}}\newline
+{\ttfamily \#include "{}data\+LCD.\+h"{}}\newline
+{\ttfamily \#include "{}reciever\+Module.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_a56f8ce82e249b6019d5defca2fddabc7}\label{main_8cpp_a56f8ce82e249b6019d5defca2fddabc7} 
+\#define {\bfseries SENDING\+\_\+\+STATION}~false
+\item 
+\Hypertarget{main_8cpp_a09b92522722768a763463dacf8fa9d8d}\label{main_8cpp_a09b92522722768a763463dacf8fa9d8d} 
+\#define {\bfseries RECEIVING\+\_\+\+STATION}~true
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Init of sensors and modules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Updates Thing\+Speak or gets data from Thing\+Speak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_afc1d28cfbce795d6ea954ebe725241f5}\label{main_8cpp_afc1d28cfbce795d6ea954ebe725241f5} 
+float {\bfseries temperature} = 0
+\item 
+\Hypertarget{main_8cpp_a6a87b2b0cff24d38b367ccd34843a206}\label{main_8cpp_a6a87b2b0cff24d38b367ccd34843a206} 
+float {\bfseries humidity} = 0
+\item 
+\Hypertarget{main_8cpp_aa9eef0f35e9c58440f9a536c84432a97}\label{main_8cpp_aa9eef0f35e9c58440f9a536c84432a97} 
+float {\bfseries airquality} = 0
+\item 
+\Hypertarget{main_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}\label{main_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea} 
+bool {\bfseries motion\+\_\+state} = false
+\item 
+\Hypertarget{main_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}\label{main_8cpp_afeb2ef5187234179f9d8f3a4d3359a16} 
+bool {\bfseries motion\+\_\+val} = false
+\item 
+\Hypertarget{main_8cpp_a5ce54766f3c9cfc4329b2ed3d39c60ce}\label{main_8cpp_a5ce54766f3c9cfc4329b2ed3d39c60ce} 
+int {\bfseries window\+Ch} = 5
+\item 
+\Hypertarget{main_8cpp_a789adfd2d2fcde982fa35441b2b3bf5c}\label{main_8cpp_a789adfd2d2fcde982fa35441b2b3bf5c} 
+int {\bfseries heater\+Ch} = 7
+\item 
+\Hypertarget{main_8cpp_a2195a281f31e26aec6af36a006f95f40}\label{main_8cpp_a2195a281f31e26aec6af36a006f95f40} 
+int {\bfseries light\+Ch} = 6
+\item 
+\Hypertarget{main_8cpp_ab38eb117943be6d6352006920250942a}\label{main_8cpp_ab38eb117943be6d6352006920250942a} 
+unsigned short int {\bfseries seconds\+\_\+15} = 15000
+\item 
+\Hypertarget{main_8cpp_a0f06f854bb69ae66915d94993113591a}\label{main_8cpp_a0f06f854bb69ae66915d94993113591a} 
+int {\bfseries update\+\_\+web} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+your name (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/14
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates Thing\+Speak or gets data from Thing\+Speak. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{main_8cpp_Updates}{}\doxysubsection{\texorpdfstring{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}}\label{main_8cpp_Updates}
+\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Init of sensors and modules. 
+
+\begin{DoxyAuthor}{Author}
+Oliver olsen 
+\end{DoxyAuthor}
+\hypertarget{main_8cpp_Inits}{}\doxysubsection{\texorpdfstring{the correct elements, depending on if the station is on the recieving end or sending end}{the correct elements, depending on if the station is on the recieving end or sending end}}\label{main_8cpp_Inits}
