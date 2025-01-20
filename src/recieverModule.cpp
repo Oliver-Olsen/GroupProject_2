@@ -10,10 +10,8 @@
  */
 
 //Libraries used: 
-#include <ESP8266WiFi.h>
 #include <Stepper.h>
 #include <Servo.h>
-#include <ThingSpeak.h>
 #include "recieverModule.h"
 #include "sendRecieveData.h"
 

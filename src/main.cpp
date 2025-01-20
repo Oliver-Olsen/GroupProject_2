@@ -46,17 +46,16 @@ int update_web = 0;
  */
 void setup() {
 
-  Serial.begin(9600);
+  //Serial.begin(115200);
+  wifi_init();
+  motionSensor_init(); // PIR motion sensor sat as input.
+  tempHumi_Init();
+  dataLCD_setup();
+  
+  receiverModule_init(windowCh, heaterCh, lightCh);
+  
 
-  if (SENDING_STATION == true){
-    wifi_init();
-    motionSensor_init(); // PIR motion sensor sat as input.
-    tempHumi_Init();
-    dataLCD_setup();
-    }
-  else {
-    receiverModule_init(windowCh, heaterCh, lightCh);
-  }
+  //Serial.println("Setup Complete");
 }
 
 
@@ -68,10 +67,10 @@ void setup() {
  */
 void loop()
 {
+  //Serial.print("Loop count");
+  //Serial.println(update_web);
 
-
-  if (SENDING_STATION == true){
-
+  //if (SENDING_STATION == true){
     
     switch (update_web)
     {
@@ -80,7 +79,11 @@ void loop()
       airQual_measurement(&temperature, &humidity);
       dataLCD_print(airQual_get_Value(), THINGSPEAK_AIRQUALITY);
       sendData_fieldValue(THINGSPEAK_AIRQUALITY, airQual_get_Value());
+      
+      
       //Serial.print(temperature, humidity);
+      
+      
       break;
 
     case THINGSPEAK_MOTION:
@@ -110,9 +113,4 @@ void loop()
     }
       delay(seconds_15);
       update_web++;
-  }
-
-  else {
-    receiverModule_update(seconds_15);
-  }
 }
