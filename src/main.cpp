@@ -34,12 +34,17 @@ int heaterCh = 7;
 int lightCh = 6;
 
 
-unsigned short int seconds_15 = 15000;
+unsigned short int seconds_15 = 15000; // ThingSpeak read/write speed (free subscription)
 
 
 int update_web = 0;
 
 
+/**
+ * @author Oliver olsen
+ * @brief Init of sensors and modules
+ * @section Inits the correct elements, depending on if the station is on the recieving end or sending end
+ */
 void setup() {
 
   if (SENDING_STATION == true){
@@ -55,24 +60,11 @@ void setup() {
 
 
 
-  /*
-  * CODE STRUCTURE
-  *
-  * MEASURED DATA (TEMP/HUM)
-  * MEASURE CO2
-  * UPLOAD TO THINKSPEAK
-  * GET CLOAD DATA
-  * HANDLE/ACT ON DATA
-  * SCHEDULE THE DIFFERENT TASKS
-  *   TEMPERATURE/HUMIDITY EVERY XXX SEC
-  *   MQ135 EVERY XXX SEC
-  *
-  *   UPDATE WEB
-  *
-  */
-
-
-
+/**
+ * @author Oliver Olsen
+ * @brief Updates ThingSpeak or gets data from ThingSpeak
+ * @section Updates ThingSpeak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.  
+ */
 void loop()
 {
 
