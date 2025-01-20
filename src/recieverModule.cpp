@@ -29,7 +29,7 @@
 
 // Motor configuration
 #define stepsPerRevolution 32 //The amount of steps in a rotation from the stepper motor
-//Stepper tempControl = Stepper(stepsPerRevolution, IN1, IN3, IN2, IN4); //Creates a Stepper class called 'tempControl'
+Stepper tempControl(stepsPerRevolution, IN1, IN3, IN2, IN4); //Creates a Stepper class called 'tempControl'
 Servo windowControl; //Creates a Servo class called 'windowControl'
 
 
@@ -49,7 +49,7 @@ void receiverModule_init(void)
 {
   memset(&pv, 0, sizeof(pv));
 
-  //tempControl.setSpeed(10); //Sets the stepper motors speed to 10RPM
+  tempControl.setSpeed(10); //Sets the stepper motors speed to 10RPM
   windowControl.attach(servoPin); //Attaches the pin 18 to the servo motor class
   pinMode(lightPin, OUTPUT);
 }
@@ -69,7 +69,7 @@ void receiverModule_update(uint32_t field)
         if (pv.servo != reading)
         {
           pv.servo = reading;
-          //servoControl(pv.servo);
+          servoControl(pv.servo);
         }
         break;
 
@@ -79,7 +79,7 @@ void receiverModule_update(uint32_t field)
         if (pv.stepper != reading)
         {
           pv.stepper = reading;
-          //stepperControl(pv.stepper);
+          stepperControl(pv.stepper);
         }
         break;
 
@@ -126,7 +126,7 @@ void servoControl(int input) {
  * @param rotations
  */
 void stepperControl(int rotations) {
-  //tempControl.step(stepsPerRevolution * rotations); //Rotates the stepper motor for a defined number of rotations
+  //tempControl.step(1); //Rotates the stepper motor for a defined number of rotations.         Causes WatchDog error
   //delay(1000); //Waits for a second before continuing
 }
 
