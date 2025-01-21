@@ -1,6 +1,6 @@
 /**
  * @file recieverModule.cpp
- * @author Nils Linus Metsälä Wulff, s223968@student.dtu.dk
+ * @author Oliver Olsen
  * @brief
  * @version 0.1
  * @date 2025-01-16
@@ -9,11 +9,11 @@
  *
  */
 
-//Libraries used:
-#include <Stepper.h>
+#include <AccelStepper.h>
 #include <Servo.h>
 #include "recieverModule.h"
 #include "sendRecieveData.h"
+
 
 /* Pin definitions
 *  Four pins are used to control the stepper motor (Heating control)
@@ -27,9 +27,11 @@
 #define servoPin 2
 #define lightPin 0
 
+#define STEPPER_ANALOG A0
+
 // Motor configuration
 #define stepsPerRevolution 32 //The amount of steps in a rotation from the stepper motor
-Stepper tempControl(stepsPerRevolution, IN1, IN3, IN2, IN4); //Creates a Stepper class called 'tempControl'
+AccelStepper stepper(AccelStepper::FULL4WIRE, 5, 7, 6, 8);
 Servo windowControl; //Creates a Servo class called 'windowControl'
 
 
@@ -49,7 +51,7 @@ void receiverModule_init(void)
 {
   memset(&pv, 0, sizeof(pv));
 
-  tempControl.setSpeed(10); //Sets the stepper motors speed to 10RPM
+  stepper.setMaxSpeed(1000); //Sets the stepper motors speed to 10RPM
   windowControl.attach(servoPin); //Attaches the pin 18 to the servo motor class
   pinMode(lightPin, OUTPUT);
 }
@@ -106,12 +108,10 @@ void servoControl(int input) {
   switch (input) {
     case -1: //If the input value is -1, closes the window
     windowControl.write(0); //Sets the target value of the servo to 0°
-    //delay(3000); //Waits for three seconds while the servo turns
     break;
 
     case 1: //If the input value is 1, opens the window
     windowControl.write(180); //Sets the target value of the servo to 180°
-    //delay(3000); //Waits for three seconds while the servo turns
     break;
 
     default: //All other values don't change the window status
@@ -126,8 +126,23 @@ void servoControl(int input) {
  * @param rotations
  */
 void stepperControl(int rotations) {
-  //tempControl.step(1); //Rotates the stepper motor for a defined number of rotations.         Causes WatchDog error
-  //delay(1000); //Waits for a second before continuing
+  switch (rotations)
+  {
+  case -1:
+    stepper.moveTo(1023);
+    stepper.setSpeed(100);
+    stepper.runSpeedToPosition();
+    break;
+    
+  case 1:
+    stepper.moveTo(0);
+    stepper.setSpeed(100);
+    stepper.runSpeedToPosition();
+    break;
+  
+  default:
+    break;
+  }
 }
 
 /**

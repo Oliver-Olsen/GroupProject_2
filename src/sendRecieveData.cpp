@@ -15,8 +15,8 @@
 
 #define CONNECT_PORT 80
 
-#define CHANNEL_NUMBER 2810501UL
-const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
+#define CHANNEL_NUMBER 2815518UL
+const char Read_APIKey[] = "AOZUNN780N8DL3VL";
 
 const char* ssid = "Connection Error";
 const char* pswrd = "Gasvo012";
