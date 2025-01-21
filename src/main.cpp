@@ -18,11 +18,6 @@
 #include "motionSensor.h"
 #include "dataLCD.h"
 #include "debug.h"
-//#include "recieverModule.h"
-
-
-//#define SENDING_STATION   true
-
 
 
 float temperature = 0;
@@ -30,9 +25,6 @@ float humidity    = 0;
 float airquality  = 0;
 bool motion_state = false;  // Initial state of the room.
 bool motion_val   = false;  // Intial Value of the Sensor.
-//int windowCh = 5;
-//int heaterCh = 7;
-//int lightCh = 6;
 
 
 unsigned short int seconds_15 = 30000; // ThingSpeak read/write speed (free subscription)
@@ -53,22 +45,17 @@ void setup() {
 #endif
 
     wifi_init();
-    motionSensor_init(); // PIR motion sensor sat as input.
-    tempHumi_Init();
-    dataLCD_setup();
+    motionSensor_init();    // PIR init.
+    tempHumi_Init();        // DHT11 init
+    dataLCD_setup();        // LCD init
 
-    
-
-
-  //Serial.println("Setup Complete");
 }
-
 
 
 /**
  * @author Oliver Olsen
- * @brief Updates ThingSpeak or gets data from ThingSpeak
- * @section Updates ThingSpeak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.
+ * @brief Updates ThingSpeak
+ * @section Updates ThingSpeak every 30 seconds.
  */
 void loop()
 {
@@ -102,10 +89,13 @@ void loop()
         break;
     }
 
+    // Resets counter, so each sensor/module updates
     if (update_web >= THINGSPEAK_MAX)
     {
         update_web = 0;
     }
+
+    // Extra motion sensor update, to ensure motion detection is detected
     motionSensor_detect(&motion_state, &motion_val);
     delay(seconds_15);
     update_web++;
