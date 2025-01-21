@@ -57,7 +57,7 @@ switch (update_web)
         break;
     }
 
-    if (update_web >= THINGSPEAK_MAX)
+    if (update_web >= 7)
     {
         update_web = 4;
     }
