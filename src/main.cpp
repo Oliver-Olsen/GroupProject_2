@@ -59,7 +59,7 @@ switch (update_web)
 
     if (update_web >= THINGSPEAK_MAX)
     {
-        update_web = 5;
+        update_web = 4;
     }
 
     delay(seconds_15);
