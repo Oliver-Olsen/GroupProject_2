@@ -1,5 +1,5 @@
 /**
- * @file stepperControl.h
+ * @file stepper.h
  * @author Nils Linus Metsälä Wulff (s223968@student.dtu.dk)
  * @brief 
  * @version 0.1
@@ -9,12 +9,12 @@
  * 
  */
 
-#ifndef STEPPERCONTROL_H
-#define STEPPERCONTROL_H
+#ifndef STEPPER_H
+#define STEPPER_H
 
 //Initializes custom functions
 void stepWrite(int step); 
-void stepperInit(); 
+void stepperInit(int IN1, int IN2, int IN3, int IN4); 
 void stepperRotate(int rotation); 
 
-#endif // STEPPERCONTROL_H
+#endif // STEPPER_H

@@ -18,8 +18,8 @@
 #define CHANNEL_NUMBER 2815518UL
 const char Read_APIKey[] = "AOZUNN780N8DL3VL";
 
-const char* ssid = "Connection Error";
-const char* pswrd = "Gasvo012";
+const char* ssid = "LW_POCO";
+const char* pswrd = "ezpz42069";
 
 
 // WiFi Variables

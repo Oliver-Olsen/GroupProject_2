@@ -10,15 +10,15 @@
  */
 
 #include <Arduino.h>
-#include "stepperControl.h"
+#include "stepper.h"
 
 /* Preamble with pin definitions and value declarations: 
 */
 //Pin definitions
-#define IN1 D1
-#define IN2 D2
-#define IN3 D3
-#define IN4 D4
+int IN1; 
+int IN2; 
+int IN3;  
+int IN4; 
 
 //Defines the amount of steps per revolution 
 #define SPR 2048
@@ -41,12 +41,17 @@ const int steps[4][4] = {
 
 
 /**
- * @brief Initializes the stepper function
+ * @brief Initializes the stepper function with pin declarations
  * 
  */
-void stepperInit() {
+void stepperInit(int IN1, int IN2, int IN3, int IN4) {
+  IN1 = IN1; 
+  IN2 = IN2;   
+  IN3 = IN3; 
+  IN4 = IN4; 
   for (int i = 0; i < 4; i++) { //Loops through all the four pins and sets them as OUTPUTS
     pinMode(pins[i], OUTPUT); 
+  
   }
 }
 
