@@ -14,7 +14,6 @@
 #include "sendRecieveData.h"
 
 #define CONNECT_PORT 80
-
 #define CHANNEL_NUMBER 2810501UL
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
 
@@ -28,7 +27,7 @@ WiFiClient client;
 
 /**
 * @author Oliver Olsen
-* @brief Wifi ini
+* @brief Wifi init and ThingSpeak init
 */
 void wifi_init()
 {

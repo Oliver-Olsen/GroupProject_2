@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2025
  *
  */
-
 #ifndef SENDRECIEVEDATA_H
 #define SENDRECIEVEDATA_H
 

@@ -11,14 +11,11 @@
  */
 
 
-
 #include <Arduino.h>
 #include "motionSensor.h"
 
 
-
 #define MOTIONSENSOR_PIN  D5 // Sets the motion sensor as pin
-
 
 
 /**
@@ -29,7 +26,6 @@ void motionSensor_init()
 {
     pinMode(MOTIONSENSOR_PIN, INPUT);
 }
-
 
 
 /**

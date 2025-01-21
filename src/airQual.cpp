@@ -16,9 +16,7 @@
 #define MQ_PIN A0
 
 
-
 MQ135 mq135_sensor(MQ_PIN);
-
 
 
 // MQ135 Variables
@@ -70,7 +68,6 @@ void airQual_measurement(float *temperature, float *humidity)
     Serial.println(" ppm");
 
 }
-
 
 
 /**

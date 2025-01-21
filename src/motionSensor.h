@@ -13,6 +13,7 @@
 #ifndef MOTIONSENSOR_H
 #define MOTIONSENSOR_H
 
+
 /**
  * @brief Function declarations
  */
