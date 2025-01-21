@@ -61,7 +61,7 @@ void receiverModule_update(uint32_t field)
     connectThingSpeak();
 
     int reading;
-    //Serial.print(field);
+    Serial.print(field);
     switch (field)
     {
       case THINGSPEAK_AIRQUALITY:
@@ -126,7 +126,7 @@ void servoControl(int input) {
  * @param rotations
  */
 void stepperControl(int rotations) {
-  tempControl.step(1); //Rotates the stepper motor for a defined number of rotations
+  //tempControl.step(1); //Rotates the stepper motor for a defined number of rotations.         Causes WatchDog error
   //delay(1000); //Waits for a second before continuing
 }
 
