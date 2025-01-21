@@ -35,7 +35,7 @@ bool motion_val   = false;  // Intial Value of the Sensor.
 //int lightCh = 6;
 
 
-unsigned short int seconds_15 = 15000; // ThingSpeak read/write speed (free subscription)
+unsigned short int seconds_15 = 30000; // ThingSpeak read/write speed (free subscription)
 
 
 int update_web = 0;
@@ -57,7 +57,7 @@ void setup() {
     tempHumi_Init();
     dataLCD_setup();
 
-    //receiverModule_init(windowCh, heaterCh, lightCh);
+    
 
 
   //Serial.println("Setup Complete");
@@ -72,10 +72,6 @@ void setup() {
  */
 void loop()
 {
-  //Serial.print("Loop count");
-  //Serial.println(update_web);
-
-  //if (SENDING_STATION == true){
 
     switch (update_web)
     {
@@ -87,8 +83,7 @@ void loop()
         break;
 
     case THINGSPEAK_MOTION:
-        motionSensor_detect(&motion_state, &motion_val);
-        sendData_fieldValue(THINGSPEAK_MOTION, 1);
+        sendData_fieldValue(THINGSPEAK_MOTION, motion_val);
         break;
 
     case THINGSPEAK_TEMPERATURE:
@@ -107,10 +102,11 @@ void loop()
         break;
     }
 
-    //if (update_web >= THINGSPEAK_MAX)
+    if (update_web >= THINGSPEAK_MAX)
     {
         update_web = 0;
     }
+    motionSensor_detect(&motion_state, &motion_val);
     delay(seconds_15);
     update_web++;
 }

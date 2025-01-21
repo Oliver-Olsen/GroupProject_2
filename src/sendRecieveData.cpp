@@ -10,7 +10,6 @@
  */
 #include <Arduino.h>
 #include <WiFi.h>
-//#include <ESP8266WiFi.h>
 #include <ThingSpeak.h>
 #include "sendRecieveData.h"
 
@@ -18,10 +17,9 @@
 
 #define CHANNEL_NUMBER 2810501UL
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
-//const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
 
-const char* ssid = "Connection Error";
-const char* pswrd = "Gasvo012";
+const char* ssid = "LW_POCO";
+const char* pswrd = "ezpz42069";
 
 
 // WiFi Variables
@@ -29,7 +27,7 @@ WiFiClient client;
 
 
 /**
-* @author oliver Olsen
+* @author Oliver Olsen
 * @brief Wifi ini
 */
 void wifi_init()
@@ -105,7 +103,6 @@ int recievedata(int field,long channelID,const char *Read_APIKey)
 }
 
 
-
 /**
  * @author Oliver Olsen
  * @brief Similar to @p recieveData()
@@ -116,21 +113,6 @@ void connectTingSpeak()
 {
   client.connect("api.thingspeak.com", CONNECT_PORT);
 }
-
-
-/**
- * @brief Similar to @p recieveData()
- * @see recieveData()
- * @section used to smoothly merge with recieverModule.cpp
- * @param field
- * @param channelID
- * @param Read_APIKey
- * @return int
- */
-//int readThingSpeak(int field)
-//{
-//  return ThingSpeak.readIntField(CHANNEL_NUMBER, field, Read_APIKey);
-//}
 
 
 /**

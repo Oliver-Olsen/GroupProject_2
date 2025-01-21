@@ -36,9 +36,9 @@ void dataLCD_setup()
 
     lcd.setCursor(9, 0);
     lcd.print("N/A");
-    lcd.setCursor(13, 0);
-    lcd.print((char)223);
     lcd.setCursor(14, 0);
+    lcd.print((char)223);
+    lcd.setCursor(15, 0);
     lcd.print("C");
 
     lcd.setCursor(0, 1);
@@ -67,12 +67,12 @@ void dataLCD_print(float data, int dataType)
         lcd.print(data);
         break;
     
-    case 2:
+    case 3:
         lcd.setCursor(9, 0);
         lcd.print(data);
         break;
 
-    case 3:
+    case 4:
         lcd.setCursor(0, 1);
         lcd.print(data);
         break;
