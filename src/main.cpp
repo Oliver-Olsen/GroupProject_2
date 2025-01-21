@@ -34,6 +34,8 @@ void setup() {
     wifi_init();
 
     receiverModule_init();
+
+    Serial.begin(115200);
 }
 
 
@@ -45,6 +47,7 @@ void setup() {
  */
 void loop()
 {
+    Serial.println(update_web);
 switch (update_web)
     {
     case 5:
@@ -60,6 +63,7 @@ switch (update_web)
     if (update_web >= 7)
     {
         update_web = 4;
+        Serial.println(update_web);
     }
 
     delay(seconds_15);

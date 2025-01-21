@@ -69,6 +69,7 @@ void receiverModule_update(uint32_t field)
         if (pv.servo != reading)
         {
           pv.servo = reading;
+          Serial.println(pv.servo);
           servoControl(pv.servo);
         }
         break;
