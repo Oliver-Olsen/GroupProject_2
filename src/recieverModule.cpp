@@ -64,7 +64,7 @@ void receiverModule_update(uint32_t field)
     Serial.print(field);
     switch (field)
     {
-      case THINGSPEAK_AIRQUALITY:
+      case 5:
         reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
         if (pv.servo != reading)
         {
@@ -73,8 +73,7 @@ void receiverModule_update(uint32_t field)
         }
         break;
 
-      case THINGSPEAK_TEMPERATURE:
-      case THINGSPEAK_HUMIDITY:
+      case 6:
         reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
         if (pv.stepper != reading)
         {
@@ -83,7 +82,7 @@ void receiverModule_update(uint32_t field)
         }
         break;
 
-      case THINGSPEAK_MOTION:
+      case 7:
         reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
         if (pv.light != reading)
         {

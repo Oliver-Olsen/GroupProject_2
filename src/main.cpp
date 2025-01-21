@@ -20,7 +20,7 @@
 unsigned short int seconds_15 = 15000; // ThingSpeak read/write speed (free subscription)
 
 
-int update_web = 0;
+int update_web = 5;
 
 
 /**
@@ -30,13 +30,10 @@ int update_web = 0;
  */
 void setup() {
 
-  Serial.begin(115200);
+    Serial.begin(115200);
     wifi_init();
 
     receiverModule_init();
-
-
-  //Serial.println("Setup Complete");
 }
 
 
@@ -50,10 +47,9 @@ void loop()
 {
 switch (update_web)
     {
-    case THINGSPEAK_AIRQUALITY:
-    case THINGSPEAK_MOTION:
-    case THINGSPEAK_TEMPERATURE:
-    case THINGSPEAK_HUMIDITY:
+    case 5:
+    case 6:
+    case 7:
         receiverModule_update(update_web);
 
 
@@ -63,7 +59,7 @@ switch (update_web)
 
     if (update_web >= THINGSPEAK_MAX)
     {
-        update_web = 0;
+        update_web = 5;
     }
 
     delay(seconds_15);
