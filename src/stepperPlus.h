@@ -1,7 +1,7 @@
 /**
- * @file stepper.h
+ * @file stepperPlus.h
  * @author Nils Linus Metsälä Wulff
- * @brief
+ * @brief Functions and guard
  * @version 0.1
  * @date 2025-01-21
  *

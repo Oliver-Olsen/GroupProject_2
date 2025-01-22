@@ -1,0 +1,31 @@
+\doxysection{transmit\+Receive\+Data.\+h}
+\hypertarget{transmit_receive_data_8h_source}{}\label{transmit_receive_data_8h_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/transmitReceiveData.h@{C:/Users/olive/GroupProject\_2-\/1/src/transmitReceiveData.h}}
+\mbox{\hyperlink{transmit_receive_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ TRANSMITRECEIVEDATA\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ TRANSMITRECEIVEDATA\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_AIRQUALITY\ \ \ \ \ 1}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_MOTION\ \ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_TEMPERATURE\ \ \ \ 3}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_HUMIDITY\ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_TRANSMITMAX\ \ \ \ THINGSPEAK\_HUMIDITY}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_WINDOW\ \ \ \ \ \ \ \ \ 5}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_LIGHT\ \ \ \ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_SPACEHEATER\ \ \ \ 7}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ THINGSPEAK\_RECEIVEMAX\ \ \ \ \ THINGSPEAK\_SPACEHEATER}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8h_af67410a15ecc24ecef0e5abce0c5b30c}{wifi\_init}}();}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8h_aa23d2521fa93ca4f121b302149283f4c}{sendData\_fieldValue}}(\textcolor{keywordtype}{int}\ field,\ \textcolor{keywordtype}{float}\ data);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8h_aa23d2521fa93ca4f121b302149283f4c}{sendData\_fieldValue}}(\textcolor{keywordtype}{int}\ field,\ \textcolor{keywordtype}{int}\ data);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8h_ae960bc8c3cbc2cdc7ab7c6c1ec7a2604}{sendData\_payload}}(\textcolor{keywordtype}{int}\ field,\ \textcolor{keywordtype}{int}\ data,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ channelID,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *Write\_APIKey);}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{transmit_receive_data_8h_ad100dad8219bd5c2e6d9c74b50627b75}{readThingSpeak}}(\textcolor{keywordtype}{int}\ field);}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8h_ac8cb2b6e177ae28db398a9da8275b563}{connectThingSpeak}}();}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8h_a556cc1db6b4060dc5b5c2785f73cb3e8}{sendData\_finished}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TRANSMITRECEIVEDATA\_H}}
+
+\end{DoxyCode}

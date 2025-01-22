@@ -1,0 +1,61 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/receiver.cpp File Reference}
+\hypertarget{receiver_8cpp}{}\label{receiver_8cpp}\index{C:/Users/olive/GroupProject\_2-\/1/src/receiver.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/receiver.cpp}}
+
+
+All the code needed to run the receiver module.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}transmit\+Receive\+Data.\+h"{}}\newline
+{\ttfamily \#include "{}reciever\+Module.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5}\label{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5} 
+void {\bfseries receiver\+Setup} ()
+\begin{DoxyCompactList}\small\item\em Sets up all the necessary function for the receiver module. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{receiver_8cpp_ad5dd85ac5f2456e9a8397935be2fe81d}{receiver\+Main}} ()
+\begin{DoxyCompactList}\small\item\em Updates Thing\+Speak or gets data from Thing\+Speak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{receiver_8cpp_ab38eb117943be6d6352006920250942a}\label{receiver_8cpp_ab38eb117943be6d6352006920250942a} 
+unsigned short int {\bfseries seconds\+\_\+15} = 15000
+\item 
+\Hypertarget{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}\label{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b} 
+int {\bfseries receive\+\_\+web} = 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+All the code needed to run the receiver module. 
+
+\begin{DoxyAuthor}{Author}
+Nils Linus Metsälä Wulff 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/22
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{receiver_8cpp_ad5dd85ac5f2456e9a8397935be2fe81d}\index{receiver.cpp@{receiver.cpp}!receiverMain@{receiverMain}}
+\index{receiverMain@{receiverMain}!receiver.cpp@{receiver.cpp}}
+\doxysubsubsection{\texorpdfstring{receiverMain()}{receiverMain()}}
+{\footnotesize\ttfamily \label{receiver_8cpp_ad5dd85ac5f2456e9a8397935be2fe81d} 
+void receiver\+Main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates Thing\+Speak or gets data from Thing\+Speak. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{transmitter_8h_Updates}{}\doxysubsection{\texorpdfstring{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}}\label{transmitter_8h_Updates}

@@ -1,0 +1,90 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/transmitter.cpp File Reference}
+\hypertarget{transmitter_8cpp}{}\label{transmitter_8cpp}\index{C:/Users/olive/GroupProject\_2-\/1/src/transmitter.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/transmitter.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}transmitter.\+h"{}}\newline
+{\ttfamily \#include "{}transmit\+Receive\+Data.\+h"{}}\newline
+{\ttfamily \#include "{}air\+Qual.\+h"{}}\newline
+{\ttfamily \#include "{}temp\+Humi.\+h"{}}\newline
+{\ttfamily \#include "{}motion\+Sensor.\+h"{}}\newline
+{\ttfamily \#include "{}data\+LCD.\+h"{}}\newline
+{\ttfamily \#include "{}debug.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{transmitter_8cpp_a05925b5e23b7ca1b572be889f91f3e52}{transmitter\+Setup}} ()
+\begin{DoxyCompactList}\small\item\em Init of sensors and modules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{transmitter_8cpp_a9b11feb7d3b7900c459e0b796943b7ee}{transmitter\+Main}} ()
+\begin{DoxyCompactList}\small\item\em Updates Thing\+Speak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}\label{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5} 
+float {\bfseries temperature} = 0
+\item 
+\Hypertarget{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}\label{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206} 
+float {\bfseries humidity} = 0
+\item 
+\Hypertarget{transmitter_8cpp_aa9eef0f35e9c58440f9a536c84432a97}\label{transmitter_8cpp_aa9eef0f35e9c58440f9a536c84432a97} 
+float {\bfseries airquality} = 0
+\item 
+\Hypertarget{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}\label{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea} 
+bool {\bfseries motion\+\_\+state} = false
+\item 
+\Hypertarget{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}\label{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16} 
+bool {\bfseries motion\+\_\+val} = false
+\item 
+\Hypertarget{transmitter_8cpp_ad7369e1c92d28fbbeb89c9bcb8fcd825}\label{transmitter_8cpp_ad7369e1c92d28fbbeb89c9bcb8fcd825} 
+unsigned short int {\bfseries seconds\+\_\+30} = 30000
+\item 
+\Hypertarget{transmitter_8cpp_abf398747bf789cf16fa33d93c010b405}\label{transmitter_8cpp_abf398747bf789cf16fa33d93c010b405} 
+int {\bfseries transmit\+\_\+web} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/14
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{transmitter_8cpp_a9b11feb7d3b7900c459e0b796943b7ee}\index{transmitter.cpp@{transmitter.cpp}!transmitterMain@{transmitterMain}}
+\index{transmitterMain@{transmitterMain}!transmitter.cpp@{transmitter.cpp}}
+\doxysubsubsection{\texorpdfstring{transmitterMain()}{transmitterMain()}}
+{\footnotesize\ttfamily \label{transmitter_8cpp_a9b11feb7d3b7900c459e0b796943b7ee} 
+void transmitter\+Main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates Thing\+Speak. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{transmitter_8h_Updates}{}\doxysubsection{\texorpdfstring{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}}\label{transmitter_8h_Updates}
+\begin{DoxyAuthor}{Author}
+Oliver Olsen Uodates a sensor pr. 30 seconds
+\end{DoxyAuthor}
+\Hypertarget{transmitter_8cpp_a05925b5e23b7ca1b572be889f91f3e52}\index{transmitter.cpp@{transmitter.cpp}!transmitterSetup@{transmitterSetup}}
+\index{transmitterSetup@{transmitterSetup}!transmitter.cpp@{transmitter.cpp}}
+\doxysubsubsection{\texorpdfstring{transmitterSetup()}{transmitterSetup()}}
+{\footnotesize\ttfamily \label{transmitter_8cpp_a05925b5e23b7ca1b572be889f91f3e52} 
+void transmitter\+Setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Init of sensors and modules. 
+
+\begin{DoxyAuthor}{Author}
+Oliver olsen 
+\end{DoxyAuthor}
+\hypertarget{transmitter_8h_Inits}{}\doxysubsection{\texorpdfstring{the correct elements, depending on if the station is on the recieving end or sending end}{the correct elements, depending on if the station is on the recieving end or sending end}}\label{transmitter_8h_Inits}
