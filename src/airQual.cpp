@@ -13,7 +13,7 @@
 #include <MQ135.h>
 #include "airQual.h"
 
-#define MQ_PIN A0
+#define MQ_PIN    A0
 
 
 MQ135 mq135_sensor(MQ_PIN);
@@ -22,11 +22,11 @@ MQ135 mq135_sensor(MQ_PIN);
 // MQ135 Variables
 typedef struct
 {
-    float resistance_zero;
-    float corrected_zero;
-    float resistance;
-    float ppm_measured;
-    float ppm_corrected;
+   float resistance_zero;
+   float corrected_zero;
+   float resistance;
+   float ppm_measured;
+   float ppm_corrected;
 } mq135_env_t;
 
 
@@ -39,13 +39,12 @@ mq135_env_t mq135_data;
  */
 void airQual_init()
 {
-    mq135_data.resistance_zero   = 0;
-    mq135_data.corrected_zero    = 0;
-    mq135_data.resistance        = 0;
-    mq135_data.ppm_measured      = 0;
-    mq135_data.ppm_corrected     = 0;
+   mq135_data.resistance_zero = 0;
+   mq135_data.corrected_zero  = 0;
+   mq135_data.resistance      = 0;
+   mq135_data.ppm_measured    = 0;
+   mq135_data.ppm_corrected   = 0;
 }
-
 
 /**
  * @brief Measures the air quality in ppm. Sensor is calibrated each reading
@@ -55,13 +54,12 @@ void airQual_init()
  */
 void airQual_measurement(float *temperature, float *humidity)
 {
-    mq135_data.resistance_zero = mq135_sensor.getRZero();
-    mq135_data.corrected_zero  = mq135_sensor.getCorrectedResistance(*temperature, *humidity);
-    mq135_data.resistance      = mq135_sensor.getResistance();
-    mq135_data.ppm_measured    = mq135_sensor.getPPM();
-    mq135_data.ppm_corrected   = mq135_sensor.getCorrectedPPM(*temperature, *humidity);
+   mq135_data.resistance_zero = mq135_sensor.getRZero();
+   mq135_data.corrected_zero  = mq135_sensor.getCorrectedResistance(*temperature, *humidity);
+   mq135_data.resistance      = mq135_sensor.getResistance();
+   mq135_data.ppm_measured    = mq135_sensor.getPPM();
+   mq135_data.ppm_corrected   = mq135_sensor.getCorrectedPPM(*temperature, *humidity);
 }
-
 
 /**
  * @brief Returns the corrected ppm value
@@ -71,5 +69,5 @@ void airQual_measurement(float *temperature, float *humidity)
  */
 float airQual_get_Value()
 {
-    return mq135_data.ppm_measured;
+   return(mq135_data.ppm_measured);
 }

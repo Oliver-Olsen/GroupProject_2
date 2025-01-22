@@ -14,8 +14,8 @@
 #include <Adafruit_Sensor.h>
 #include "tempHumi.h"
 
-#define DHT_SENSOR_PIN  D7      // The ESP8266 pin D7 connected to DHT11 sensor
-#define DHT_SENSOR_TYPE DHT11
+#define DHT_SENSOR_PIN     D7   // The ESP8266 pin D7 connected to DHT11 sensor
+#define DHT_SENSOR_TYPE    DHT11
 
 DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
 
@@ -26,9 +26,8 @@ DHT dht_sensor(DHT_SENSOR_PIN, DHT_SENSOR_TYPE);
  */
 void tempHumi_Init()
 {
-    dht_sensor.begin();
+   dht_sensor.begin();
 }
-
 
 /**
  *
@@ -40,6 +39,6 @@ void tempHumi_Init()
  */
 void tempHumi_read(float *temperature, float *humidity)
 {
-    *temperature = dht_sensor.readTemperature();
-    *humidity = dht_sensor.readHumidity();
+   *temperature = dht_sensor.readTemperature();
+   *humidity    = dht_sensor.readHumidity();
 }

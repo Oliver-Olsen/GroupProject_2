@@ -13,12 +13,12 @@
 #include <ThingSpeak.h>
 #include "sendRecieveData.h"
 
-#define CONNECT_PORT 80
-#define CHANNEL_NUMBER 2810501UL
+#define CONNECT_PORT      80
+#define CHANNEL_NUMBER    2810501UL
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
 
-const char* ssid = "LW_POCO";
-const char* pswrd = "ezpz42069";
+const char *ssid  = "LW_POCO";
+const char *pswrd = "ezpz42069";
 
 
 // WiFi Variables
@@ -26,15 +26,14 @@ WiFiClient client;
 
 
 /**
-* @author Oliver Olsen
-* @brief Wifi init and ThingSpeak init
-*/
+ * @author Oliver Olsen
+ * @brief Wifi init and ThingSpeak init
+ */
 void wifi_init()
 {
-  WiFi.begin(ssid, pswrd);
-  ThingSpeak.begin(client);
+   WiFi.begin(ssid, pswrd);
+   ThingSpeak.begin(client);
 }
-
 
 /**
  * @author Oliver Olsen
@@ -46,10 +45,10 @@ void wifi_init()
  */
 void sendData_fieldValue(int field, float data)
 {
-  int value = (int)(data * 100);
-  sendData_payload(field, value, CHANNEL_NUMBER, Write_APIKey);
-}
+   int value = (int)(data * 100);
 
+   sendData_payload(field, value, CHANNEL_NUMBER, Write_APIKey);
+}
 
 /**
  * @author Oliver Olsen
@@ -62,28 +61,26 @@ void sendData_fieldValue(int field, float data)
  */
 void sendData_fieldValue(int field, int data)
 {
-  sendData_payload(field, data, CHANNEL_NUMBER, Write_APIKey);
+   sendData_payload(field, data, CHANNEL_NUMBER, Write_APIKey);
 }
-
 
 /**
-* @author Marcus & Emil
-* @brief sends data to our Thingspeak cloud (Requires WiFi.Begin in setup)
-* @section field 1 = CO2 , field 2 = Sound, field 3 = Temperature, field 4 Humidity
-* @param field which Thingspeak field the data is sent to (1-8)
-* @param data data to be sent
-* @param channelID The channel ID
-* @param Write_APIKey The key to write to Thingspeak
-*/
-void sendData_payload(int field,int data, unsigned long channelID,const char *Write_APIKey)
+ * @author Marcus & Emil
+ * @brief sends data to our Thingspeak cloud (Requires WiFi.Begin in setup)
+ * @section field 1 = CO2 , field 2 = Sound, field 3 = Temperature, field 4 Humidity
+ * @param field which Thingspeak field the data is sent to (1-8)
+ * @param data data to be sent
+ * @param channelID The channel ID
+ * @param Write_APIKey The key to write to Thingspeak
+ */
+void sendData_payload(int field, int data, unsigned long channelID, const char *Write_APIKey)
 {
-  connectTingSpeak();
-  ThingSpeak.setField(field, data);
-  ThingSpeak.writeFields(channelID, Write_APIKey);
-  // Delay of 5 seconds to make sure the data is recieved correctly by thingspeak
-  //delay(5000);
+   connectTingSpeak();
+   ThingSpeak.setField(field, data);
+   ThingSpeak.writeFields(channelID, Write_APIKey);
+   // Delay of 5 seconds to make sure the data is recieved correctly by thingspeak
+   //delay(5000);
 }
-
 
 /**
  * @author Oliver Olsen
@@ -93,9 +90,8 @@ void sendData_payload(int field,int data, unsigned long channelID,const char *Wr
  */
 void connectTingSpeak()
 {
-  client.connect("api.thingspeak.com", CONNECT_PORT);
+   client.connect("api.thingspeak.com", CONNECT_PORT);
 }
-
 
 /**
  * @brief Ends the connection
@@ -104,5 +100,5 @@ void connectTingSpeak()
  */
 void sendData_finished()
 {
-    client.stop();
+   client.stop();
 }

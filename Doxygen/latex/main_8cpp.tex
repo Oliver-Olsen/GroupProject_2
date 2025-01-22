@@ -6,23 +6,14 @@
 {\ttfamily \#include "{}temp\+Humi.\+h"{}}\newline
 {\ttfamily \#include "{}motion\+Sensor.\+h"{}}\newline
 {\ttfamily \#include "{}data\+LCD.\+h"{}}\newline
-{\ttfamily \#include "{}reciever\+Module.\+h"{}}\newline
-\doxysubsubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{main_8cpp_a56f8ce82e249b6019d5defca2fddabc7}\label{main_8cpp_a56f8ce82e249b6019d5defca2fddabc7} 
-\#define {\bfseries SENDING\+\_\+\+STATION}~false
-\item 
-\Hypertarget{main_8cpp_a09b92522722768a763463dacf8fa9d8d}\label{main_8cpp_a09b92522722768a763463dacf8fa9d8d} 
-\#define {\bfseries RECEIVING\+\_\+\+STATION}~true
-\end{DoxyCompactItemize}
+{\ttfamily \#include "{}debug.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
 \begin{DoxyCompactList}\small\item\em Init of sensors and modules. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
-\begin{DoxyCompactList}\small\item\em Updates Thing\+Speak or gets data from Thing\+Speak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates Thing\+Speak. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,17 +32,8 @@ bool {\bfseries motion\+\_\+state} = false
 \Hypertarget{main_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}\label{main_8cpp_afeb2ef5187234179f9d8f3a4d3359a16} 
 bool {\bfseries motion\+\_\+val} = false
 \item 
-\Hypertarget{main_8cpp_a5ce54766f3c9cfc4329b2ed3d39c60ce}\label{main_8cpp_a5ce54766f3c9cfc4329b2ed3d39c60ce} 
-int {\bfseries window\+Ch} = 5
-\item 
-\Hypertarget{main_8cpp_a789adfd2d2fcde982fa35441b2b3bf5c}\label{main_8cpp_a789adfd2d2fcde982fa35441b2b3bf5c} 
-int {\bfseries heater\+Ch} = 7
-\item 
-\Hypertarget{main_8cpp_a2195a281f31e26aec6af36a006f95f40}\label{main_8cpp_a2195a281f31e26aec6af36a006f95f40} 
-int {\bfseries light\+Ch} = 6
-\item 
-\Hypertarget{main_8cpp_ab38eb117943be6d6352006920250942a}\label{main_8cpp_ab38eb117943be6d6352006920250942a} 
-unsigned short int {\bfseries seconds\+\_\+15} = 15000
+\Hypertarget{main_8cpp_ad7369e1c92d28fbbeb89c9bcb8fcd825}\label{main_8cpp_ad7369e1c92d28fbbeb89c9bcb8fcd825} 
+unsigned short int {\bfseries seconds\+\_\+30} = 30000
 \item 
 \Hypertarget{main_8cpp_a0f06f854bb69ae66915d94993113591a}\label{main_8cpp_a0f06f854bb69ae66915d94993113591a} 
 int {\bfseries update\+\_\+web} = 0
@@ -60,7 +42,7 @@ int {\bfseries update\+\_\+web} = 0
 
 \doxysubsection{Detailed Description}
 \begin{DoxyAuthor}{Author}
-your name (\href{mailto:you@domain.com}{\texttt{ you@domain.\+com}}) 
+Oliver Olsen 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
 0.\+1 
@@ -82,12 +64,15 @@ void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Updates Thing\+Speak or gets data from Thing\+Speak. 
+Updates Thing\+Speak. 
 
 \begin{DoxyAuthor}{Author}
 Oliver Olsen 
 \end{DoxyAuthor}
-\hypertarget{main_8cpp_Updates}{}\doxysubsection{\texorpdfstring{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}}\label{main_8cpp_Updates}
+\hypertarget{main_8cpp_Updates}{}\doxysubsection{\texorpdfstring{Thing\+Speak every 30 seconds.}{Thing\+Speak every 30 seconds.}}\label{main_8cpp_Updates}
+\begin{DoxyAuthor}{Author}
+Oliver Olsen Uodates a sensor pr. 30 seconds
+\end{DoxyAuthor}
 \Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\index{main.cpp@{main.cpp}!setup@{setup}}
 \index{setup@{setup}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{setup()}{setup()}}

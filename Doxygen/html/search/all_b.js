@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['h_20file_20this_20clears_20up_20the_20main_20function_20and_20allows_20us_20to_20controll_20the_20functions_20easier_0',['to a seperate .h file. This clears up the main function, and allows us to controll the functions easier.',['../temp_humi_8cpp.html#Moved',1,'']]],
-  ['hc_20sr501_20pir_20motion_20detector_1',['are using a HC-SR501 PIR MOTION DETECTOR.',['../motion_sensor_8h.html#We',1,'']]],
-  ['humidity_2',['1 = CO2 , Port 2 = Sound, Port 3 = Temperature, Port 4 Humidity',['../send_recieve_data_8h.html#Port',1,'']]]
+  ['if_20it_20s_20an_20int_20or_20a_20float_20the_20correct_20function_20will_20be_20chosen_20automatically_0',['two functions @p sendData_fieldValue() ans @p sendData_fieldValue(). Deppending on if it&apos;s an int or a float, the correct function will be chosen automatically.',['../send_recieve_data_8h.html#The',1,'']]],
+  ['if_20the_20station_20is_20on_20the_20recieving_20end_20or_20sending_20end_1',['the correct elements, depending on if the station is on the recieving end or sending end',['../main_8cpp.html#Inits',1,'']]],
+  ['int_20or_20a_20float_20the_20correct_20function_20will_20be_20chosen_20automatically_2',['two functions @p sendData_fieldValue() ans @p sendData_fieldValue(). Deppending on if it&apos;s an int or a float, the correct function will be chosen automatically.',['../send_recieve_data_8h.html#The',1,'']]],
+  ['is_20on_20the_20recieving_20end_20or_20sending_20end_3',['the correct elements, depending on if the station is on the recieving end or sending end',['../main_8cpp.html#Inits',1,'']]],
+  ['it_20s_20an_20int_20or_20a_20float_20the_20correct_20function_20will_20be_20chosen_20automatically_4',['two functions @p sendData_fieldValue() ans @p sendData_fieldValue(). Deppending on if it&apos;s an int or a float, the correct function will be chosen automatically.',['../send_recieve_data_8h.html#The',1,'']]]
 ];

@@ -1,0 +1,73 @@
+[OPTIONS]
+Compiled file=index.chm
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=index.html
+Index file=index.hhk
+Language=0x409 English (United States)
+Title=Group 2 - Indoor Climate Control
+
+[WINDOWS]
+main="Group 2 - Indoor Climate Control","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
+
+[FILES]
+air_qual_8cpp.html
+air_qual_8h.html
+air_qual_8h_source.html
+annotated.html
+classes.html
+data_l_c_d_8cpp.html
+data_l_c_d_8h.html
+data_l_c_d_8h_source.html
+debug_8h.html
+debug_8h_source.html
+dir_68267d1309a1af8e8297ef4c3efbcdba.html
+doxygen_crawl.html
+files.html
+globals.html
+globals_func.html
+index.html
+main_8cpp.html
+motion_sensor_8cpp.html
+motion_sensor_8h.html
+motion_sensor_8h_source.html
+send_recieve_data_8h_source.html
+structmq135__env__t-members.html
+structmq135__env__t.html
+temp_humi_8cpp.html
+temp_humi_8h.html
+temp_humi_8h_source.html
+bc_s.png
+bc_sd.png
+closed.png
+doxygen.svg
+minus.svg
+minusd.svg
+nav_f.png
+nav_fd.png
+nav_g.png
+nav_h.png
+nav_hd.png
+open.png
+plus.svg
+plusd.svg
+splitbar.png
+splitbard.png
+sync_off.png
+sync_on.png
+tab_a.png
+tab_ad.png
+tab_b.png
+tab_bd.png
+tab_h.png
+tab_hd.png
+tab_s.png
+tab_sd.png
+doxygen.css
+dynsections.js
+jquery.js
+navtree.css
+resize.js
+tabs.css

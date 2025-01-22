@@ -12,11 +12,11 @@
 #define SENDRECIEVEDATA_H
 
 
-#define THINGSPEAK_AIRQUALITY       1
-#define THINGSPEAK_MOTION           2
-#define THINGSPEAK_TEMPERATURE      3
-#define THINGSPEAK_HUMIDITY         4
-#define THINGSPEAK_MAX              THINGSPEAK_HUMIDITY
+#define THINGSPEAK_AIRQUALITY     1
+#define THINGSPEAK_MOTION         2
+#define THINGSPEAK_TEMPERATURE    3
+#define THINGSPEAK_HUMIDITY       4
+#define THINGSPEAK_MAX            THINGSPEAK_HUMIDITY
 
 
 
@@ -27,7 +27,7 @@
 void wifi_init();
 void sendData_fieldValue(int field, float data);
 void sendData_fieldValue(int field, int data);
-void sendData_payload(int field,int data, unsigned long channelID,const char *Write_APIKey);
+void sendData_payload(int field, int data, unsigned long channelID, const char *Write_APIKey);
 void connectTingSpeak();
 void sendData_finished();
 
