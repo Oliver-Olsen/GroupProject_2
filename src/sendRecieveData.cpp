@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2025
  */
 #include <Arduino.h>
-#include <ESP8266WiFi.h>
+#include "ESP8266WiFi.h"
 #include <ThingSpeak.h>
 #include "sendRecieveData.h"
 
@@ -20,7 +20,7 @@ const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
 const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
 
 const char* ssid = "LW_POCO";
-const char* pswrd = "EZPZ42069";
+const char* pswrd = "ezpz42069";
 
 
 
@@ -69,7 +69,7 @@ void sendData_fieldValue(int port, int data)
 
 void recieveData(int data)
 {
-  connectTingSpeak();
+  connectThingSpeak();
 }
 
 
@@ -118,7 +118,7 @@ int recievedata(int port,long channelID,const char *Read_APIKey){
  * @section used to smoothly merge with recieverModule.cpp
  * @see recievedata()
  */
-void connectTingSpeak()
+void connectThingSpeak()
 {
   ThingSpeak.begin(client);
   client.connect("api.thingspeak.com", 80);
