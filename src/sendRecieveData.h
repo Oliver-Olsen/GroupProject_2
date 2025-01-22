@@ -14,11 +14,10 @@
 
 
 // Used in the switch in main and in receiverModule
-#define THINGSPEAK_WINDOW           5
-#define THINGSPEAK_LIGHT            6
-#define THINGSPEAK_SPACEHEATER      7
-#define THINGSPEAK_MAX              THINGSPEAK_SPACEHEATER
-
+#define THINGSPEAK_WINDOW         5
+#define THINGSPEAK_LIGHT          6
+#define THINGSPEAK_SPACEHEATER    7
+#define THINGSPEAK_MAX            THINGSPEAK_SPACEHEATER
 
 
 

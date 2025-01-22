@@ -13,13 +13,13 @@
 #include <ThingSpeak.h>
 #include "sendRecieveData.h"
 
-#define CONNECT_PORT 80
+#define CONNECT_PORT      80
 
-#define CHANNEL_NUMBER 2810501UL
+#define CHANNEL_NUMBER    2810501UL
 const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
 
-const char* ssid = "Connection Error";
-const char* pswrd = "Gasvo012";
+const char *ssid  = "Connection Error";
+const char *pswrd = "Gasvo012";
 
 
 // WiFi Variables
@@ -27,15 +27,14 @@ WiFiClient client;
 
 
 /**
-* @author oliver Olsen
-* @brief Wifi ini
-*/
+ * @author oliver Olsen
+ * @brief Wifi ini
+ */
 void wifi_init()
 {
-  WiFi.begin(ssid, pswrd);
-  ThingSpeak.begin(client);
+   WiFi.begin(ssid, pswrd);
+   ThingSpeak.begin(client);
 }
-
 
 /**
  * @author Oliver Olsen
@@ -44,9 +43,8 @@ void wifi_init()
  */
 void connectThingSpeak()
 {
-  client.connect("api.thingspeak.com", CONNECT_PORT);
+   client.connect("api.thingspeak.com", CONNECT_PORT);
 }
-
 
 /**
  * @author Oliver Olsen
@@ -57,6 +55,5 @@ void connectThingSpeak()
  */
 int readThingSpeak(int field)
 {
-  return ThingSpeak.readIntField(CHANNEL_NUMBER, field, Read_APIKey);
+   return(ThingSpeak.readIntField(CHANNEL_NUMBER, field, Read_APIKey));
 }
-

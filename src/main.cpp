@@ -28,17 +28,15 @@ int update_web = 5;
  * @brief Init of sensors and modules
  * @section Inits the correct elements, depending on if the station is on the recieving end or sending end
  */
-void setup() {
+void setup()
+{
+   Serial.begin(115200);
+   wifi_init();
 
-    Serial.begin(115200);
-    wifi_init();
+   receiverModule_init();
 
-    receiverModule_init();
-
-    Serial.begin(115200);
+   Serial.begin(115200);
 }
-
-
 
 /**
  * @author Oliver Olsen
@@ -47,25 +45,23 @@ void setup() {
  */
 void loop()
 {
-switch (update_web)
-    {
-    case THINGSPEAK_WINDOW:
-    case THINGSPEAK_LIGHT:
-    case THINGSPEAK_SPACEHEATER:
-        receiverModule_update(update_web);
+   switch(update_web){
+       case THINGSPEAK_WINDOW:
+       case THINGSPEAK_LIGHT:
+       case THINGSPEAK_SPACEHEATER:
+          receiverModule_update(update_web);
 
 
-    default:
-        break;
-    }
+       default:
+          break;
+       }
 
-    if (update_web >= THINGSPEAK_MAX)
-    {
-        update_web = 4;
-    }
+   if(update_web >= THINGSPEAK_MAX){
+      update_web = 4;
+      }
 
-    delay(seconds_15);
-    update_web++;
+   delay(seconds_15);
+   update_web++;
 
-    Serial.println(".");
+   Serial.println(".");
 }
