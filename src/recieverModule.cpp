@@ -57,7 +57,7 @@ void receiverModule_update(uint32_t field)
     Serial.println(field); //Serial readout used for debugging
     switch (field)
     {
-      case 5:
+      case THINGSPEAK_WINDOW:
         reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
         Serial.println(reading); //Serial readout used for debugging
         pServo = reading;
@@ -65,14 +65,14 @@ void receiverModule_update(uint32_t field)
         break;
 
 
-      case 6:
+      case THINGSPEAK_LIGHT:
         reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
         Serial.println(reading); //Serial readout used for debugging
         pLight = reading;
         lightControl(pLight);
         break;
         
-      case 7:
+      case THINGSPEAK_SPACEHEATER:
         reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
         Serial.println(reading); //Serial readout used for debugging
         pStepper = reading;

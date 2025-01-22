@@ -13,13 +13,9 @@
 
 //Initializes custom functions
 void receiverModule_init(void); 
-
 void receiverModule_update(uint32_t field); 
-
 void servoControl(int input); 
-
 void stepperControl(int rotations); 
-
 void lightControl(int state); 
 
 #endif //RECIEVERMODULE_H

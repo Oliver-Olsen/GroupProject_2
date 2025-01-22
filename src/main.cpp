@@ -49,9 +49,9 @@ void loop()
 {
 switch (update_web)
     {
-    case 5:
-    case 6:
-    case 7:
+    case THINGSPEAK_WINDOW:
+    case THINGSPEAK_LIGHT:
+    case THINGSPEAK_SPACEHEATER:
         receiverModule_update(update_web);
 
 
@@ -59,10 +59,9 @@ switch (update_web)
         break;
     }
 
-    if (update_web >= 7)
+    if (update_web >= THINGSPEAK_MAX)
     {
         update_web = 4;
-        Serial.println(update_web); //Serial readout used for debugging
     }
 
     delay(seconds_15);

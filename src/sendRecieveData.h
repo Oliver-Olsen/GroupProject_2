@@ -13,11 +13,11 @@
 #define SENDRECIEVEDATA_H
 
 
-#define THINGSPEAK_TEMPERATURE      3
-#define THINGSPEAK_HUMIDITY         4
-#define THINGSPEAK_AIRQUALITY       1
-#define THINGSPEAK_MOTION           2
-#define THINGSPEAK_MAX              THINGSPEAK_HUMIDITY
+// Used in the switch in main and in receiverModule
+#define THINGSPEAK_WINDOW           5
+#define THINGSPEAK_LIGHT            6
+#define THINGSPEAK_SPACEHEATER      7
+#define THINGSPEAK_MAX              THINGSPEAK_SPACEHEATER
 
 
 

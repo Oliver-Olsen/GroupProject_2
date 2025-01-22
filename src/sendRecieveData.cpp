@@ -2,7 +2,7 @@
  * @file sendData.cpp
  * @author Oliver Olsen
  * @brief Handles data to be sent
- * @section Can sent data with the function sendData_payload()
+ * @section Can sent data with the function sendData_payload(). It is similar to senddata() in the transmitter branch
  *
  * @version 0.1
  * @date 2025-01-16
@@ -41,7 +41,6 @@ void wifi_init()
  * @author Oliver Olsen
  * @brief Similar to @p recieveData()
  * @section used to smoothly merge with recieverModule.cpp
- * @see recievedata()
  */
 void connectThingSpeak()
 {
@@ -50,12 +49,10 @@ void connectThingSpeak()
 
 
 /**
- * @brief Similar to @p recieveData()
- * @see recieveData()
+ * @author Oliver Olsen
+ * @brief Reads the field value
  * @section used to smoothly merge with recieverModule.cpp
- * @param field
- * @param channelID
- * @param Read_APIKey
+ * @param field Decides which data type is received
  * @return int
  */
 int readThingSpeak(int field)
