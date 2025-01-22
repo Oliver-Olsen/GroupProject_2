@@ -19,8 +19,8 @@
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
 const char Read_APIKey[]  = "AMPXQDNAKUDP9COD";
 
-const char *ssid  = "LW_POCO";
-const char *pswrd = "ezpz42069";
+const char *ssid  = "Galaxy S20 FEB9AE";
+const char *pswrd = "ckvd5478";
 
 
 // WiFi Variables
