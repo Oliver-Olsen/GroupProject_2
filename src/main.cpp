@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author your name (you@domain.com)
+ * @author Nils Linus Metsälä Wulff
  * @brief 
  * @version 0.1
  * @date 2025-01-22
@@ -12,7 +12,8 @@
 
 
 #include <Arduino.h>
-#include "receiverMain.h"
+#include "receiver.h"
+#include "transmitter.h"
 
 
 bool transmitter = true; 
@@ -20,14 +21,14 @@ bool transmitter = true;
 void setup() {
     Serial.begin(115200);
     receiverSetup(); 
-    //Transmitter setup
+    transmitterSetup(); 
 }
 
 
 void loop()
 {
     if (transmitter == true) {
-        //Transmitter function
+        transmitterMain(); 
     }  else {
         receiverMain(); 
     }

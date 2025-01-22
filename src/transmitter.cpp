@@ -38,7 +38,7 @@ int update_web = 0;
  * @brief Init of sensors and modules
  * @section Inits the correct elements, depending on if the station is on the recieving end or sending end
  */
-void setup()
+void transmitterSetup()
 {
 #ifdef SERIAL_TRACE
    Serial.begin(115200);
@@ -55,7 +55,7 @@ void setup()
  * @brief Updates ThingSpeak
  * @section Updates ThingSpeak every 30 seconds.
  */
-void loop()
+void transmitterMain()
 {
    /**
     * @author Oliver Olsen

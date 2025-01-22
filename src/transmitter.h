@@ -11,5 +11,8 @@
 #ifndef TRANSMITTER_H
 #define TRANSMITTER_H
 
+void transmitterSetup(); 
+void transmitterMain(); 
+
 
 #endif // TRANSMITTER_H
