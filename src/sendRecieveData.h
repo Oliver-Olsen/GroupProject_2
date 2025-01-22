@@ -32,7 +32,7 @@ void sendData_fieldValue(int port,float data);
 void sendData_fieldValue(int port,int data);
 void sendData_payload(int port,int data, unsigned long channelID,const char *Write_APIKey);
 int recievedata(int port,long channelID,const char *Read_APIKey);
-void connectTingSpeak();
+void connectThingSpeak();
 int readThingSpeak(int port);
 void sendData_finished();
 

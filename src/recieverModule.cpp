@@ -85,7 +85,7 @@ void receiverModule_init(int windowCh, int heaterCh, int lightCh) {
  */
 void receiverModule_update(unsigned short delay) {
   if ((millis() + timer) >= delay) { //Inserts a non-blocking delay
-    connectTingSpeak();
+    connectThingSpeak();
 
     for (int i = 0; i < 3; i++) { //Loopes through all modules
         data[i][0] = readThingSpeak(data[i][2]); //Reads the relevant ThingSpeak data for the current modules
