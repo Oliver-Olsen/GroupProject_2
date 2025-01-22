@@ -12,6 +12,7 @@
 
 
 #include <Arduino.h>
+#include "transmitter.h"
 #include "sendRecieveData.h"
 #include "airQual.h"
 #include "tempHumi.h"
