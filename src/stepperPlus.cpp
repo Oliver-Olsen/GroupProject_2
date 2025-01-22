@@ -55,7 +55,6 @@ void stepperRotate(int rotation)
 {
    //Checks if the input is positive
    if(rotation > 0){
-      Serial.println(rotation);                  //Serial readout used for debugging
       for(int i = 0; i < (rotation * SPR); i++){ //While the stepper motor hasn't turned the decided amount it will perfom these steps:
           //1: Check if the step count is above 3, which indicates it has completed a cycle
           if(step > 3){
