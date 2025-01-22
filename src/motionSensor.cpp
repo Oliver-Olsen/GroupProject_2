@@ -1,6 +1,6 @@
 /**
  * @file motionSensor.cpp
- * @author Oliver Olsen
+ * @author Oliver Olsen & Markus Kenno
  * @brief Handles the motion detection
  * @section This 
  * @version 0.1
@@ -9,8 +9,6 @@
  * @copyright Copyright (c) 2025
  * 
  */
-
-
 #include <Arduino.h>
 #include "motionSensor.h"
 

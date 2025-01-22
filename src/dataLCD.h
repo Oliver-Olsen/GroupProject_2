@@ -1,7 +1,6 @@
 /**
  * @file dataLCD.h
  * @author Oliver Olsen
- * @brief 
  * @version 0.1
  * @date 2025-01-17
  * 

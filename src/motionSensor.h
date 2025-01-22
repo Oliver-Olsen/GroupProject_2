@@ -8,8 +8,6 @@
  * @copyright Copyright (c) 2025
  * 
  */
-
-
 #ifndef MOTIONSENSOR_H
 #define MOTIONSENSOR_H
 

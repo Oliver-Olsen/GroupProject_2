@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author
+ * @author Oliver Olsen
  * @brief
  * @version 0.1
  * @date 2025-01-14
@@ -27,7 +27,7 @@ bool motion_state = false;  // Initial state of the room.
 bool motion_val   = false;  // Intial Value of the Sensor.
 
 
-unsigned short int seconds_15 = 30000; // ThingSpeak read/write speed (free subscription)
+unsigned short int seconds_30 = 30000; // ThingSpeak read/write speed is 15 seconds(free subscription)
 
 
 int update_web = 0;
@@ -59,7 +59,11 @@ void setup() {
  */
 void loop()
 {
-
+    /**
+     * @author Oliver Olsen
+     * @brief Uodates a sensor pr. 30 seconds
+     * 
+     */
     switch (update_web)
     {
     case THINGSPEAK_AIRQUALITY:
@@ -97,6 +101,6 @@ void loop()
 
     // Extra motion sensor update, to ensure motion detection is detected
     motionSensor_detect(&motion_state, &motion_val);
-    delay(seconds_15);
+    delay(seconds_30); // Thingspeak delay (15 seconds), 30 seconds just in case
     update_web++;
 }

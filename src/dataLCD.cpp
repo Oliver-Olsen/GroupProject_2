@@ -15,7 +15,7 @@
 #include "dataLCD.h"
 
 
-LiquidCrystal_I2C lcd(0x27,16,2);
+LiquidCrystal_I2C lcd(0x27,16,2); // 16 by 2 display
 
 
 
@@ -57,7 +57,6 @@ void dataLCD_setup()
  * @param data sensor measurements
  * @param dataType type of data
  */
-
 void dataLCD_print(float data, int dataType)
 {
     switch (dataType)

@@ -53,7 +53,6 @@ void airQual_init()
  * @param temperature Measured temperature
  * @param humidity Measured humidity
  */
-
 void airQual_measurement(float *temperature, float *humidity)
 {
     mq135_data.resistance_zero = mq135_sensor.getRZero();
@@ -61,12 +60,6 @@ void airQual_measurement(float *temperature, float *humidity)
     mq135_data.resistance      = mq135_sensor.getResistance();
     mq135_data.ppm_measured    = mq135_sensor.getPPM();
     mq135_data.ppm_corrected   = mq135_sensor.getCorrectedPPM(*temperature, *humidity);
-
-
-
-    Serial.print(mq135_data.ppm_corrected);
-    Serial.println(" ppm");
-
 }
 
 
@@ -78,5 +71,5 @@ void airQual_measurement(float *temperature, float *humidity)
  */
 float airQual_get_Value()
 {
-    return mq135_data.ppm_corrected;
+    return mq135_data.ppm_measured;
 }

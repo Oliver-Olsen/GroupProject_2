@@ -1,6 +1,6 @@
 /**
  * @file sendData.cpp
- * @author Oliver Olsen
+ * @author Oliver Olsen, Marcus & Emil
  * @brief Handles data to be sent
  * @section Can sent data with the function sendData_payload()
  *
@@ -82,23 +82,6 @@ void sendData_payload(int field,int data, unsigned long channelID,const char *Wr
   ThingSpeak.writeFields(channelID, Write_APIKey);
   // Delay of 5 seconds to make sure the data is recieved correctly by thingspeak
   //delay(5000);
-}
-
-
-/**
-* @author Marcus & Emil
-* @brief recieves data from Thingspeak (Requires WiFi.Begin in setup)
-* @param field which Thingspeak field the data is read from (1-8)
-* @param channelID The channel ID
-* @param Read_APIKey The key to read to Thingspeak
-* field 5 = window motor control, field 6 = sound led control
-*/
-int recievedata(int field,long channelID,const char *Read_APIKey)
-{
-  connectTingSpeak();
-  return ThingSpeak.readIntField(channelID, field, Read_APIKey); //returns the read data from Thingspeak
-  //Delay of 30 seconds to avoid using too many
-  //delay(30000);
 }
 
 

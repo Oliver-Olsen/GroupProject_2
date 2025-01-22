@@ -1,6 +1,6 @@
 /**
  * @file tempHumi.cpp
- * @author Oliver Olsen
+ * @author Oliver Olsen & Markus Kenno
  * @brief Handles the temp/humi measurement
  * @section Moved to a seperate .h file. This clears up the main function, and allows us to controll the functions easier.
  * @version 0.1
