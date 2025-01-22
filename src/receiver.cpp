@@ -20,7 +20,7 @@
 unsigned short int seconds_15 = 15000; // ThingSpeak read/write speed (free subscription)
 
 
-int receive_web = 5;
+int receive_web = 4;
 
 
 /**
