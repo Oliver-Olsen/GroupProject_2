@@ -1,7 +1,0 @@
-..\src\main.cpp
-..\src\recieverModule.cpp
-..\src\recieverModule.h
-..\src\sendRecieveData.cpp
-..\src\sendRecieveData.h
-..\src\stepperPlus.cpp
-..\src\stepperPlus.h
