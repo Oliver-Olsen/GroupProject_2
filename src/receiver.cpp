@@ -4,9 +4,9 @@
  * @brief All the code needed to run the receiver module
  * @version 0.1
  * @date 2025-01-22
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 
 
@@ -25,7 +25,7 @@ int receive_web = 5;
 
 /**
  * @brief Sets up all the necessary function for the receiver module
- * 
+ *
  */
 void receiverSetup()
 {
@@ -41,7 +41,7 @@ void receiverSetup()
 void receiverMain()
 {
    switch(receive_web){
-       case THINGSPEAK_WINDOW: 
+       case THINGSPEAK_WINDOW:
        case THINGSPEAK_LIGHT:
        case THINGSPEAK_SPACEHEATER:
           receiverModule_update(receive_web);

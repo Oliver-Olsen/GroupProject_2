@@ -16,7 +16,7 @@
 #define CONNECT_PORT      80
 #define CHANNEL_NUMBER    2810501UL
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
-const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
+const char Read_APIKey[]  = "AMPXQDNAKUDP9COD";
 
 const char *ssid  = "LW_POCO";
 const char *pswrd = "ezpz42069";
@@ -83,8 +83,6 @@ void sendData_payload(int field, int data, unsigned long channelID, const char *
    //delay(5000);
 }
 
-
-
 /**
  * @author Oliver Olsen
  * @brief Reads the field value
@@ -117,8 +115,3 @@ void sendData_finished()
 {
    client.stop();
 }
-
-
-
-
-
