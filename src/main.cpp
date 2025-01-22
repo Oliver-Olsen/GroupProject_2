@@ -17,7 +17,7 @@
 
 /* This boolean determines if the code should run as a receiver or transmitter
  */
-bool transmitter = false;
+bool transmitter = true;
 
 /**
  * @brief Initiates serial for debugging and runs the setup for the relevant code

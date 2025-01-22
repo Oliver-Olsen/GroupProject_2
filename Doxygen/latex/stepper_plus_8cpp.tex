@@ -1,0 +1,110 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/stepper\+Plus.cpp File Reference}
+\hypertarget{stepper_plus_8cpp}{}\label{stepper_plus_8cpp}\index{C:/Users/olive/GroupProject\_2-\/1/src/stepperPlus.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/stepperPlus.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include "{}stepper\+Plus.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{stepper_plus_8cpp_abc0e9de1ad11261774993fbad495209e}\label{stepper_plus_8cpp_abc0e9de1ad11261774993fbad495209e} 
+\#define {\bfseries SPR}~2048
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{stepper_plus_8cpp_adca4080dba67594d826b1ca960e97be8}\label{stepper_plus_8cpp_adca4080dba67594d826b1ca960e97be8} 
+void {\bfseries stepper\+Init} ()
+\begin{DoxyCompactList}\small\item\em Initializes the stepper function with pin declarations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stepper_plus_8cpp_a792a66eabb7445f98d9814b36320da7f}{stepper\+Rotate}} (int rotation)
+\begin{DoxyCompactList}\small\item\em Main function taking an input of the amount rotaions it should perform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stepper_plus_8cpp_a15224adb0f89ba39a04dfae0d6c8d4c8}{step\+Write}} (int step)
+\begin{DoxyCompactList}\small\item\em Updates the pin states to match that of the current step. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{stepper_plus_8cpp_a5e42c9a5ae32d7f8b356a18faade1f3b}{pins}} \mbox{[}4\mbox{]}
+\item 
+\Hypertarget{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}\label{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33} 
+int {\bfseries step} = 0
+\item 
+const int \mbox{\hyperlink{stepper_plus_8cpp_a7e00cea5ae5184aec45578607a06ba3f}{steps}} \mbox{[}4\mbox{]}\mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Nils Linus Metsälä Wulff 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/21
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{stepper_plus_8cpp_a792a66eabb7445f98d9814b36320da7f}\index{stepperPlus.cpp@{stepperPlus.cpp}!stepperRotate@{stepperRotate}}
+\index{stepperRotate@{stepperRotate}!stepperPlus.cpp@{stepperPlus.cpp}}
+\doxysubsubsection{\texorpdfstring{stepperRotate()}{stepperRotate()}}
+{\footnotesize\ttfamily \label{stepper_plus_8cpp_a792a66eabb7445f98d9814b36320da7f} 
+void stepper\+Rotate (\begin{DoxyParamCaption}\item[{int}]{rotation}{}\end{DoxyParamCaption})}
+
+
+
+Main function taking an input of the amount rotaions it should perform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{stepper_plus_8cpp_a15224adb0f89ba39a04dfae0d6c8d4c8}\index{stepperPlus.cpp@{stepperPlus.cpp}!stepWrite@{stepWrite}}
+\index{stepWrite@{stepWrite}!stepperPlus.cpp@{stepperPlus.cpp}}
+\doxysubsubsection{\texorpdfstring{stepWrite()}{stepWrite()}}
+{\footnotesize\ttfamily \label{stepper_plus_8cpp_a15224adb0f89ba39a04dfae0d6c8d4c8} 
+void step\+Write (\begin{DoxyParamCaption}\item[{int}]{step}{}\end{DoxyParamCaption})}
+
+
+
+Updates the pin states to match that of the current step. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em step} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{stepper_plus_8cpp_a5e42c9a5ae32d7f8b356a18faade1f3b}\index{stepperPlus.cpp@{stepperPlus.cpp}!pins@{pins}}
+\index{pins@{pins}!stepperPlus.cpp@{stepperPlus.cpp}}
+\doxysubsubsection{\texorpdfstring{pins}{pins}}
+{\footnotesize\ttfamily \label{stepper_plus_8cpp_a5e42c9a5ae32d7f8b356a18faade1f3b} 
+int pins\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ D5,\ D6,\ D7,\ D8}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{stepper_plus_8cpp_a7e00cea5ae5184aec45578607a06ba3f}\index{stepperPlus.cpp@{stepperPlus.cpp}!steps@{steps}}
+\index{steps@{steps}!stepperPlus.cpp@{stepperPlus.cpp}}
+\doxysubsubsection{\texorpdfstring{steps}{steps}}
+{\footnotesize\ttfamily \label{stepper_plus_8cpp_a7e00cea5ae5184aec45578607a06ba3f} 
+const int steps\mbox{[}4\mbox{]}\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \{\ 1,\ 1,\ 0,\ 0\ \},}
+\DoxyCodeLine{\ \ \ \{\ 0,\ 1,\ 1,\ 0\ \},}
+\DoxyCodeLine{\ \ \ \{\ 0,\ 0,\ 1,\ 1\ \},}
+\DoxyCodeLine{\ \ \ \{\ 1,\ 0,\ 0,\ 1\ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

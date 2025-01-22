@@ -1,0 +1,205 @@
+\doxysection{C\+:/\+Users/olive/\+Group\+Project\+\_\+2-\/1/src/transmit\+Receive\+Data.h File Reference}
+\hypertarget{transmit_receive_data_8h}{}\label{transmit_receive_data_8h}\index{C:/Users/olive/GroupProject\_2-\/1/src/transmitReceiveData.h@{C:/Users/olive/GroupProject\_2-\/1/src/transmitReceiveData.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{transmit_receive_data_8h_a43e84c29011a62830cb504a7e6b3633e}\label{transmit_receive_data_8h_a43e84c29011a62830cb504a7e6b3633e} 
+\#define {\bfseries THINGSPEAK\+\_\+\+AIRQUALITY}~1
+\item 
+\Hypertarget{transmit_receive_data_8h_a69187a359f39654099118149583e8657}\label{transmit_receive_data_8h_a69187a359f39654099118149583e8657} 
+\#define {\bfseries THINGSPEAK\+\_\+\+MOTION}~2
+\item 
+\Hypertarget{transmit_receive_data_8h_a63bad590158dc782ab888fe04f7ff6de}\label{transmit_receive_data_8h_a63bad590158dc782ab888fe04f7ff6de} 
+\#define {\bfseries THINGSPEAK\+\_\+\+TEMPERATURE}~3
+\item 
+\Hypertarget{transmit_receive_data_8h_a8bf6114f46dfd89aa91dc5e5a8e54408}\label{transmit_receive_data_8h_a8bf6114f46dfd89aa91dc5e5a8e54408} 
+\#define {\bfseries THINGSPEAK\+\_\+\+HUMIDITY}~4
+\item 
+\Hypertarget{transmit_receive_data_8h_a39b317c9a6c1c560fe7fb33f6a4b010a}\label{transmit_receive_data_8h_a39b317c9a6c1c560fe7fb33f6a4b010a} 
+\#define {\bfseries THINGSPEAK\+\_\+\+TRANSMITMAX}~THINGSPEAK\+\_\+\+HUMIDITY
+\item 
+\Hypertarget{transmit_receive_data_8h_a0aa23b1c63f6a5c006f779abaf8c7049}\label{transmit_receive_data_8h_a0aa23b1c63f6a5c006f779abaf8c7049} 
+\#define {\bfseries THINGSPEAK\+\_\+\+WINDOW}~5
+\item 
+\Hypertarget{transmit_receive_data_8h_ac0eca6abb7a3563764f7310180eb496e}\label{transmit_receive_data_8h_ac0eca6abb7a3563764f7310180eb496e} 
+\#define {\bfseries THINGSPEAK\+\_\+\+LIGHT}~6
+\item 
+\Hypertarget{transmit_receive_data_8h_ab0ae2a9459784a65017c551f2691041b}\label{transmit_receive_data_8h_ab0ae2a9459784a65017c551f2691041b} 
+\#define {\bfseries THINGSPEAK\+\_\+\+SPACEHEATER}~7
+\item 
+\Hypertarget{transmit_receive_data_8h_ae6e0afd4ef749e5be1e9886d784c7c27}\label{transmit_receive_data_8h_ae6e0afd4ef749e5be1e9886d784c7c27} 
+\#define {\bfseries THINGSPEAK\+\_\+\+RECEIVEMAX}~THINGSPEAK\+\_\+\+SPACEHEATER
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{transmit_receive_data_8h_af67410a15ecc24ecef0e5abce0c5b30c}{wifi\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Wifi init and Thing\+Speak init. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{transmit_receive_data_8h_aa23d2521fa93ca4f121b302149283f4c}{send\+Data\+\_\+field\+Value}} (int field, float data)
+\begin{DoxyCompactList}\small\item\em Handles float to int. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{transmit_receive_data_8h_ae89a1fba3ccca6906a3a9c751158cc41}{send\+Data\+\_\+field\+Value}} (int field, int data)
+\begin{DoxyCompactList}\small\item\em Handles int to int. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{transmit_receive_data_8h_ae960bc8c3cbc2cdc7ab7c6c1ec7a2604}{send\+Data\+\_\+payload}} (int field, int data, unsigned long channel\+ID, const char \texorpdfstring{$\ast$}{*}Write\+\_\+\+APIKey)
+\begin{DoxyCompactList}\small\item\em sends data to our Thingspeak cloud (Requires Wi\+Fi.\+Begin in setup) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{transmit_receive_data_8h_ad100dad8219bd5c2e6d9c74b50627b75}{read\+Thing\+Speak}} (int field)
+\begin{DoxyCompactList}\small\item\em Reads the field value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{transmit_receive_data_8h_ac8cb2b6e177ae28db398a9da8275b563}{connect\+Thing\+Speak}} ()
+\begin{DoxyCompactList}\small\item\em Similar to {\ttfamily recieve\+Data()} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{transmit_receive_data_8h_a556cc1db6b4060dc5b5c2785f73cb3e8}{send\+Data\+\_\+finished}} ()
+\begin{DoxyCompactList}\small\item\em Ends the connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2025-\/01-\/22
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2025 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{transmit_receive_data_8h_ac8cb2b6e177ae28db398a9da8275b563}\index{transmitReceiveData.h@{transmitReceiveData.h}!connectThingSpeak@{connectThingSpeak}}
+\index{connectThingSpeak@{connectThingSpeak}!transmitReceiveData.h@{transmitReceiveData.h}}
+\doxysubsubsection{\texorpdfstring{connectThingSpeak()}{connectThingSpeak()}}
+{\footnotesize\ttfamily \label{transmit_receive_data_8h_ac8cb2b6e177ae28db398a9da8275b563} 
+void connect\+Thing\+Speak (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Similar to {\ttfamily recieve\+Data()} 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{transmit_receive_data_8h_used}{}\doxysubsection{\texorpdfstring{to smoothly merge with reciever\+Module.\+cpp}{to smoothly merge with reciever\+Module.\+cpp}}\label{transmit_receive_data_8h_used}
+\begin{DoxySeeAlso}{See also}
+recievedata() 
+\end{DoxySeeAlso}
+\Hypertarget{transmit_receive_data_8h_ad100dad8219bd5c2e6d9c74b50627b75}\index{transmitReceiveData.h@{transmitReceiveData.h}!readThingSpeak@{readThingSpeak}}
+\index{readThingSpeak@{readThingSpeak}!transmitReceiveData.h@{transmitReceiveData.h}}
+\doxysubsubsection{\texorpdfstring{readThingSpeak()}{readThingSpeak()}}
+{\footnotesize\ttfamily \label{transmit_receive_data_8h_ad100dad8219bd5c2e6d9c74b50627b75} 
+int read\+Thing\+Speak (\begin{DoxyParamCaption}\item[{int}]{field}{}\end{DoxyParamCaption})}
+
+
+
+Reads the field value. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{transmit_receive_data_8h_used}{}\doxysubsection{\texorpdfstring{to smoothly merge with reciever\+Module.\+cpp}{to smoothly merge with reciever\+Module.\+cpp}}\label{transmit_receive_data_8h_used}
+
+\begin{DoxyParams}{Parameters}
+{\em field} & Decides which data type is received \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{transmit_receive_data_8h_aa23d2521fa93ca4f121b302149283f4c}\index{transmitReceiveData.h@{transmitReceiveData.h}!sendData\_fieldValue@{sendData\_fieldValue}}
+\index{sendData\_fieldValue@{sendData\_fieldValue}!transmitReceiveData.h@{transmitReceiveData.h}}
+\doxysubsubsection{\texorpdfstring{sendData\_fieldValue()}{sendData\_fieldValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{transmit_receive_data_8h_aa23d2521fa93ca4f121b302149283f4c} 
+void send\+Data\+\_\+field\+Value (\begin{DoxyParamCaption}\item[{int}]{field}{, }\item[{float}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Handles float to int. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+works with {\ttfamily send\+Data\+\_\+field\+Value()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em field} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transmit_receive_data_8h_ae89a1fba3ccca6906a3a9c751158cc41}\index{transmitReceiveData.h@{transmitReceiveData.h}!sendData\_fieldValue@{sendData\_fieldValue}}
+\index{sendData\_fieldValue@{sendData\_fieldValue}!transmitReceiveData.h@{transmitReceiveData.h}}
+\doxysubsubsection{\texorpdfstring{sendData\_fieldValue()}{sendData\_fieldValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{transmit_receive_data_8h_ae89a1fba3ccca6906a3a9c751158cc41} 
+void send\+Data\+\_\+field\+Value (\begin{DoxyParamCaption}\item[{int}]{field}{, }\item[{int}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Handles int to int. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{transmit_receive_data_8h_The}{}\doxysubsection{\texorpdfstring{two functions {\ttfamily send\+Data\+\_\+field\+Value()} ans {\ttfamily send\+Data\+\_\+field\+Value()}. Deppending on if it\textquotesingle{}s an int or a float, the correct function will be chosen automatically.}{two functions {\ttfamily send\+Data\+\_\+field\+Value()} ans {\ttfamily send\+Data\+\_\+field\+Value()}. Deppending on if it\textquotesingle{}s an int or a float, the correct function will be chosen automatically.}}\label{transmit_receive_data_8h_The}
+\begin{DoxySeeAlso}{See also}
+works with {\ttfamily send\+Data\+\_\+field\+Value()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em field} & \\
+\hline
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transmit_receive_data_8h_a556cc1db6b4060dc5b5c2785f73cb3e8}\index{transmitReceiveData.h@{transmitReceiveData.h}!sendData\_finished@{sendData\_finished}}
+\index{sendData\_finished@{sendData\_finished}!transmitReceiveData.h@{transmitReceiveData.h}}
+\doxysubsubsection{\texorpdfstring{sendData\_finished()}{sendData\_finished()}}
+{\footnotesize\ttfamily \label{transmit_receive_data_8h_a556cc1db6b4060dc5b5c2785f73cb3e8} 
+void send\+Data\+\_\+finished (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ends the connection. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
+\hypertarget{transmit_receive_data_8h_Currently}{}\doxysubsection{\texorpdfstring{not used}{not used}}\label{transmit_receive_data_8h_Currently}
+\Hypertarget{transmit_receive_data_8h_ae960bc8c3cbc2cdc7ab7c6c1ec7a2604}\index{transmitReceiveData.h@{transmitReceiveData.h}!sendData\_payload@{sendData\_payload}}
+\index{sendData\_payload@{sendData\_payload}!transmitReceiveData.h@{transmitReceiveData.h}}
+\doxysubsubsection{\texorpdfstring{sendData\_payload()}{sendData\_payload()}}
+{\footnotesize\ttfamily \label{transmit_receive_data_8h_ae960bc8c3cbc2cdc7ab7c6c1ec7a2604} 
+void send\+Data\+\_\+payload (\begin{DoxyParamCaption}\item[{int}]{field}{, }\item[{int}]{data}{, }\item[{unsigned long}]{channel\+ID}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{Write\+\_\+\+APIKey}{}\end{DoxyParamCaption})}
+
+
+
+sends data to our Thingspeak cloud (Requires Wi\+Fi.\+Begin in setup) 
+
+\begin{DoxyAuthor}{Author}
+Marcus \& Emil 
+\end{DoxyAuthor}
+\hypertarget{transmit_receive_data_8h_field}{}\doxysubsection{\texorpdfstring{1 = CO2 , field 2 = Sound, field 3 = Temperature, field 4 Humidity}{1 = CO2 , field 2 = Sound, field 3 = Temperature, field 4 Humidity}}\label{transmit_receive_data_8h_field}
+
+\begin{DoxyParams}{Parameters}
+{\em field} & which Thingspeak field the data is sent to (1-\/8) \\
+\hline
+{\em data} & data to be sent \\
+\hline
+{\em channel\+ID} & The channel ID \\
+\hline
+{\em Write\+\_\+\+APIKey} & The key to write to Thingspeak \\
+\hline
+\end{DoxyParams}
+\Hypertarget{transmit_receive_data_8h_af67410a15ecc24ecef0e5abce0c5b30c}\index{transmitReceiveData.h@{transmitReceiveData.h}!wifi\_init@{wifi\_init}}
+\index{wifi\_init@{wifi\_init}!transmitReceiveData.h@{transmitReceiveData.h}}
+\doxysubsubsection{\texorpdfstring{wifi\_init()}{wifi\_init()}}
+{\footnotesize\ttfamily \label{transmit_receive_data_8h_af67410a15ecc24ecef0e5abce0c5b30c} 
+void wifi\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Wifi init and Thing\+Speak init. 
+
+\begin{DoxyAuthor}{Author}
+Oliver Olsen 
+\end{DoxyAuthor}
