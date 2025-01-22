@@ -41,9 +41,9 @@ void receiverSetup()
 void receiverMain()
 {
    switch(receive_web){
-       case THINGSPEAK_WINDOW:
-       case THINGSPEAK_LIGHT:
-       case THINGSPEAK_SPACEHEATER:
+       case 5:
+       case 6:
+       case 7:
           receiverModule_update(receive_web);
 
 
@@ -51,7 +51,7 @@ void receiverMain()
           break;
        }
 
-   if(receive_web >= THINGSPEAK_RECEIVEMAX){
+   if(receive_web >= 7){
       receive_web = 4;
       }
 

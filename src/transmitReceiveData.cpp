@@ -14,7 +14,8 @@
 #include "transmitReceiveData.h"
 
 #define CONNECT_PORT      80
-#define CHANNEL_NUMBER    2810501UL
+#define SEND_CHANNEL_NUMBER    2810501UL
+#define RECEIVE_CHANNEL_NUMBER 2815518UL
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
 const char Read_APIKey[]  = "AMPXQDNAKUDP9COD";
 
@@ -48,7 +49,7 @@ void sendData_fieldValue(int field, float data)
 {
    int value = (int)(data * 100);
 
-   sendData_payload(field, value, CHANNEL_NUMBER, Write_APIKey);
+   sendData_payload(field, value, SEND_CHANNEL_NUMBER, Write_APIKey);
 }
 
 /**
@@ -62,7 +63,7 @@ void sendData_fieldValue(int field, float data)
  */
 void sendData_fieldValue(int field, int data)
 {
-   sendData_payload(field, data, CHANNEL_NUMBER, Write_APIKey);
+   sendData_payload(field, data, SEND_CHANNEL_NUMBER, Write_APIKey);
 }
 
 /**
@@ -92,7 +93,7 @@ void sendData_payload(int field, int data, unsigned long channelID, const char *
  */
 int readThingSpeak(int field)
 {
-   return(ThingSpeak.readIntField(CHANNEL_NUMBER, field, Read_APIKey));
+   return(ThingSpeak.readIntField(RECEIVE_CHANNEL_NUMBER, field, Read_APIKey));
 }
 
 /**
