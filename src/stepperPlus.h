@@ -9,12 +9,12 @@
  * 
  */
 
-#ifndef STEPPER_H
-#define STEPPER_H
+#ifndef STEPPERPLUS_H
+#define STEPPERPLUS_H
 
 //Initializes custom functions
 void stepWrite(int step); 
-void stepperInit(int IN1, int IN2, int IN3, int IN4); 
+void stepperInit(); 
 void stepperRotate(int rotation); 
 
-#endif // STEPPER_H
+#endif // STEPPERPLUS_H

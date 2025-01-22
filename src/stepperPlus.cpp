@@ -1,5 +1,5 @@
 /**
- * @file stepperControl.cpp
+ * @file stepperPlus.cpp
  * @author Nils Linus Metsälä Wulff (s223968@student.dtu.dk)
  * @brief 
  * @version 0.1
@@ -10,25 +10,20 @@
  */
 
 #include <Arduino.h>
-#include "stepper.h"
+#include "stepperPlus.h"
 
 /* Preamble with pin definitions and value declarations: 
 */
-//Pin definitions
-int IN1; 
-int IN2; 
-int IN3;  
-int IN4; 
 
 //Defines the amount of steps per revolution 
 #define SPR 2048
 
 //Creates an array containing pin values
-const int pins[4] = {
-  IN1, IN2, IN3, IN4
+int pins[4] = {
+  D5, D6, D7, D8
 }; 
 
-//An integer to keep track of the current state
+//An integer to keep track of the current step
 int step = 0; 
 
 //Creates an array containing pin states per step
@@ -44,11 +39,7 @@ const int steps[4][4] = {
  * @brief Initializes the stepper function with pin declarations
  * 
  */
-void stepperInit(int IN1, int IN2, int IN3, int IN4) {
-  IN1 = IN1; 
-  IN2 = IN2;   
-  IN3 = IN3; 
-  IN4 = IN4; 
+void stepperInit() {
   for (int i = 0; i < 4; i++) { //Loops through all the four pins and sets them as OUTPUTS
     pinMode(pins[i], OUTPUT); 
   
@@ -64,6 +55,7 @@ void stepperInit(int IN1, int IN2, int IN3, int IN4) {
 void stepperRotate(int rotation) {
   //Checks if the input is positive 
   if (rotation > 0) {
+    Serial.println(rotation); //Serial readout used for debugging
     for (int i = 0; i < (rotation * SPR); i++) {//While the stepper motor hasn't turned the decided amount it will perfom these steps: 
       //1: Check if the step count is above 3, which indicates it has completed a cycle
       if (step > 3) {
@@ -81,6 +73,7 @@ void stepperRotate(int rotation) {
 
   //Checks if the input is negative 
   if (rotation < 0) {
+    Serial.println(rotation); //Serial readout used for debugging
     for (int i = (rotation * SPR); i < 0; i++) {//While the stepper motor hasn't turned the decided amount it will perfom these steps: 
       //1: Check if the step count is below 0, which indicates it has completed a cycle
       if (step < 0) {
