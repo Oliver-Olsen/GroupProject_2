@@ -1,6 +1,6 @@
 /**
  * @file recieverModule.h
- * @author Nils
+ * @author Nils Linus Metsälä Wulff
  * @brief
  * @version 0.1
  * @date 2025-01-17
