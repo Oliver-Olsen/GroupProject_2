@@ -15,16 +15,28 @@
 #include "receiver.h"
 #include "transmitter.h"
 
+/* This boolean determines if the code should run as a receiver or transmitter
+*/
+bool transmitter = false; 
 
-bool transmitter = true; 
-
+/**
+ * @brief Initiates serial for debugging and runs the setup for the relevant code
+ * 
+ */
 void setup() {
     Serial.begin(115200);
-    receiverSetup(); 
-    transmitterSetup(); 
+
+    if (transmitter == true) {
+        transmitterSetup(); 
+    }  else {
+        receiverSetup();  
+    }  
 }
 
-
+/**
+ * @brief Loops through the relevant code for the application
+ * 
+ */
 void loop()
 {
     if (transmitter == true) {
