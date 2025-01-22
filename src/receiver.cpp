@@ -41,9 +41,9 @@ void receiverSetup()
 void receiverMain()
 {
    switch(receive_web){
-       case 5:
-       case 6:
-       case 7:
+       case THINGSPEAK_WINDOW:
+       case THINGSPEAK_LIGHT:
+       case THINGSPEAK_SPACEHEATER:
           receiverModule_update(receive_web);
 
 
