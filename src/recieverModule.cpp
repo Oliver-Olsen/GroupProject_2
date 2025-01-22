@@ -1,165 +1,152 @@
 /**
  * @file recieverModule.cpp
- * @author Nils Linus Metsälä Wulff, s223968@student.dtu.dk
- * @brief 
+ * @author Oliver Olsen & Nils Linus Metsälä Wulff
+ * @brief Main code used for contolling the recieving end of the system
  * @version 0.1
  * @date 2025-01-16
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 
-//Libraries used: 
-#include <Stepper.h>
 #include <Servo.h>
 #include "recieverModule.h"
 #include "sendRecieveData.h"
+#include "stepperPlus.h"
+
 
 /* Pin definitions
-*  Four pins are used to control the stepper motor (Heating control)
-*  One pin is used to control the servo motor (Window actuation)
-*  One pint is used to control the lights
-*/
-#define IN1 5
-#define IN3 7
-#define IN2 6
-#define IN4 8
-#define servoPin 2
-#define lightPin 0
+ *  Four pins are used to control the stepper motor (Heating control)
+ *  One pin is used to control the servo motor (Window actuation)
+ *  One pint is used to control the lights
+ */
+
+const int servoPin = D2;
+const int lightPin = D0;
 
 // Motor configuration
-#define stepsPerRevolution 2038 //The amount of steps in a rotation from the stepper motor
-Stepper tempControl = Stepper(stepsPerRevolution, IN1, IN3, IN2, IN4); //Creates a Stepper class called 'tempControl'
 Servo windowControl; //Creates a Servo class called 'windowControl'
 
-
-// Values for the active elements
-//The ThingSpeak channel IDs of the different elements
-int servoChannel = 0; 
-int stepperChannel = 0; 
-int lightChannel = 0; 
-
-//The current values read from ThingSpeak
-int servoD = 0; 
-int stepperD = 0; 
-int lightD = 0; 
-
-//The previous values from ThingSpeak
-int servoP = 0; 
-int stepperP = 0; 
-int lightP = 0; 
-
-//Creates an array from all the different values to ease optimization
-int data[3][3] = {
-  {servoD, servoP, servoChannel}, 
-  {stepperD, stepperP, stepperChannel}, 
-  {lightD, lightP, lightChannel}
-}; 
-
-//Timer for delay
-unsigned long timer = 0; 
+int pServo    = 0;
+int pStepper  = 0;
+int pLight    = 0;
+int pRotation = 0;
 
 
 /**
- * @brief Sets up initial values
- * 
- * @param windowCh 
- * @param heaterCh 
- * @param lightCh 
+ * @brief Performs all the necessary setup for the receiver module to work correctly
+ *
  */
-void receiverModule_init(int windowCh, int heaterCh, int lightCh) {
-  //Assigns the correct channel values
-  servoChannel = windowCh; 
-  stepperChannel = heaterCh; 
-  lightChannel = lightCh; 
-
-  tempControl.setSpeed(10); //Sets the stepper motors speed to 10RPM
-  windowControl.attach(servoPin); //Attaches the pin 18 to the servo motor class
-  pinMode(lightPin, OUTPUT); 
-}
-
-
-/**
- * @brief Updates all the attached modules
- * 
- */
-void receiverModule_update(unsigned short delay) {
-  if ((millis() + timer) >= delay) { //Inserts a non-blocking delay
-    connectThingSpeak();
-
-    for (int i = 0; i < 3; i++) { //Loopes through all modules
-        data[i][0] = readThingSpeak(data[i][2]); //Reads the relevant ThingSpeak data for the current modules
-
-        if (data[i][0] != data[i][1]) { //Checks if an update has occured in the data for the current module
-        switch (i) { //Runs different function depending on what module is currently active
-            case 0: 
-            servoControl(data[i][0]); //Runs the servo motor
-            break;
-
-            case 1: 
-            stepperControl(data[i][0]); //Runs the stepper motor
-            break; 
-
-            case 2: 
-            lightControl(lightD); //Switches the light
-            break; 
-
-            default: 
-            break; 
-        }
-
-        data[i][1] = data[i][0]; //Updates the previous value
-        }
-    }
-
-    sendData_finished(); //Ends WiFi communication
-
-    timer = millis(); //Updates the timer
-  }
+void receiverModule_init(void)
+{
+   stepperInit();
+   windowControl.attach(servoPin); //Attaches the pin 2 to the servo motor class
+   pinMode(lightPin, OUTPUT);
 }
 
 /**
- * @brief Code to control the servo motor
- * 
- * @param input 
+ * @brief Reads the data from 'field' and runs the relevant functions for that field
+ *
+ * @param field
  */
-void servoControl(int input) {
-  switch (input) {
-    case -1: //If the input value is -1, closes the window
-    windowControl.write(0); //Sets the target value of the servo to 0°
-    delay(3000); //Waits for three seconds while the servo turns
-    break; 
+void receiverModule_update(uint32_t field)
+{
+   connectThingSpeak();
 
-    case 1: //If the input value is 1, opens the window
-    windowControl.write(180); //Sets the target value of the servo to 180°
-    delay(3000); //Waits for three seconds while the servo turns
-    break; 
+   int reading;
+   Serial.println(field);  //Serial readout used for debugging
+   switch(field){
+       case 5:
+          reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
+          Serial.println(reading);         //Serial readout used for debugging
+          pServo = reading;
+          servoControl(pServo);
+          break;
 
-    default: //All other values don't change the window status
-    break; 
-  }
+
+       case 6:
+          reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
+          Serial.println(reading);         //Serial readout used for debugging
+          pLight = reading;
+          lightControl(pLight);
+          break;
+
+       case 7:
+          reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
+          Serial.println(reading);         //Serial readout used for debugging
+          pStepper = reading;
+          stepperControl(pStepper);
+          break;
+
+       default:
+
+          break;
+       }
+}
+
+/**
+ * @brief Controls the servo motor
+ *
+ * @param input
+ */
+void servoControl(int input)
+{
+   switch(input){
+       case -1:                           //If the input value is -1, closes the window
+          Serial.println("Window close"); //Serial readout used for debugging
+          windowControl.write(0);         //Sets the target value of the servo to 0°
+          break;
+
+       case 1:                           //If the input value is 1, opens the window
+          Serial.println("Window open"); //Serial readout used for debugging
+          windowControl.write(180);      //Sets the target value of the servo to 180°
+          break;
+
+       default: //All other values don't change the window status
+          break;
+       }
 }
 
 /**
  * @brief Controls the stepper motor
- * 
- * @param steps 
- * @param rotations 
+ *
+ * @param steps
+ * @param rotations
  */
-void stepperControl(int rotations) {
-  tempControl.step(stepsPerRevolution * rotations); //Rotates the stepper motor for a defined number of rotations
-  delay(1000); //Waits for a second before continuing
+void stepperControl(int rotations)
+{
+   if(rotations != pRotation){ //Checks if a new value has been recieved
+      switch(rotations){
+          case -1:
+             Serial.println("CCW"); //Serial readout used for debugging
+             stepperRotate(1);
+             break;
+
+          case 1:
+             Serial.println("CW"); //Serial readout used for debugging
+             stepperRotate(-1);
+             break;
+
+          default:
+             break;
+          }
+      pRotation = rotations; //Updates previous value
+      }
 }
 
 /**
  * @brief Turns on/off the lights
- * 
- * @param state 
+ *
+ * @param state
  */
-void lightControl(int state) {
-  if (state == 0) { //If the input i zero, turns the lights off
-    digitalWrite(lightPin, LOW); 
-  } else { //Otherwise the lights are on
-    digitalWrite(lightPin, HIGH); 
-  }
+void lightControl(int state)
+{
+   if(state == 0){                 //If the input i zero, turns the lights off
+      Serial.println("Light OFF"); //Serial readout used for debugging
+      digitalWrite(lightPin, LOW);
+      }
+   else{                           //Otherwise the lights are on
+       Serial.println("Light ON"); //Serial readout used for debugging
+       digitalWrite(lightPin, HIGH);
+       }
 }
