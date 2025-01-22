@@ -1,7 +1,7 @@
 /**
  * @file recieverModule.cpp
- * @author Nils Linus Metsälä Wulff, s223968@student.dtu.dk
- * @brief
+ * @author Oliver Olsen & Nils Linus Metsälä Wulff
+ * @brief Main code used for contolling the recieving end of the system
  * @version 0.1
  * @date 2025-01-16
  *
@@ -9,109 +9,97 @@
  *
  */
 
-//Libraries used:
-#include <Stepper.h>
 #include <Servo.h>
 #include "recieverModule.h"
 #include "sendRecieveData.h"
+#include "stepperPlus.h"
+
 
 /* Pin definitions
 *  Four pins are used to control the stepper motor (Heating control)
 *  One pin is used to control the servo motor (Window actuation)
 *  One pint is used to control the lights
 */
-#define IN1 5
-#define IN3 7
-#define IN2 6
-#define IN4 8
-#define servoPin 2
-#define lightPin 0
+ 
+const int servoPin = D2; 
+const int lightPin = D0; 
 
 // Motor configuration
-#define stepsPerRevolution 32 //The amount of steps in a rotation from the stepper motor
-Stepper tempControl(stepsPerRevolution, IN1, IN3, IN2, IN4); //Creates a Stepper class called 'tempControl'
 Servo windowControl; //Creates a Servo class called 'windowControl'
 
-
-typedef struct
-{
-  int servo;
-  int stepper;
-  int light;
-} Previous_Values;
+int pServo = 0; 
+int pStepper = 0; 
+int pLight = 0; 
+int pRotation = 0;
 
 
-Previous_Values pv;
-
-
-
+/**
+ * @brief Performs all the necessary setup for the receiver module to work correctly
+ * 
+ */
 void receiverModule_init(void) 
 {
-  memset(&pv, 0, sizeof(pv));
-
-  tempControl.setSpeed(10); //Sets the stepper motors speed to 10RPM
-  windowControl.attach(servoPin); //Attaches the pin 18 to the servo motor class
+  stepperInit(); 
+  windowControl.attach(servoPin); //Attaches the pin 2 to the servo motor class
   pinMode(lightPin, OUTPUT);
 }
 
-
-
+/**
+ * @brief Reads the data from 'field' and runs the relevant functions for that field 
+ * 
+ * @param field 
+ */
 void receiverModule_update(uint32_t field) 
 {
     connectThingSpeak();
 
     int reading;
-    Serial.print(field);
+    Serial.println(field); //Serial readout used for debugging
     switch (field)
     {
-      case THINGSPEAK_AIRQUALITY:
+      case 5:
         reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
-        if (pv.servo != reading)
-        {
-          pv.servo = reading;
-          servoControl(pv.servo);
-        }
+        Serial.println(reading); //Serial readout used for debugging
+        pServo = reading;
+        servoControl(pServo);
         break;
 
-      case THINGSPEAK_TEMPERATURE:
-      case THINGSPEAK_HUMIDITY:
+
+      case 6:
         reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
-        if (pv.stepper != reading)
-        {
-          pv.stepper = reading;
-          stepperControl(pv.stepper);
-        }
+        Serial.println(reading); //Serial readout used for debugging
+        pLight = reading;
+        lightControl(pLight);
+        break;
+        
+      case 7:
+        reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
+        Serial.println(reading); //Serial readout used for debugging
+        pStepper = reading;
+        stepperControl(pStepper);
         break;
 
-      case THINGSPEAK_MOTION:
-        reading = readThingSpeak(field); //Reads the relevant ThingSpeak data for the current modules
-        if (pv.light != reading)
-        {
-          pv.light = reading;
-          lightControl(pv.light);
-        }
-        break;
-        default:
+      default:
         
         break;
   }
 }
 
 /**
- * @brief Code to control the servo motor
+ * @brief Controls the servo motor
  *
  * @param input
  */
 void servoControl(int input) {
   switch (input) {
     case -1: //If the input value is -1, closes the window
+    Serial.println("Window close"); //Serial readout used for debugging
     windowControl.write(0); //Sets the target value of the servo to 0°
-    //delay(3000); //Waits for three seconds while the servo turns
     break;
 
     case 1: //If the input value is 1, opens the window
+    Serial.println("Window open"); //Serial readout used for debugging
     windowControl.write(180); //Sets the target value of the servo to 180°
-    //delay(3000); //Waits for three seconds while the servo turns
     break;
 
     default: //All other values don't change the window status
@@ -125,9 +113,25 @@ void servoControl(int input) {
  * @param steps
  * @param rotations
  */
-void stepperControl(int rotations) {
-  //tempControl.step(1); //Rotates the stepper motor for a defined number of rotations.         Causes WatchDog error
-  //delay(1000); //Waits for a second before continuing
+void stepperControl(int rotations) { 
+  if (rotations != pRotation) {//Checks if a new value has been recieved
+    switch (rotations)
+    {
+    case -1: 
+      Serial.println("CCW"); //Serial readout used for debugging
+      stepperRotate(1); 
+      break;
+      
+    case 1:
+      Serial.println("CW"); //Serial readout used for debugging
+      stepperRotate(-1); 
+      break;
+    
+    default:
+      break;
+    }
+    pRotation = rotations; //Updates previous value
+  }
 }
 
 /**
@@ -137,8 +141,10 @@ void stepperControl(int rotations) {
  */
 void lightControl(int state) {
   if (state == 0) { //If the input i zero, turns the lights off
+    Serial.println("Light OFF"); //Serial readout used for debugging
     digitalWrite(lightPin, LOW);
   } else { //Otherwise the lights are on
+    Serial.println("Light ON"); //Serial readout used for debugging
     digitalWrite(lightPin, HIGH);
   }
 }
