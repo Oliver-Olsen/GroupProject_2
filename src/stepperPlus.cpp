@@ -1,6 +1,6 @@
 /**
  * @file stepperPlus.cpp
- * @author Nils Linus Metsälä Wulff (s223968@student.dtu.dk)
+ * @author Nils Linus Metsälä Wulff
  * @brief
  * @version 0.1
  * @date 2025-01-21

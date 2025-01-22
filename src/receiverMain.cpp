@@ -24,9 +24,8 @@ int update_web = 5;
 
 
 /**
- * @author Oliver olsen
- * @brief Init of sensors and modules
- * @section Inits the correct elements, depending on if the station is on the recieving end or sending end
+ * @brief Sets up all the necessary function for the receiver module
+ * 
  */
 void receiverSetup()
 {
