@@ -1,5 +1,5 @@
 /**
- * @file receiverMain.h
+ * @file receiver.h
  * @author Nils Linus Metsälä Wulff
  * @brief 
  * @version 0.1
@@ -9,11 +9,11 @@
  * 
  */
 
-#ifndef RECEIVERMAIN_H
-#define RECEIVERMAIN_H
+#ifndef RECEIVER_H
+#define RECEIVER_H
 
 //Initializes custom functions
 void receiverSetup(); 
 void receiverMain(); 
 
-#endif // RECEIVERMAIN_H
+#endif // RECEIVER_H

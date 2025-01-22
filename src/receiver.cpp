@@ -1,5 +1,5 @@
 /**
- * @file receiverMain.cpp
+ * @file receiver.cpp
  * @author Nils Linus Metsälä Wulff
  * @brief All the code needed to run the receiver module
  * @version 0.1

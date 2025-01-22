@@ -11,7 +11,7 @@
 
 #include <Servo.h>
 #include "recieverModule.h"
-#include "sendRecieveData.h"
+#include "receiveData.h"
 #include "stepperPlus.h"
 
 
