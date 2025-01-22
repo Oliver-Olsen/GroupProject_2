@@ -13,7 +13,7 @@
 
 #include <Arduino.h>
 #include "transmitter.h"
-#include "sendRecieveData.h"
+#include "transmitReceiveData.h"
 #include "airQual.h"
 #include "tempHumi.h"
 #include "motionSensor.h"
@@ -31,7 +31,7 @@ bool  motion_val   = false; // Intial Value of the Sensor.
 unsigned short int seconds_30 = 30000; // ThingSpeak read/write speed is 15 seconds(free subscription)
 
 
-int update_web = 0;
+int transmit_web = 0;
 
 
 /**
@@ -63,7 +63,7 @@ void transmitterMain()
     * @brief Uodates a sensor pr. 30 seconds
     *
     */
-   switch(update_web){
+   switch(transmit_web){
        case THINGSPEAK_AIRQUALITY:
           tempHumi_read(&temperature, &humidity);
           airQual_measurement(&temperature, &humidity);
@@ -92,12 +92,12 @@ void transmitterMain()
        }
 
    // Resets counter, so each sensor/module updates
-   if(update_web >= THINGSPEAK_MAX){
-      update_web = 0;
+   if(transmit_web >= THINGSPEAK_TRANSMITMAX){
+      transmit_web = 0;
       }
 
    // Extra motion sensor update, to ensure motion detection is detected
    motionSensor_detect(&motion_state, &motion_val);
    delay(seconds_30);  // Thingspeak delay (15 seconds), 30 seconds just in case
-   update_web++;
+   transmit_web++;
 }

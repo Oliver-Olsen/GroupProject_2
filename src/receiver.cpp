@@ -12,7 +12,7 @@
 
 
 #include <Arduino.h>
-#include "sendRecieveData.h"
+#include "transmitReceiveData.h"
 #include "recieverModule.h"
 
 
@@ -20,7 +20,7 @@
 unsigned short int seconds_15 = 15000; // ThingSpeak read/write speed (free subscription)
 
 
-int update_web = 5;
+int receive_web = 5;
 
 
 /**
@@ -40,23 +40,23 @@ void receiverSetup()
  */
 void receiverMain()
 {
-   switch(update_web){
-       case 5: 
-       case 6:
-       case 7:
-          receiverModule_update(update_web);
+   switch(receive_web){
+       case THINGSPEAK_WINDOW: 
+       case THINGSPEAK_LIGHT:
+       case THINGSPEAK_SPACEHEATER:
+          receiverModule_update(receive_web);
 
 
        default:
           break;
        }
 
-   if(update_web >= THINGSPEAK_MAX){
-      update_web = 4;
+   if(receive_web >= THINGSPEAK_RECEIVEMAX){
+      receive_web = 4;
       }
 
    delay(seconds_15);
-   update_web++;
+   receive_web++;
 
    Serial.println(".");
 }

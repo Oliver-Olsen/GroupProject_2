@@ -11,11 +11,12 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <ThingSpeak.h>
-#include "sendData.h"
+#include "transmitReceiveData.h"
 
 #define CONNECT_PORT      80
 #define CHANNEL_NUMBER    2810501UL
 const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
+const char Read_APIKey[] = "AMPXQDNAKUDP9COD";
 
 const char *ssid  = "LW_POCO";
 const char *pswrd = "ezpz42069";
@@ -75,11 +76,25 @@ void sendData_fieldValue(int field, int data)
  */
 void sendData_payload(int field, int data, unsigned long channelID, const char *Write_APIKey)
 {
-   connectTingSpeak();
+   connectThingSpeak();
    ThingSpeak.setField(field, data);
    ThingSpeak.writeFields(channelID, Write_APIKey);
    // Delay of 5 seconds to make sure the data is recieved correctly by thingspeak
    //delay(5000);
+}
+
+
+
+/**
+ * @author Oliver Olsen
+ * @brief Reads the field value
+ * @section used to smoothly merge with recieverModule.cpp
+ * @param field Decides which data type is received
+ * @return int
+ */
+int readThingSpeak(int field)
+{
+   return(ThingSpeak.readIntField(CHANNEL_NUMBER, field, Read_APIKey));
 }
 
 /**
@@ -88,7 +103,7 @@ void sendData_payload(int field, int data, unsigned long channelID, const char *
  * @section used to smoothly merge with recieverModule.cpp
  * @see recievedata()
  */
-void connectTingSpeak()
+void connectThingSpeak()
 {
    client.connect("api.thingspeak.com", CONNECT_PORT);
 }
@@ -102,3 +117,8 @@ void sendData_finished()
 {
    client.stop();
 }
+
+
+
+
+

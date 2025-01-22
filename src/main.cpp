@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author Nils Linus Metsälä Wulff
- * @brief 
+ * @brief Decides if the station is reciever or transmitter
  * @version 0.1
  * @date 2025-01-22
  * 
