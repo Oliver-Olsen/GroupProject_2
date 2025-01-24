@@ -1,6 +1,6 @@
 /**
  * @file receiver.cpp
- * @author Nils Linus Metsälä Wulff
+ * @author Oliver Olsen
  * @brief All the code needed to run the receiver module
  * @version 0.1
  * @date 2025-01-22
