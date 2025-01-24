@@ -1,3 +1,4 @@
+% Author Emil
 % Channel ID to read data from 
 ChannelIDRead = 2810501; 
 ChannelIDWrite = 2815518;
