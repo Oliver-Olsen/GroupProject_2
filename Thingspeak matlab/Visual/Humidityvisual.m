@@ -1,4 +1,4 @@
-
+% Author Emil
 % Channel ID to read data from 
 ChannelID = 2810501; 
 % Temperature Field ID 
