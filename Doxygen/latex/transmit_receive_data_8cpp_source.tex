@@ -1,0 +1,67 @@
+\doxysection{transmit\+Receive\+Data.\+cpp}
+\hypertarget{transmit_receive_data_8cpp_source}{}\label{transmit_receive_data_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/transmitReceiveData.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/transmitReceiveData.cpp}}
+\mbox{\hyperlink{transmit_receive_data_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <WiFi.h>}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <ThingSpeak.h>}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transmit_receive_data_8h}{transmitReceiveData.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00016}\mbox{\hyperlink{transmit_receive_data_8cpp_a00eb6eef3bd0e3bd7b49a0755746e55a}{00016}}\ \textcolor{preprocessor}{\#define\ CONNECT\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ 80\ \ \ \ \ \ \ \ }\textcolor{comment}{//\ ThingSpeak\ Port}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00017}\mbox{\hyperlink{transmit_receive_data_8cpp_a0c8a65d532ff6598f0cfcf6d677bc45b}{00017}}\ \textcolor{preprocessor}{\#define\ SEND\_CHANNEL\_NUMBER\ \ \ \ \ \ \ 1234567UL\ }\textcolor{comment}{//\ replace\ numers\ 1234567\ with\ the\ channel\ number\ of\ Thingspeak}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00018}\mbox{\hyperlink{transmit_receive_data_8cpp_a7d76d5d6c0be6037a8b8d7749315d875}{00018}}\ \textcolor{preprocessor}{\#define\ RECEIVE\_CHANNEL\_NUMBER\ \ \ \ 1234567UL\ }\textcolor{comment}{//\ replace\ numers\ 1234567\ with\ the\ channel\ number\ of\ Thingspeak}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00019}\mbox{\hyperlink{transmit_receive_data_8cpp_a091eb87ba56dcf4841ca14c5e3be8861}{00019}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{transmit_receive_data_8cpp_a091eb87ba56dcf4841ca14c5e3be8861}{Write\_APIKey}}[]\ =\ \textcolor{stringliteral}{"{}WRITE\_KEY"{}};}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00020}\mbox{\hyperlink{transmit_receive_data_8cpp_aff48e7bb0b24edd5f4e817b604049f7f}{00020}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{transmit_receive_data_8cpp_aff48e7bb0b24edd5f4e817b604049f7f}{Read\_APIKey}}[]\ \ =\ \textcolor{stringliteral}{"{}READ\_KEY"{}};}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00022}\mbox{\hyperlink{transmit_receive_data_8cpp_a587ba0cb07f02913598610049a3bbb79}{00022}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{transmit_receive_data_8cpp_a587ba0cb07f02913598610049a3bbb79}{ssid}}\ \ =\ \textcolor{stringliteral}{"{}WIFI\_NAME"{}};}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00023}\mbox{\hyperlink{transmit_receive_data_8cpp_ad596c411bb0f61f7515c2f54cd825c21}{00023}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{transmit_receive_data_8cpp_ad596c411bb0f61f7515c2f54cd825c21}{pswrd}}\ =\ \textcolor{stringliteral}{"{}WIFI\_PASSWORD"{}};}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00026}00026\ \textcolor{comment}{//\ WiFi\ Variables}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00027}\mbox{\hyperlink{transmit_receive_data_8cpp_a323dfc205549b3c13f0a25c1b670708a}{00027}}\ WiFiClient\ \mbox{\hyperlink{transmit_receive_data_8cpp_a323dfc205549b3c13f0a25c1b670708a}{client}};}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00034}\mbox{\hyperlink{transmit_receive_data_8cpp_af67410a15ecc24ecef0e5abce0c5b30c}{00034}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8cpp_af67410a15ecc24ecef0e5abce0c5b30c}{wifi\_init}}()}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00036}00036\ \ \ \ WiFi.begin(\mbox{\hyperlink{transmit_receive_data_8cpp_a587ba0cb07f02913598610049a3bbb79}{ssid}},\ \mbox{\hyperlink{transmit_receive_data_8cpp_ad596c411bb0f61f7515c2f54cd825c21}{pswrd}});}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00037}00037\ \ \ \ ThingSpeak.begin(\mbox{\hyperlink{transmit_receive_data_8cpp_a323dfc205549b3c13f0a25c1b670708a}{client}});}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00048}\mbox{\hyperlink{transmit_receive_data_8cpp_aa23d2521fa93ca4f121b302149283f4c}{00048}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8cpp_aa23d2521fa93ca4f121b302149283f4c}{sendData\_fieldValue}}(\textcolor{keywordtype}{int}\ field,\ \textcolor{keywordtype}{float}\ data)}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00050}00050\ \ \ \ \textcolor{keywordtype}{int}\ value\ =\ (int)(data\ *\ 100);}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00052}00052\ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_ae960bc8c3cbc2cdc7ab7c6c1ec7a2604}{sendData\_payload}}(field,\ value,\ \mbox{\hyperlink{transmit_receive_data_8cpp_a0c8a65d532ff6598f0cfcf6d677bc45b}{SEND\_CHANNEL\_NUMBER}},\ \mbox{\hyperlink{transmit_receive_data_8cpp_a091eb87ba56dcf4841ca14c5e3be8861}{Write\_APIKey}});}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00064}\mbox{\hyperlink{transmit_receive_data_8cpp_ae89a1fba3ccca6906a3a9c751158cc41}{00064}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8cpp_aa23d2521fa93ca4f121b302149283f4c}{sendData\_fieldValue}}(\textcolor{keywordtype}{int}\ field,\ \textcolor{keywordtype}{int}\ data)}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00065}00065\ \{}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00066}00066\ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_ae960bc8c3cbc2cdc7ab7c6c1ec7a2604}{sendData\_payload}}(field,\ data,\ \mbox{\hyperlink{transmit_receive_data_8cpp_a0c8a65d532ff6598f0cfcf6d677bc45b}{SEND\_CHANNEL\_NUMBER}},\ \mbox{\hyperlink{transmit_receive_data_8cpp_a091eb87ba56dcf4841ca14c5e3be8861}{Write\_APIKey}});}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00067}00067\ \}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00078}\mbox{\hyperlink{transmit_receive_data_8cpp_ae960bc8c3cbc2cdc7ab7c6c1ec7a2604}{00078}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8cpp_ae960bc8c3cbc2cdc7ab7c6c1ec7a2604}{sendData\_payload}}(\textcolor{keywordtype}{int}\ field,\ \textcolor{keywordtype}{int}\ data,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ channelID,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{transmit_receive_data_8cpp_a091eb87ba56dcf4841ca14c5e3be8861}{Write\_APIKey}})}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00080}00080\ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_ac8cb2b6e177ae28db398a9da8275b563}{connectThingSpeak}}();}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00081}00081\ \ \ \ ThingSpeak.setField(field,\ data);}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00082}00082\ \ \ \ ThingSpeak.writeFields(channelID,\ \mbox{\hyperlink{transmit_receive_data_8cpp_a091eb87ba56dcf4841ca14c5e3be8861}{Write\_APIKey}});}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00083}00083\ \ \ \ \textcolor{comment}{//\ Delay\ of\ 5\ seconds\ to\ make\ sure\ the\ data\ is\ recieved\ correctly\ by\ thingspeak}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00084}00084\ \ \ \ \textcolor{comment}{//delay(5000);}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00095}\mbox{\hyperlink{transmit_receive_data_8cpp_ad100dad8219bd5c2e6d9c74b50627b75}{00095}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{transmit_receive_data_8cpp_ad100dad8219bd5c2e6d9c74b50627b75}{readThingSpeak}}(\textcolor{keywordtype}{int}\ field)}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00096}00096\ \{}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00097}00097\ \ \ \ \textcolor{keywordflow}{return}(ThingSpeak.readIntField(\mbox{\hyperlink{transmit_receive_data_8cpp_a7d76d5d6c0be6037a8b8d7749315d875}{RECEIVE\_CHANNEL\_NUMBER}},\ field,\ \mbox{\hyperlink{transmit_receive_data_8cpp_aff48e7bb0b24edd5f4e817b604049f7f}{Read\_APIKey}}));}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00098}00098\ \}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00106}\mbox{\hyperlink{transmit_receive_data_8cpp_ac8cb2b6e177ae28db398a9da8275b563}{00106}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8cpp_ac8cb2b6e177ae28db398a9da8275b563}{connectThingSpeak}}()}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00108}00108\ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_a323dfc205549b3c13f0a25c1b670708a}{client}}.connect(\textcolor{stringliteral}{"{}api.thingspeak.com"{}},\ \mbox{\hyperlink{transmit_receive_data_8cpp_a00eb6eef3bd0e3bd7b49a0755746e55a}{CONNECT\_PORT}});}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00116}\mbox{\hyperlink{transmit_receive_data_8cpp_a556cc1db6b4060dc5b5c2785f73cb3e8}{00116}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmit_receive_data_8cpp_a556cc1db6b4060dc5b5c2785f73cb3e8}{sendData\_finished}}()}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00117}00117\ \{}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00118}00118\ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_a323dfc205549b3c13f0a25c1b670708a}{client}}.stop();}
+\DoxyCodeLine{\Hypertarget{transmit_receive_data_8cpp_source_l00119}00119\ \}}
+
+\end{DoxyCode}

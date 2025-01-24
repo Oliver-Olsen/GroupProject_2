@@ -1,0 +1,54 @@
+\doxysection{air\+Qual.\+cpp}
+\hypertarget{air_qual_8cpp_source}{}\label{air_qual_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/airQual.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/airQual.cpp}}
+\mbox{\hyperlink{air_qual_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <MQ135.h>}}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{air_qual_8h}{airQual.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00016}\mbox{\hyperlink{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61}{00016}}\ \textcolor{preprocessor}{\#define\ MQ\_PIN\ \ \ \ A0}}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00019}\mbox{\hyperlink{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}{00019}}\ MQ135\ \mbox{\hyperlink{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}{mq135\_sensor}}(\mbox{\hyperlink{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61}{MQ\_PIN}});}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00022}00022\ \textcolor{comment}{//\ MQ135\ Variables}}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00023}\mbox{\hyperlink{structmq135__env__t}{00023}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00025}\mbox{\hyperlink{structmq135__env__t_aed0f39e4dc6c3ffe7449957992809f6d}{00025}}\ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structmq135__env__t_aed0f39e4dc6c3ffe7449957992809f6d}{resistance\_zero}};}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00026}\mbox{\hyperlink{structmq135__env__t_a727261b527eff67ba8998efd92b658b6}{00026}}\ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structmq135__env__t_a727261b527eff67ba8998efd92b658b6}{corrected\_zero}};}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00027}\mbox{\hyperlink{structmq135__env__t_a8d3a5dcd502bfa79c2b790c0a7b36364}{00027}}\ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structmq135__env__t_a8d3a5dcd502bfa79c2b790c0a7b36364}{resistance}};}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00028}\mbox{\hyperlink{structmq135__env__t_a3d0a6ca30b22c90d69664dec69cdeb23}{00028}}\ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structmq135__env__t_a3d0a6ca30b22c90d69664dec69cdeb23}{ppm\_measured}};}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00029}\mbox{\hyperlink{structmq135__env__t_a184be7222d88cc8799cca1b832ebf14e}{00029}}\ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structmq135__env__t_a184be7222d88cc8799cca1b832ebf14e}{ppm\_corrected}};}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00030}00030\ \}\ \mbox{\hyperlink{structmq135__env__t}{mq135\_env\_t}};}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00033}\mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{00033}}\ \mbox{\hyperlink{structmq135__env__t}{mq135\_env\_t}}\ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}};}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00040}\mbox{\hyperlink{air_qual_8cpp_a842cf0555399e98067e0ad2bed527507}{00040}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{air_qual_8cpp_a842cf0555399e98067e0ad2bed527507}{airQual\_init}}()}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00042}00042\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.resistance\_zero\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00043}00043\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.corrected\_zero\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00044}00044\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.resistance\ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00045}00045\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.ppm\_measured\ \ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00046}00046\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.ppm\_corrected\ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00055}\mbox{\hyperlink{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}{00055}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}{airQual\_measurement}}(\textcolor{keywordtype}{float}\ *\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ \textcolor{keywordtype}{float}\ *\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}})}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00056}00056\ \{}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00057}00057\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.resistance\_zero\ =\ \mbox{\hyperlink{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}{mq135\_sensor}}.getRZero();}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00058}00058\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.corrected\_zero\ \ =\ \mbox{\hyperlink{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}{mq135\_sensor}}.getCorrectedResistance(*\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ *\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}});}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00059}00059\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.resistance\ \ \ \ \ \ =\ \mbox{\hyperlink{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}{mq135\_sensor}}.getResistance();}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00060}00060\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.ppm\_measured\ \ \ \ =\ \mbox{\hyperlink{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}{mq135\_sensor}}.getPPM();}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00061}00061\ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.ppm\_corrected\ \ \ =\ \mbox{\hyperlink{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}{mq135\_sensor}}.getCorrectedPPM(*\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ *\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}});}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00070}\mbox{\hyperlink{air_qual_8cpp_aa568756610bf17c42cc602370389c513}{00070}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{air_qual_8cpp_aa568756610bf17c42cc602370389c513}{airQual\_get\_Value}}()}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00072}00072\ \ \ \ \textcolor{keywordflow}{return}(\mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\_data}}.ppm\_measured);}
+\DoxyCodeLine{\Hypertarget{air_qual_8cpp_source_l00073}00073\ \}}
+
+\end{DoxyCode}

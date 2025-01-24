@@ -16,26 +16,23 @@ struct \mbox{\hyperlink{structmq135__env__t}{mq135\+\_\+env\+\_\+t}}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61}\label{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61} 
-\#define {\bfseries MQ\+\_\+\+PIN}~A0
+\#define \mbox{\hyperlink{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61}{MQ\+\_\+\+PIN}}~A0
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}\label{air_qual_8cpp_a971140f4a4a544d262482063af6681a5} 
-MQ135 {\bfseries mq135\+\_\+sensor} (MQ\+\_\+\+PIN)
+MQ135 \mbox{\hyperlink{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}{mq135\+\_\+sensor}} (\mbox{\hyperlink{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61}{MQ\+\_\+\+PIN}})
 \item 
 void \mbox{\hyperlink{air_qual_8cpp_a842cf0555399e98067e0ad2bed527507}{air\+Qual\+\_\+init}} ()
 \begin{DoxyCompactList}\small\item\em Initializes variables. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}{air\+Qual\+\_\+measurement}} (float \texorpdfstring{$\ast$}{*}temperature, float \texorpdfstring{$\ast$}{*}humidity)
+void \mbox{\hyperlink{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}{air\+Qual\+\_\+measurement}} (float \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}}, float \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}})
 \begin{DoxyCompactList}\small\item\em Measures the air quality in ppm. Sensor is calibrated each reading. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{air_qual_8cpp_aa568756610bf17c42cc602370389c513}{air\+Qual\+\_\+get\+\_\+\+Value}} ()
 \begin{DoxyCompactList}\small\item\em Returns the corrected ppm value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}\label{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d} 
-\mbox{\hyperlink{structmq135__env__t}{mq135\+\_\+env\+\_\+t}} {\bfseries mq135\+\_\+data}
+\mbox{\hyperlink{structmq135__env__t}{mq135\+\_\+env\+\_\+t}} \mbox{\hyperlink{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}{mq135\+\_\+data}}
 \end{DoxyCompactItemize}
 
 
@@ -54,6 +51,23 @@ Oliver Olsen
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2025 
 \end{DoxyCopyright}
+
+
+Definition in file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61}\index{airQual.cpp@{airQual.cpp}!MQ\_PIN@{MQ\_PIN}}
+\index{MQ\_PIN@{MQ\_PIN}!airQual.cpp@{airQual.cpp}}
+\doxysubsubsection{\texorpdfstring{MQ\_PIN}{MQ\_PIN}}
+{\footnotesize\ttfamily \label{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61} 
+\#define MQ\+\_\+\+PIN~A0}
+
+
+
+Definition at line \mbox{\hyperlink{air_qual_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+
 
 
 \doxysubsection{Function Documentation}
@@ -76,6 +90,10 @@ Simipar to {\ttfamily \doxylink{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}
 \begin{DoxyReturn}{Returns}
 float ppm 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{air_qual_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+
 \Hypertarget{air_qual_8cpp_a842cf0555399e98067e0ad2bed527507}\index{airQual.cpp@{airQual.cpp}!airQual\_init@{airQual\_init}}
 \index{airQual\_init@{airQual\_init}!airQual.cpp@{airQual.cpp}}
 \doxysubsubsection{\texorpdfstring{airQual\_init()}{airQual\_init()}}
@@ -91,6 +109,10 @@ function declarations
 \begin{DoxyAuthor}{Author}
 Oliver Olsen 
 \end{DoxyAuthor}
+
+
+Definition at line \mbox{\hyperlink{air_qual_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+
 \Hypertarget{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}\index{airQual.cpp@{airQual.cpp}!airQual\_measurement@{airQual\_measurement}}
 \index{airQual\_measurement@{airQual\_measurement}!airQual.cpp@{airQual.cpp}}
 \doxysubsubsection{\texorpdfstring{airQual\_measurement()}{airQual\_measurement()}}
@@ -111,3 +133,26 @@ Oliver Olsen
 {\em humidity} & Measured humidity \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{air_qual_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+
+\Hypertarget{air_qual_8cpp_a971140f4a4a544d262482063af6681a5}\index{airQual.cpp@{airQual.cpp}!mq135\_sensor@{mq135\_sensor}}
+\index{mq135\_sensor@{mq135\_sensor}!airQual.cpp@{airQual.cpp}}
+\doxysubsubsection{\texorpdfstring{mq135\_sensor()}{mq135\_sensor()}}
+{\footnotesize\ttfamily \label{air_qual_8cpp_a971140f4a4a544d262482063af6681a5} 
+MQ135 mq135\+\_\+sensor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{air_qual_8cpp_a00ff7ba759960cbc730fd84bcc483f61}{MQ\+\_\+\+PIN}}}]{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d}\index{airQual.cpp@{airQual.cpp}!mq135\_data@{mq135\_data}}
+\index{mq135\_data@{mq135\_data}!airQual.cpp@{airQual.cpp}}
+\doxysubsubsection{\texorpdfstring{mq135\_data}{mq135\_data}}
+{\footnotesize\ttfamily \label{air_qual_8cpp_a5152879a27b7d8dfd9fef9d166dfb80d} 
+\mbox{\hyperlink{structmq135__env__t}{mq135\+\_\+env\+\_\+t}} mq135\+\_\+data}
+
+
+
+Definition at line \mbox{\hyperlink{air_qual_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+

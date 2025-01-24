@@ -1,0 +1,37 @@
+\doxysection{main.\+cpp}
+\hypertarget{main_8cpp_source}{}\label{main_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/main.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/main.cpp}}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{receiver_8h}{receiver.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transmitter_8h}{transmitter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016\ \textcolor{comment}{/*\ This\ boolean\ determines\ if\ the\ code\ should\ run\ as\ a\ receiver\ or\ transmitter}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}\mbox{\hyperlink{main_8cpp_aefb71ef2a0c7b9103bf8acce06507005}{00018}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{main_8cpp_aefb71ef2a0c7b9103bf8acce06507005}{transmitter}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}\mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{00024}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}}()}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026\ \ \ \ Serial.begin(115200);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028\ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{main_8cpp_aefb71ef2a0c7b9103bf8acce06507005}{transmitter}}\ ==\ \textcolor{keyword}{true})\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029\ \ \ \ \ \ \ \mbox{\hyperlink{transmitter_8cpp_a05925b5e23b7ca1b572be889f91f3e52}{transmitterSetup}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031\ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \mbox{\hyperlink{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5}{receiverSetup}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}\mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{00040}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}}()}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042\ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{main_8cpp_aefb71ef2a0c7b9103bf8acce06507005}{transmitter}}\ ==\ \textcolor{keyword}{true})\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043\ \ \ \ \ \ \ \mbox{\hyperlink{transmitter_8cpp_a9b11feb7d3b7900c459e0b796943b7ee}{transmitterMain}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \mbox{\hyperlink{receiver_8cpp_ad5dd85ac5f2456e9a8397935be2fe81d}{receiverMain}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ \}}
+
+\end{DoxyCode}

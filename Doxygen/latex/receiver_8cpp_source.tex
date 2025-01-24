@@ -1,0 +1,50 @@
+\doxysection{receiver.\+cpp}
+\hypertarget{receiver_8cpp_source}{}\label{receiver_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/receiver.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/receiver.cpp}}
+\mbox{\hyperlink{receiver_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transmit_receive_data_8h}{transmitReceiveData.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{reciever_module_8h}{recieverModule.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00020}\mbox{\hyperlink{receiver_8cpp_ab38eb117943be6d6352006920250942a}{00020}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{receiver_8cpp_ab38eb117943be6d6352006920250942a}{seconds\_15}}\ =\ 15000;\ \textcolor{comment}{//\ ThingSpeak\ read/write\ speed\ (free\ subscription)}}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00023}\mbox{\hyperlink{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}{00023}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}{receive\_web}}\ =\ \mbox{\hyperlink{transmit_receive_data_8h_a0aa23b1c63f6a5c006f779abaf8c7049}{THINGSPEAK\_WINDOW}};}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00030}\mbox{\hyperlink{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5}{00030}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5}{receiverSetup}}()}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00032}00032\ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_af67410a15ecc24ecef0e5abce0c5b30c}{wifi\_init}}();}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00033}00033\ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_afce8a3cde109cd129af7bf88fd1cb851}{receiverModule\_init}}();}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00041}\mbox{\hyperlink{receiver_8cpp_ad5dd85ac5f2456e9a8397935be2fe81d}{00041}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{receiver_8cpp_ad5dd85ac5f2456e9a8397935be2fe81d}{receiverMain}}()}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00043}00043\ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}{receive\_web}})\{}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_a0aa23b1c63f6a5c006f779abaf8c7049}{THINGSPEAK\_WINDOW}}:}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_ac0eca6abb7a3563764f7310180eb496e}{THINGSPEAK\_LIGHT}}:}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_ab0ae2a9459784a65017c551f2691041b}{THINGSPEAK\_SPACEHEATER}}:}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_aec1a0ef27d9d242e1c1e58f6f084f7ed}{receiverModule\_update}}(\mbox{\hyperlink{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}{receive\_web}});}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00054}00054\ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}{receive\_web}}\ >=\ \mbox{\hyperlink{transmit_receive_data_8h_ae6e0afd4ef749e5be1e9886d784c7c27}{THINGSPEAK\_RECEIVEMAX}})\{}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00055}00055\ \ \ \ \ \ \ \mbox{\hyperlink{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}{receive\_web}}\ =\ \mbox{\hyperlink{transmit_receive_data_8h_a0aa23b1c63f6a5c006f779abaf8c7049}{THINGSPEAK\_WINDOW}};}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00056}00056\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00058}00058\ \ \ \ delay(\mbox{\hyperlink{receiver_8cpp_ab38eb117943be6d6352006920250942a}{seconds\_15}});}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00059}00059\ \ \ \ \mbox{\hyperlink{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}{receive\_web}}++;}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00061}00061\ \ \ \ Serial.println(\textcolor{stringliteral}{"{}."{}});}
+\DoxyCodeLine{\Hypertarget{receiver_8cpp_source_l00062}00062\ \}}
+
+\end{DoxyCode}

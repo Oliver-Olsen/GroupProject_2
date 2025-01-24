@@ -1,0 +1,36 @@
+\doxysection{motion\+Sensor.\+cpp}
+\hypertarget{motion_sensor_8cpp_source}{}\label{motion_sensor_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/motionSensor.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/motionSensor.cpp}}
+\mbox{\hyperlink{motion_sensor_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{motion_sensor_8h}{motionSensor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00016}\mbox{\hyperlink{motion_sensor_8cpp_aecad32113f32ac222dd1a1aa00afb096}{00016}}\ \textcolor{preprocessor}{\#define\ MOTIONSENSOR\_PIN\ \ \ \ D5\ }\textcolor{comment}{//\ Sets\ the\ motion\ sensor\ as\ pin}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00023}\mbox{\hyperlink{motion_sensor_8cpp_a98dafe214f671d5b2ed4fb863559662f}{00023}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{motion_sensor_8cpp_a98dafe214f671d5b2ed4fb863559662f}{motionSensor\_init}}()}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00024}00024\ \{}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00025}00025\ \ \ \ pinMode(\mbox{\hyperlink{motion_sensor_8cpp_aecad32113f32ac222dd1a1aa00afb096}{MOTIONSENSOR\_PIN}},\ INPUT);}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00035}\mbox{\hyperlink{motion_sensor_8cpp_aef22da715f73f70791f61d8633d49ba0}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{motion_sensor_8cpp_aef22da715f73f70791f61d8633d49ba0}{motionSensor\_detect}}(\textcolor{keywordtype}{bool}\ *\mbox{\hyperlink{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}{motion\_state}},\ \textcolor{keywordtype}{bool}\ *\mbox{\hyperlink{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}{motion\_val}})}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00037}00037\ \ \ \ *\mbox{\hyperlink{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}{motion\_val}}\ =\ digitalRead(\mbox{\hyperlink{motion_sensor_8cpp_aecad32113f32ac222dd1a1aa00afb096}{MOTIONSENSOR\_PIN}});\ \ \ \ \textcolor{comment}{//value\ of\ motion\ sensor\ by\ reading\ pin\ 5.}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00039}00039\ \ \ \ \textcolor{comment}{//checks\ if\ there\ is\ motion\ and\ if\ there\ previous\ was\ no\ motion.}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00040}00040\ \ \ \ \textcolor{keywordflow}{if}(*\mbox{\hyperlink{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}{motion\_val}}\ ==\ HIGH)\{}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00041}00041\ \ \ \ \ \ \ \textcolor{keywordflow}{if}(*\mbox{\hyperlink{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}{motion\_state}}\ ==\ LOW)\{}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}{motion\_state}}\ =\ HIGH;\ \ \ \ \textcolor{comment}{//Motion\ detected.}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00044}00044\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00045}00045\ \ \ \ \textcolor{comment}{//\ When\ motion\ stops.}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00046}00046\ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(*\mbox{\hyperlink{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}{motion\_state}}\ ==\ HIGH)\{}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}{motion\_state}}\ =\ LOW;\ \ \ \textcolor{comment}{//Motion\ stopped\ in\ the\ room.}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{motion_sensor_8cpp_source_l00051}00051\ \}}
+
+\end{DoxyCode}

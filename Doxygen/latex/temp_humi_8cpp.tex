@@ -11,21 +11,18 @@ Handles the temp/humi measurement.
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb}\label{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb} 
-\#define {\bfseries DHT\+\_\+\+SENSOR\+\_\+\+PIN}~D7
+\#define \mbox{\hyperlink{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb}{DHT\+\_\+\+SENSOR\+\_\+\+PIN}}~D7
 \item 
-\Hypertarget{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f}\label{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f} 
-\#define {\bfseries DHT\+\_\+\+SENSOR\+\_\+\+TYPE}~DHT11
+\#define \mbox{\hyperlink{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f}{DHT\+\_\+\+SENSOR\+\_\+\+TYPE}}~DHT11
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}\label{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94} 
-DHT {\bfseries dht\+\_\+sensor} (DHT\+\_\+\+SENSOR\+\_\+\+PIN, DHT\+\_\+\+SENSOR\+\_\+\+TYPE)
+DHT \mbox{\hyperlink{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}{dht\+\_\+sensor}} (\mbox{\hyperlink{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb}{DHT\+\_\+\+SENSOR\+\_\+\+PIN}}, \mbox{\hyperlink{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f}{DHT\+\_\+\+SENSOR\+\_\+\+TYPE}})
 \item 
 void \mbox{\hyperlink{temp_humi_8cpp_aa268dd6357cd9b08b6135c91d6bcd882}{temp\+Humi\+\_\+\+Init}} ()
 \begin{DoxyCompactList}\small\item\em Init. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}{temp\+Humi\+\_\+read}} (float \texorpdfstring{$\ast$}{*}temperature, float \texorpdfstring{$\ast$}{*}humidity)
+void \mbox{\hyperlink{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}{temp\+Humi\+\_\+read}} (float \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}}, float \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}})
 \begin{DoxyCompactList}\small\item\em Reads the temperature in "{}°\+C"{} \mbox{[}Celcius\mbox{]} and humidity in "{}\%"{}"{} (percentage) using a DH11 module. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -47,7 +44,40 @@ Copyright (c) 2025
 \end{DoxyCopyright}
 
 
+Definition in file \mbox{\hyperlink{temp_humi_8cpp_source}{temp\+Humi.\+cpp}}.
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb}\index{tempHumi.cpp@{tempHumi.cpp}!DHT\_SENSOR\_PIN@{DHT\_SENSOR\_PIN}}
+\index{DHT\_SENSOR\_PIN@{DHT\_SENSOR\_PIN}!tempHumi.cpp@{tempHumi.cpp}}
+\doxysubsubsection{\texorpdfstring{DHT\_SENSOR\_PIN}{DHT\_SENSOR\_PIN}}
+{\footnotesize\ttfamily \label{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb} 
+\#define DHT\+\_\+\+SENSOR\+\_\+\+PIN~D7}
+
+
+
+Definition at line \mbox{\hyperlink{temp_humi_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{temp_humi_8cpp_source}{temp\+Humi.\+cpp}}.
+
+\Hypertarget{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f}\index{tempHumi.cpp@{tempHumi.cpp}!DHT\_SENSOR\_TYPE@{DHT\_SENSOR\_TYPE}}
+\index{DHT\_SENSOR\_TYPE@{DHT\_SENSOR\_TYPE}!tempHumi.cpp@{tempHumi.cpp}}
+\doxysubsubsection{\texorpdfstring{DHT\_SENSOR\_TYPE}{DHT\_SENSOR\_TYPE}}
+{\footnotesize\ttfamily \label{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f} 
+\#define DHT\+\_\+\+SENSOR\+\_\+\+TYPE~DHT11}
+
+
+
+Definition at line \mbox{\hyperlink{temp_humi_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{temp_humi_8cpp_source}{temp\+Humi.\+cpp}}.
+
+
+
 \doxysubsection{Function Documentation}
+\Hypertarget{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}\index{tempHumi.cpp@{tempHumi.cpp}!dht\_sensor@{dht\_sensor}}
+\index{dht\_sensor@{dht\_sensor}!tempHumi.cpp@{tempHumi.cpp}}
+\doxysubsubsection{\texorpdfstring{dht\_sensor()}{dht\_sensor()}}
+{\footnotesize\ttfamily \label{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94} 
+DHT dht\+\_\+sensor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb}{DHT\+\_\+\+SENSOR\+\_\+\+PIN}}}]{}{, }\item[{\mbox{\hyperlink{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f}{DHT\+\_\+\+SENSOR\+\_\+\+TYPE}}}]{}{}\end{DoxyParamCaption})}
+
 \Hypertarget{temp_humi_8cpp_aa268dd6357cd9b08b6135c91d6bcd882}\index{tempHumi.cpp@{tempHumi.cpp}!tempHumi\_Init@{tempHumi\_Init}}
 \index{tempHumi\_Init@{tempHumi\_Init}!tempHumi.cpp@{tempHumi.cpp}}
 \doxysubsubsection{\texorpdfstring{tempHumi\_Init()}{tempHumi\_Init()}}
@@ -63,6 +93,10 @@ Function declarations.
 \begin{DoxyAuthor}{Author}
 Oliver Olsen 
 \end{DoxyAuthor}
+
+
+Definition at line \mbox{\hyperlink{temp_humi_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{temp_humi_8cpp_source}{temp\+Humi.\+cpp}}.
+
 \Hypertarget{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}\index{tempHumi.cpp@{tempHumi.cpp}!tempHumi\_read@{tempHumi\_read}}
 \index{tempHumi\_read@{tempHumi\_read}!tempHumi.cpp@{tempHumi.cpp}}
 \doxysubsubsection{\texorpdfstring{tempHumi\_read()}{tempHumi\_read()}}
@@ -83,3 +117,7 @@ Markus Kenno
 {\em humidity} & reads the humidity as a float. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{temp_humi_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{temp_humi_8cpp_source}{temp\+Humi.\+cpp}}.
+

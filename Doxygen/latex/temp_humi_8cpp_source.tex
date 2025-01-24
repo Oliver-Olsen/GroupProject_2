@@ -1,0 +1,28 @@
+\doxysection{temp\+Humi.\+cpp}
+\hypertarget{temp_humi_8cpp_source}{}\label{temp_humi_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/tempHumi.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/tempHumi.cpp}}
+\mbox{\hyperlink{temp_humi_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <Adafruit\_Sensor.h>}}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <DHT.h>}}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <Adafruit\_Sensor.h>}}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{temp_humi_8h}{tempHumi.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00017}\mbox{\hyperlink{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb}{00017}}\ \textcolor{preprocessor}{\#define\ DHT\_SENSOR\_PIN\ \ \ \ \ D7\ \ \ }\textcolor{comment}{//\ The\ ESP8266\ pin\ D7\ connected\ to\ DHT11\ sensor}}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00018}\mbox{\hyperlink{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f}{00018}}\ \textcolor{preprocessor}{\#define\ DHT\_SENSOR\_TYPE\ \ \ \ DHT11}}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00020}\mbox{\hyperlink{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}{00020}}\ DHT\ \mbox{\hyperlink{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}{dht\_sensor}}(\mbox{\hyperlink{temp_humi_8cpp_adaa4a432e799ccc4a7f72cf82de94eeb}{DHT\_SENSOR\_PIN}},\ \mbox{\hyperlink{temp_humi_8cpp_a3ce3c8972a88be3a60c60aad695d591f}{DHT\_SENSOR\_TYPE}});}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00027}\mbox{\hyperlink{temp_humi_8cpp_aa268dd6357cd9b08b6135c91d6bcd882}{00027}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{temp_humi_8cpp_aa268dd6357cd9b08b6135c91d6bcd882}{tempHumi\_Init}}()}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00029}00029\ \ \ \ \mbox{\hyperlink{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}{dht\_sensor}}.begin();}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00040}\mbox{\hyperlink{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}{00040}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}{tempHumi\_read}}(\textcolor{keywordtype}{float}\ *\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ \textcolor{keywordtype}{float}\ *\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}})}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00042}00042\ \ \ \ *\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}}\ =\ \mbox{\hyperlink{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}{dht\_sensor}}.readTemperature();}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00043}00043\ \ \ \ *\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}}\ \ \ \ =\ \mbox{\hyperlink{temp_humi_8cpp_aecaa75ebd6aab5c707e6a2f496be6c94}{dht\_sensor}}.readHumidity();}
+\DoxyCodeLine{\Hypertarget{temp_humi_8cpp_source_l00044}00044\ \}}
+
+\end{DoxyCode}

@@ -11,19 +11,16 @@ All the code needed to run the receiver module.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5}\label{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5} 
-void {\bfseries receiver\+Setup} ()
+void \mbox{\hyperlink{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5}{receiver\+Setup}} ()
 \begin{DoxyCompactList}\small\item\em Sets up all the necessary function for the receiver module. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{receiver_8cpp_ad5dd85ac5f2456e9a8397935be2fe81d}{receiver\+Main}} ()
-\begin{DoxyCompactList}\small\item\em Updates Thing\+Speak or gets data from Thing\+Speak. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets data from Thing\+Speak every 15 seconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{receiver_8cpp_ab38eb117943be6d6352006920250942a}\label{receiver_8cpp_ab38eb117943be6d6352006920250942a} 
-unsigned short int {\bfseries seconds\+\_\+15} = 15000
+unsigned short int \mbox{\hyperlink{receiver_8cpp_ab38eb117943be6d6352006920250942a}{seconds\+\_\+15}} = 15000
 \item 
-\Hypertarget{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}\label{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b} 
-int {\bfseries receive\+\_\+web} = 5
+int \mbox{\hyperlink{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}{receive\+\_\+web}} = \mbox{\hyperlink{transmit_receive_data_8h_a0aa23b1c63f6a5c006f779abaf8c7049}{THINGSPEAK\+\_\+\+WINDOW}}
 \end{DoxyCompactItemize}
 
 
@@ -44,6 +41,10 @@ Copyright (c) 2025
 \end{DoxyCopyright}
 
 
+Definition in file \mbox{\hyperlink{receiver_8cpp_source}{receiver.\+cpp}}.
+
+
+
 \doxysubsection{Function Documentation}
 \Hypertarget{receiver_8cpp_ad5dd85ac5f2456e9a8397935be2fe81d}\index{receiver.cpp@{receiver.cpp}!receiverMain@{receiverMain}}
 \index{receiverMain@{receiverMain}!receiver.cpp@{receiver.cpp}}
@@ -53,9 +54,55 @@ void receiver\+Main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Updates Thing\+Speak or gets data from Thing\+Speak. 
+Gets data from Thing\+Speak every 15 seconds. 
 
 \begin{DoxyAuthor}{Author}
 Oliver Olsen 
 \end{DoxyAuthor}
-\hypertarget{transmitter_8h_Updates}{}\doxysubsection{\texorpdfstring{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}{Thing\+Speak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.}}\label{transmitter_8h_Updates}
+\hypertarget{receiver_8h_Loop}{}\doxysubsection{\texorpdfstring{counter}{counter}}\label{receiver_8h_Loop}
+
+\begin{DoxyParams}{Parameters}
+{\em receive\+\_\+web} & decides which data, to update in {\ttfamily \doxylink{reciever_module_8cpp_aec1a0ef27d9d242e1c1e58f6f084f7ed}{receiver\+Module\+\_\+update()}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{receiver_8cpp_source}{receiver.\+cpp}}.
+
+\Hypertarget{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5}\index{receiver.cpp@{receiver.cpp}!receiverSetup@{receiverSetup}}
+\index{receiverSetup@{receiverSetup}!receiver.cpp@{receiver.cpp}}
+\doxysubsubsection{\texorpdfstring{receiverSetup()}{receiverSetup()}}
+{\footnotesize\ttfamily \label{receiver_8cpp_abdeacf1fbfa6eb6a108ab6ccc2181ae5} 
+void receiver\+Setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sets up all the necessary function for the receiver module. 
+
+
+
+Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{receiver_8cpp_source}{receiver.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b}\index{receiver.cpp@{receiver.cpp}!receive\_web@{receive\_web}}
+\index{receive\_web@{receive\_web}!receiver.cpp@{receiver.cpp}}
+\doxysubsubsection{\texorpdfstring{receive\_web}{receive\_web}}
+{\footnotesize\ttfamily \label{receiver_8cpp_a1979357c5684d59c03c8105c26cda65b} 
+int receive\+\_\+web = \mbox{\hyperlink{transmit_receive_data_8h_a0aa23b1c63f6a5c006f779abaf8c7049}{THINGSPEAK\+\_\+\+WINDOW}}}
+
+
+
+Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{receiver_8cpp_source}{receiver.\+cpp}}.
+
+\Hypertarget{receiver_8cpp_ab38eb117943be6d6352006920250942a}\index{receiver.cpp@{receiver.cpp}!seconds\_15@{seconds\_15}}
+\index{seconds\_15@{seconds\_15}!receiver.cpp@{receiver.cpp}}
+\doxysubsubsection{\texorpdfstring{seconds\_15}{seconds\_15}}
+{\footnotesize\ttfamily \label{receiver_8cpp_ab38eb117943be6d6352006920250942a} 
+unsigned short int seconds\+\_\+15 = 15000}
+
+
+
+Definition at line \mbox{\hyperlink{receiver_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{receiver_8cpp_source}{receiver.\+cpp}}.
+

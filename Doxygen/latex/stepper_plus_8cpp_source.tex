@@ -1,0 +1,84 @@
+\doxysection{stepper\+Plus.\+cpp}
+\hypertarget{stepper_plus_8cpp_source}{}\label{stepper_plus_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/stepperPlus.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/stepperPlus.cpp}}
+\mbox{\hyperlink{stepper_plus_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stepper_plus_8h}{stepperPlus.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00015}00015\ \textcolor{comment}{/*\ Preamble\ with\ pin\ definitions\ and\ value\ declarations:}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00016}00016\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00018}00018\ \textcolor{comment}{//Defines\ the\ amount\ of\ steps\ per\ revolution}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00019}\mbox{\hyperlink{stepper_plus_8cpp_abc0e9de1ad11261774993fbad495209e}{00019}}\ \textcolor{preprocessor}{\#define\ SPR\ \ \ \ 2048}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00021}00021\ \textcolor{comment}{//Creates\ an\ array\ containing\ pin\ values}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00022}\mbox{\hyperlink{stepper_plus_8cpp_a5e42c9a5ae32d7f8b356a18faade1f3b}{00022}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stepper_plus_8cpp_a5e42c9a5ae32d7f8b356a18faade1f3b}{pins}}[4]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00023}00023\ \ \ \ D5,\ D6,\ D7,\ D8}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00024}00024\ \};}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00026}00026\ \textcolor{comment}{//An\ integer\ to\ keep\ track\ of\ the\ current\ step}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00027}\mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{00027}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00029}00029\ \textcolor{comment}{//Creates\ an\ array\ containing\ pin\ states\ per\ step}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00030}\mbox{\hyperlink{stepper_plus_8cpp_a7e00cea5ae5184aec45578607a06ba3f}{00030}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{stepper_plus_8cpp_a7e00cea5ae5184aec45578607a06ba3f}{steps}}[4][4]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00031}00031\ \ \ \ \{\ 1,\ 1,\ 0,\ 0\ \},}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00032}00032\ \ \ \ \{\ 0,\ 1,\ 1,\ 0\ \},}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00033}00033\ \ \ \ \{\ 0,\ 0,\ 1,\ 1\ \},}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00034}00034\ \ \ \ \{\ 1,\ 0,\ 0,\ 1\ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00035}00035\ \};}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00042}\mbox{\hyperlink{stepper_plus_8cpp_adca4080dba67594d826b1ca960e97be8}{00042}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{stepper_plus_8cpp_adca4080dba67594d826b1ca960e97be8}{stepperInit}}()}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00043}00043\ \{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00044}00044\ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ i++)\{\ \ \textcolor{comment}{//Loops\ through\ all\ the\ four\ pins\ and\ sets\ them\ as\ OUTPUTS}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ pinMode(\mbox{\hyperlink{stepper_plus_8cpp_a5e42c9a5ae32d7f8b356a18faade1f3b}{pins}}[i],\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00054}\mbox{\hyperlink{stepper_plus_8cpp_a792a66eabb7445f98d9814b36320da7f}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{stepper_plus_8cpp_a792a66eabb7445f98d9814b36320da7f}{stepperRotate}}(\textcolor{keywordtype}{int}\ rotation)}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00056}00056\ \ \ \ \textcolor{comment}{//Checks\ if\ the\ input\ is\ positive}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00057}00057\ \ \ \ \textcolor{keywordflow}{if}(rotation\ >\ 0)\{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00058}00058\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (rotation\ *\ \mbox{\hyperlink{stepper_plus_8cpp_abc0e9de1ad11261774993fbad495209e}{SPR}});\ i++)\{\ \textcolor{comment}{//While\ the\ stepper\ motor\ hasn't\ turned\ the\ decided\ amount\ it\ will\ perfom\ these\ steps:}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//1:\ Check\ if\ the\ step\ count\ is\ above\ 3,\ which\ indicates\ it\ has\ completed\ a\ cycle}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}}\ >\ 3)\{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//1.5:\ If\ it\ has\ completed\ a\ cycle,\ resets\ the\ step\ value}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//2:\ Sends\ the\ current\ step\ value\ to\ the\ stepper\ motor}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_a15224adb0f89ba39a04dfae0d6c8d4c8}{stepWrite}}(\mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}});}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//3:\ Increments\ the\ stepper\ by\ 1}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}}++;}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//4:\ Waits\ for\ 5ms\ before\ next\ step}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ delay(5);}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00071}00071\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00073}00073\ \ \ \ \textcolor{comment}{//Checks\ if\ the\ input\ is\ negative}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00074}00074\ \ \ \ \textcolor{keywordflow}{if}(rotation\ <\ 0)\{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00075}00075\ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ (rotation\ *\ \mbox{\hyperlink{stepper_plus_8cpp_abc0e9de1ad11261774993fbad495209e}{SPR}});\ i\ <\ 0;\ i++)\{\ \textcolor{comment}{//While\ the\ stepper\ motor\ hasn't\ turned\ the\ decided\ amount\ it\ will\ perfom\ these\ steps:}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//1:\ Check\ if\ the\ step\ count\ is\ below\ 0,\ which\ indicates\ it\ has\ completed\ a\ cycle}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}}\ <\ 0)\{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//1.5:\ If\ it\ has\ completed\ a\ cycle,\ resets\ the\ step\ value}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}}\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//2:\ Sends\ the\ current\ step\ value\ to\ the\ stepper\ motor}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_a15224adb0f89ba39a04dfae0d6c8d4c8}{stepWrite}}(\mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}});}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//3:\ Decrements\ the\ stepper\ by\ 1}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//4:\ Waits\ for\ 5ms\ before\ next\ step}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ delay(5);}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00088}00088\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00096}\mbox{\hyperlink{stepper_plus_8cpp_a15224adb0f89ba39a04dfae0d6c8d4c8}{00096}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{stepper_plus_8cpp_a15224adb0f89ba39a04dfae0d6c8d4c8}{stepWrite}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}})}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00097}00097\ \{}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00098}00098\ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ i++)\{\ \textcolor{comment}{//Runs\ a\ loop\ four\ times,\ updating\ one\ pin\ at\ a\ time}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ digitalWrite(\mbox{\hyperlink{stepper_plus_8cpp_a5e42c9a5ae32d7f8b356a18faade1f3b}{pins}}[i],\ \mbox{\hyperlink{stepper_plus_8cpp_a7e00cea5ae5184aec45578607a06ba3f}{steps}}[\mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}}][i]);}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stepper_plus_8cpp_source_l00101}00101\ \}}
+
+\end{DoxyCode}

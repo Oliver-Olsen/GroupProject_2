@@ -8,10 +8,9 @@ Functions and guard.
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{stepper_plus_8h_a15224adb0f89ba39a04dfae0d6c8d4c8}{step\+Write}} (int step)
+void \mbox{\hyperlink{stepper_plus_8h_a15224adb0f89ba39a04dfae0d6c8d4c8}{step\+Write}} (int \mbox{\hyperlink{stepper_plus_8cpp_abc16e65f240ed0c8f3e876e8732c0a33}{step}})
 \begin{DoxyCompactList}\small\item\em Updates the pin states to match that of the current step. \end{DoxyCompactList}\item 
-\Hypertarget{stepper_plus_8h_adca4080dba67594d826b1ca960e97be8}\label{stepper_plus_8h_adca4080dba67594d826b1ca960e97be8} 
-void {\bfseries stepper\+Init} ()
+void \mbox{\hyperlink{stepper_plus_8h_adca4080dba67594d826b1ca960e97be8}{stepper\+Init}} ()
 \begin{DoxyCompactList}\small\item\em Initializes the stepper function with pin declarations. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{stepper_plus_8h_a792a66eabb7445f98d9814b36320da7f}{stepper\+Rotate}} (int rotation)
 \begin{DoxyCompactList}\small\item\em Main function taking an input of the amount rotaions it should perform. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -34,7 +33,25 @@ Copyright (c) 2025
 \end{DoxyCopyright}
 
 
+Definition in file \mbox{\hyperlink{stepper_plus_8h_source}{stepper\+Plus.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
+\Hypertarget{stepper_plus_8h_adca4080dba67594d826b1ca960e97be8}\index{stepperPlus.h@{stepperPlus.h}!stepperInit@{stepperInit}}
+\index{stepperInit@{stepperInit}!stepperPlus.h@{stepperPlus.h}}
+\doxysubsubsection{\texorpdfstring{stepperInit()}{stepperInit()}}
+{\footnotesize\ttfamily \label{stepper_plus_8h_adca4080dba67594d826b1ca960e97be8} 
+void stepper\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the stepper function with pin declarations. 
+
+
+
+Definition at line \mbox{\hyperlink{stepper_plus_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{stepper_plus_8cpp_source}{stepper\+Plus.\+cpp}}.
+
 \Hypertarget{stepper_plus_8h_a792a66eabb7445f98d9814b36320da7f}\index{stepperPlus.h@{stepperPlus.h}!stepperRotate@{stepperRotate}}
 \index{stepperRotate@{stepperRotate}!stepperPlus.h@{stepperPlus.h}}
 \doxysubsubsection{\texorpdfstring{stepperRotate()}{stepperRotate()}}
@@ -50,6 +67,10 @@ Main function taking an input of the amount rotaions it should perform.
 {\em rotation} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{stepper_plus_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{stepper_plus_8cpp_source}{stepper\+Plus.\+cpp}}.
+
 \Hypertarget{stepper_plus_8h_a15224adb0f89ba39a04dfae0d6c8d4c8}\index{stepperPlus.h@{stepperPlus.h}!stepWrite@{stepWrite}}
 \index{stepWrite@{stepWrite}!stepperPlus.h@{stepperPlus.h}}
 \doxysubsubsection{\texorpdfstring{stepWrite()}{stepWrite()}}
@@ -65,3 +86,7 @@ Updates the pin states to match that of the current step.
 {\em step} & \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{stepper_plus_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{stepper_plus_8cpp_source}{stepper\+Plus.\+cpp}}.
+

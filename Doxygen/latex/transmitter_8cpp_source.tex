@@ -1,0 +1,85 @@
+\doxysection{transmitter.\+cpp}
+\hypertarget{transmitter_8cpp_source}{}\label{transmitter_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/transmitter.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/transmitter.cpp}}
+\mbox{\hyperlink{transmitter_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transmitter_8h}{transmitter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transmit_receive_data_8h}{transmitReceiveData.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{air_qual_8h}{airQual.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{temp_humi_8h}{tempHumi.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{motion_sensor_8h}{motionSensor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data_l_c_d_8h}{dataLCD.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{debug_8h}{debug.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00024}\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{00024}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}}\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00025}\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{00025}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}}\ \ \ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00026}\mbox{\hyperlink{transmitter_8cpp_aa9eef0f35e9c58440f9a536c84432a97}{00026}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{transmitter_8cpp_aa9eef0f35e9c58440f9a536c84432a97}{airquality}}\ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00027}\mbox{\hyperlink{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}{00027}}\ \textcolor{keywordtype}{bool}\ \ \mbox{\hyperlink{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}{motion\_state}}\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Initial\ state\ of\ the\ room.}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00028}\mbox{\hyperlink{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}{00028}}\ \textcolor{keywordtype}{bool}\ \ \mbox{\hyperlink{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}{motion\_val}}\ \ \ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Intial\ Value\ of\ the\ Sensor.}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00031}\mbox{\hyperlink{transmitter_8cpp_ad7369e1c92d28fbbeb89c9bcb8fcd825}{00031}}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{transmitter_8cpp_ad7369e1c92d28fbbeb89c9bcb8fcd825}{seconds\_30}}\ =\ 30000;\ \textcolor{comment}{//\ ThingSpeak\ read/write\ speed\ is\ 15\ seconds(free\ subscription)}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00034}\mbox{\hyperlink{transmitter_8cpp_abf398747bf789cf16fa33d93c010b405}{00034}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{transmitter_8cpp_abf398747bf789cf16fa33d93c010b405}{transmit\_web}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00042}\mbox{\hyperlink{transmitter_8cpp_a05925b5e23b7ca1b572be889f91f3e52}{00042}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmitter_8cpp_a05925b5e23b7ca1b572be889f91f3e52}{transmitterSetup}}()}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00043}00043\ \{}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00044}00044\ \textcolor{preprocessor}{\#ifdef\ SERIAL\_TRACE}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00045}00045\ \ \ \ Serial.begin(115200);}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00046}00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00048}00048\ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_af67410a15ecc24ecef0e5abce0c5b30c}{wifi\_init}}();}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00049}00049\ \ \ \ \mbox{\hyperlink{motion_sensor_8cpp_a98dafe214f671d5b2ed4fb863559662f}{motionSensor\_init}}();\ \ \ \ \ \textcolor{comment}{//\ PIR\ init.}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00050}00050\ \ \ \ \mbox{\hyperlink{temp_humi_8cpp_aa268dd6357cd9b08b6135c91d6bcd882}{tempHumi\_Init}}();\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ DHT11\ init}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00051}00051\ \ \ \ \mbox{\hyperlink{data_l_c_d_8cpp_aa1d91adeff3d04ca9a3007ad79633d71}{dataLCD\_setup}}();\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ LCD\ init}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00059}\mbox{\hyperlink{transmitter_8cpp_a9b11feb7d3b7900c459e0b796943b7ee}{00059}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{transmitter_8cpp_a9b11feb7d3b7900c459e0b796943b7ee}{transmitterMain}}()}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00066}00066\ \ \ \ \textcolor{keywordflow}{switch}(\mbox{\hyperlink{transmitter_8cpp_abf398747bf789cf16fa33d93c010b405}{transmit\_web}})\{}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_a43e84c29011a62830cb504a7e6b3633e}{THINGSPEAK\_AIRQUALITY}}:}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}{tempHumi\_read}}(\&\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ \&\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}{airQual\_measurement}}(\&\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ \&\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{data_l_c_d_8cpp_afdf5a562a9c2c02addd3d4edeb7be709}{dataLCD\_print}}(\mbox{\hyperlink{air_qual_8cpp_aa568756610bf17c42cc602370389c513}{airQual\_get\_Value}}(),\ \mbox{\hyperlink{transmit_receive_data_8h_a43e84c29011a62830cb504a7e6b3633e}{THINGSPEAK\_AIRQUALITY}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_aa23d2521fa93ca4f121b302149283f4c}{sendData\_fieldValue}}(\mbox{\hyperlink{transmit_receive_data_8h_a43e84c29011a62830cb504a7e6b3633e}{THINGSPEAK\_AIRQUALITY}},\ \mbox{\hyperlink{air_qual_8cpp_aa568756610bf17c42cc602370389c513}{airQual\_get\_Value}}());}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_a69187a359f39654099118149583e8657}{THINGSPEAK\_MOTION}}:}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_aa23d2521fa93ca4f121b302149283f4c}{sendData\_fieldValue}}(\mbox{\hyperlink{transmit_receive_data_8h_a69187a359f39654099118149583e8657}{THINGSPEAK\_MOTION}},\ \mbox{\hyperlink{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}{motion\_val}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_a63bad590158dc782ab888fe04f7ff6de}{THINGSPEAK\_TEMPERATURE}}:}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}{tempHumi\_read}}(\&\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ \&\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{data_l_c_d_8cpp_afdf5a562a9c2c02addd3d4edeb7be709}{dataLCD\_print}}(\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ \mbox{\hyperlink{transmit_receive_data_8h_a63bad590158dc782ab888fe04f7ff6de}{THINGSPEAK\_TEMPERATURE}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_aa23d2521fa93ca4f121b302149283f4c}{sendData\_fieldValue}}(\mbox{\hyperlink{transmit_receive_data_8h_a63bad590158dc782ab888fe04f7ff6de}{THINGSPEAK\_TEMPERATURE}},\ \mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_a8bf6114f46dfd89aa91dc5e5a8e54408}{THINGSPEAK\_HUMIDITY}}:}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{temp_humi_8cpp_a19ebb4bd6d97907eb399c97df3cace8a}{tempHumi\_read}}(\&\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}},\ \&\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{data_l_c_d_8cpp_afdf5a562a9c2c02addd3d4edeb7be709}{dataLCD\_print}}(\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}},\ \mbox{\hyperlink{transmit_receive_data_8h_a8bf6114f46dfd89aa91dc5e5a8e54408}{THINGSPEAK\_HUMIDITY}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_aa23d2521fa93ca4f121b302149283f4c}{sendData\_fieldValue}}(\mbox{\hyperlink{transmit_receive_data_8h_a8bf6114f46dfd89aa91dc5e5a8e54408}{THINGSPEAK\_HUMIDITY}},\ \mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00094}00094\ \ \ \ \textcolor{comment}{//\ Resets\ counter,\ so\ each\ sensor/module\ updates}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00095}00095\ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{transmitter_8cpp_abf398747bf789cf16fa33d93c010b405}{transmit\_web}}\ >=\ \mbox{\hyperlink{transmit_receive_data_8h_a39b317c9a6c1c560fe7fb33f6a4b010a}{THINGSPEAK\_TRANSMITMAX}})\{}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00096}00096\ \ \ \ \ \ \ \mbox{\hyperlink{transmitter_8cpp_abf398747bf789cf16fa33d93c010b405}{transmit\_web}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00097}00097\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00099}00099\ \ \ \ \textcolor{comment}{//\ Extra\ motion\ sensor\ update,\ to\ ensure\ motion\ detection\ is\ detected}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00100}00100\ \ \ \ \mbox{\hyperlink{motion_sensor_8cpp_aef22da715f73f70791f61d8633d49ba0}{motionSensor\_detect}}(\&\mbox{\hyperlink{transmitter_8cpp_aa42d7a80a2f3c6620bd7a647f4e0b7ea}{motion\_state}},\ \&\mbox{\hyperlink{transmitter_8cpp_afeb2ef5187234179f9d8f3a4d3359a16}{motion\_val}});}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00101}00101\ \ \ \ delay(\mbox{\hyperlink{transmitter_8cpp_ad7369e1c92d28fbbeb89c9bcb8fcd825}{seconds\_30}});\ \ \textcolor{comment}{//\ Thingspeak\ delay\ (15\ seconds),\ 30\ seconds\ just\ in\ case}}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00102}00102\ \ \ \ \mbox{\hyperlink{transmitter_8cpp_abf398747bf789cf16fa33d93c010b405}{transmit\_web}}++;}
+\DoxyCodeLine{\Hypertarget{transmitter_8cpp_source_l00103}00103\ \}}
+
+\end{DoxyCode}

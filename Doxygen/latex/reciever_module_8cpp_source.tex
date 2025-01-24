@@ -1,0 +1,124 @@
+\doxysection{reciever\+Module.\+cpp}
+\hypertarget{reciever_module_8cpp_source}{}\label{reciever_module_8cpp_source}\index{C:/Users/olive/GroupProject\_2-\/1/src/recieverModule.cpp@{C:/Users/olive/GroupProject\_2-\/1/src/recieverModule.cpp}}
+\mbox{\hyperlink{reciever_module_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <Servo.h>}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{reciever_module_8h}{recieverModule.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transmit_receive_data_8h}{transmitReceiveData.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stepper_plus_8h}{stepperPlus.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00018}00018\ \textcolor{comment}{/*\ Pin\ definitions}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00019}00019\ \textcolor{comment}{\ *\ \ Four\ pins\ are\ used\ to\ control\ the\ stepper\ motor\ (Heating\ control)}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00020}00020\ \textcolor{comment}{\ *\ \ One\ pin\ is\ used\ to\ control\ the\ servo\ motor\ (Window\ actuation)}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00021}00021\ \textcolor{comment}{\ *\ \ One\ pint\ is\ used\ to\ control\ the\ lights}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00024}\mbox{\hyperlink{reciever_module_8cpp_ab6a80d0d11018361daa0566b1e844bd9}{00024}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{reciever_module_8cpp_ab6a80d0d11018361daa0566b1e844bd9}{servoPin}}\ =\ D2;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00025}\mbox{\hyperlink{reciever_module_8cpp_a0920a9209794506afdba044203234dc1}{00025}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{reciever_module_8cpp_a0920a9209794506afdba044203234dc1}{lightPin}}\ =\ D0;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00027}00027\ \textcolor{comment}{//\ Motor\ configuration}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00028}\mbox{\hyperlink{reciever_module_8cpp_a885d553fa36a80c2e953c6cbc8836dd0}{00028}}\ Servo\ \mbox{\hyperlink{reciever_module_8cpp_a885d553fa36a80c2e953c6cbc8836dd0}{windowControl}};\ \textcolor{comment}{//Creates\ a\ Servo\ class\ called\ 'windowControl'}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00030}\mbox{\hyperlink{reciever_module_8cpp_acd5053b5e16ff1463db15cc391efd8aa}{00030}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{reciever_module_8cpp_acd5053b5e16ff1463db15cc391efd8aa}{pServo}}\ \ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00031}\mbox{\hyperlink{reciever_module_8cpp_a88a6da09e82f9e1204496f0723d53e91}{00031}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{reciever_module_8cpp_a88a6da09e82f9e1204496f0723d53e91}{pStepper}}\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00032}\mbox{\hyperlink{reciever_module_8cpp_aa2f8616660fd5c403934f11f45c6caa7}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{reciever_module_8cpp_aa2f8616660fd5c403934f11f45c6caa7}{pLight}}\ \ \ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00033}\mbox{\hyperlink{reciever_module_8cpp_a6280ba2e2043367289b7371d005e95da}{00033}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{reciever_module_8cpp_a6280ba2e2043367289b7371d005e95da}{pRotation}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00040}\mbox{\hyperlink{reciever_module_8cpp_afce8a3cde109cd129af7bf88fd1cb851}{00040}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reciever_module_8cpp_afce8a3cde109cd129af7bf88fd1cb851}{receiverModule\_init}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00042}00042\ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_adca4080dba67594d826b1ca960e97be8}{stepperInit}}();}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00043}00043\ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_a885d553fa36a80c2e953c6cbc8836dd0}{windowControl}}.attach(\mbox{\hyperlink{reciever_module_8cpp_ab6a80d0d11018361daa0566b1e844bd9}{servoPin}});\ \textcolor{comment}{//Attaches\ the\ pin\ 2\ to\ the\ servo\ motor\ class}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00044}00044\ \ \ \ pinMode(\mbox{\hyperlink{reciever_module_8cpp_a0920a9209794506afdba044203234dc1}{lightPin}},\ OUTPUT);}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00052}\mbox{\hyperlink{reciever_module_8cpp_aec1a0ef27d9d242e1c1e58f6f084f7ed}{00052}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reciever_module_8cpp_aec1a0ef27d9d242e1c1e58f6f084f7ed}{receiverModule\_update}}(uint32\_t\ field)}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00054}00054\ \ \ \ \mbox{\hyperlink{transmit_receive_data_8cpp_ac8cb2b6e177ae28db398a9da8275b563}{connectThingSpeak}}();}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00056}00056\ \ \ \ \textcolor{keywordtype}{int}\ reading;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00057}00057\ \ \ \ Serial.println(field);\ \ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00058}00058\ \ \ \ \textcolor{keywordflow}{switch}(field)\{}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_a0aa23b1c63f6a5c006f779abaf8c7049}{THINGSPEAK\_WINDOW}}:}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ reading\ =\ \mbox{\hyperlink{transmit_receive_data_8cpp_ad100dad8219bd5c2e6d9c74b50627b75}{readThingSpeak}}(field);\ \textcolor{comment}{//Reads\ the\ relevant\ ThingSpeak\ data\ for\ the\ current\ modules}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ Serial.println(reading);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_acd5053b5e16ff1463db15cc391efd8aa}{pServo}}\ =\ reading;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_a1db4d83ac39452a5c73b3858f22a97d5}{servoControl}}(\mbox{\hyperlink{reciever_module_8cpp_acd5053b5e16ff1463db15cc391efd8aa}{pServo}});}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_ac0eca6abb7a3563764f7310180eb496e}{THINGSPEAK\_LIGHT}}:}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ reading\ =\ \mbox{\hyperlink{transmit_receive_data_8cpp_ad100dad8219bd5c2e6d9c74b50627b75}{readThingSpeak}}(field);\ \textcolor{comment}{//Reads\ the\ relevant\ ThingSpeak\ data\ for\ the\ current\ modules}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ Serial.println(reading);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_aa2f8616660fd5c403934f11f45c6caa7}{pLight}}\ =\ reading;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_ab96459f3c8d5b2326e8708fdd411e459}{lightControl}}(\mbox{\hyperlink{reciever_module_8cpp_aa2f8616660fd5c403934f11f45c6caa7}{pLight}});}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{transmit_receive_data_8h_ab0ae2a9459784a65017c551f2691041b}{THINGSPEAK\_SPACEHEATER}}:}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ reading\ =\ \mbox{\hyperlink{transmit_receive_data_8cpp_ad100dad8219bd5c2e6d9c74b50627b75}{readThingSpeak}}(field);\ \textcolor{comment}{//Reads\ the\ relevant\ ThingSpeak\ data\ for\ the\ current\ modules}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ Serial.println(reading);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_a88a6da09e82f9e1204496f0723d53e91}{pStepper}}\ =\ reading;}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_ad78e6bae49ea282cee0b50a21955dc09}{stepperControl}}(\mbox{\hyperlink{reciever_module_8cpp_a88a6da09e82f9e1204496f0723d53e91}{pStepper}});}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00092}\mbox{\hyperlink{reciever_module_8cpp_a1db4d83ac39452a5c73b3858f22a97d5}{00092}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reciever_module_8cpp_a1db4d83ac39452a5c73b3858f22a97d5}{servoControl}}(\textcolor{keywordtype}{int}\ input)}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00093}00093\ \{}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00094}00094\ \ \ \ \textcolor{keywordflow}{switch}(input)\{}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ the\ input\ value\ is\ -\/1,\ closes\ the\ window}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Window\ close"{}});\ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_a885d553fa36a80c2e953c6cbc8836dd0}{windowControl}}.write(0);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Sets\ the\ target\ value\ of\ the\ servo\ to\ 0°}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ the\ input\ value\ is\ 1,\ opens\ the\ window}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Window\ open"{}});\ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_a885d553fa36a80c2e953c6cbc8836dd0}{windowControl}}.write(180);\ \ \ \ \ \ \textcolor{comment}{//Sets\ the\ target\ value\ of\ the\ servo\ to\ 180°}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{comment}{//All\ other\ values\ don't\ change\ the\ window\ status}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00108}00108\ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00116}\mbox{\hyperlink{reciever_module_8cpp_ad78e6bae49ea282cee0b50a21955dc09}{00116}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reciever_module_8cpp_ad78e6bae49ea282cee0b50a21955dc09}{stepperControl}}(\textcolor{keywordtype}{int}\ rotations)}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00117}00117\ \{}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00118}00118\ \ \ \ \textcolor{keywordflow}{if}(rotations\ !=\ \mbox{\hyperlink{reciever_module_8cpp_a6280ba2e2043367289b7371d005e95da}{pRotation}})\{\ \textcolor{comment}{//Checks\ if\ a\ new\ value\ has\ been\ recieved}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00119}00119\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(rotations)\{}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ -\/1:}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}CCW"{}});\ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_a792a66eabb7445f98d9814b36320da7f}{stepperRotate}}(1);}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}CW"{}});\ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stepper_plus_8cpp_a792a66eabb7445f98d9814b36320da7f}{stepperRotate}}(-\/1);}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00133}00133\ \ \ \ \ \ \ \mbox{\hyperlink{reciever_module_8cpp_a6280ba2e2043367289b7371d005e95da}{pRotation}}\ =\ rotations;\ \textcolor{comment}{//Updates\ previous\ value}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00134}00134\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00135}00135\ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00142}\mbox{\hyperlink{reciever_module_8cpp_ab96459f3c8d5b2326e8708fdd411e459}{00142}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{reciever_module_8cpp_ab96459f3c8d5b2326e8708fdd411e459}{lightControl}}(\textcolor{keywordtype}{int}\ state)}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00143}00143\ \{}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00144}00144\ \ \ \ \textcolor{keywordflow}{if}(state\ ==\ 0)\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ the\ input\ i\ zero,\ turns\ the\ lights\ off}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00145}00145\ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Light\ OFF"{}});\ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00146}00146\ \ \ \ \ \ \ digitalWrite(\mbox{\hyperlink{reciever_module_8cpp_a0920a9209794506afdba044203234dc1}{lightPin}},\ LOW);}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00147}00147\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00148}00148\ \ \ \ \textcolor{keywordflow}{else}\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Otherwise\ the\ lights\ are\ on}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}Light\ ON"{}});\ \textcolor{comment}{//Serial\ readout\ used\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ digitalWrite(\mbox{\hyperlink{reciever_module_8cpp_a0920a9209794506afdba044203234dc1}{lightPin}},\ HIGH);}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{reciever_module_8cpp_source_l00152}00152\ \}}
+
+\end{DoxyCode}

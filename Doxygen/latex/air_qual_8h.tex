@@ -10,7 +10,7 @@ Function forward declarations and safety declarations.
 \item 
 void \mbox{\hyperlink{air_qual_8h_a842cf0555399e98067e0ad2bed527507}{air\+Qual\+\_\+init}} ()
 \begin{DoxyCompactList}\small\item\em function declarations \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{air_qual_8h_a782c29a2d034b6aaa192f42d20574893}{air\+Qual\+\_\+measurement}} (float \texorpdfstring{$\ast$}{*}temperature, float \texorpdfstring{$\ast$}{*}humidity)
+void \mbox{\hyperlink{air_qual_8h_a782c29a2d034b6aaa192f42d20574893}{air\+Qual\+\_\+measurement}} (float \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{transmitter_8cpp_afc1d28cfbce795d6ea954ebe725241f5}{temperature}}, float \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{transmitter_8cpp_a6a87b2b0cff24d38b367ccd34843a206}{humidity}})
 \begin{DoxyCompactList}\small\item\em Measures the air quality in ppm. Sensor is calibrated each reading. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{air_qual_8h_aa568756610bf17c42cc602370389c513}{air\+Qual\+\_\+get\+\_\+\+Value}} ()
 \begin{DoxyCompactList}\small\item\em Returns the corrected ppm value. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -33,6 +33,10 @@ Copyright (c) 2025
 \end{DoxyCopyright}
 
 
+Definition in file \mbox{\hyperlink{air_qual_8h_source}{air\+Qual.\+h}}.
+
+
+
 \doxysubsection{Function Documentation}
 \Hypertarget{air_qual_8h_aa568756610bf17c42cc602370389c513}\index{airQual.h@{airQual.h}!airQual\_get\_Value@{airQual\_get\_Value}}
 \index{airQual\_get\_Value@{airQual\_get\_Value}!airQual.h@{airQual.h}}
@@ -53,6 +57,10 @@ Simipar to {\ttfamily \doxylink{air_qual_8cpp_a782c29a2d034b6aaa192f42d20574893}
 \begin{DoxyReturn}{Returns}
 float ppm 
 \end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{air_qual_8cpp_source_l00070}{70}} of file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+
 \Hypertarget{air_qual_8h_a842cf0555399e98067e0ad2bed527507}\index{airQual.h@{airQual.h}!airQual\_init@{airQual\_init}}
 \index{airQual\_init@{airQual\_init}!airQual.h@{airQual.h}}
 \doxysubsubsection{\texorpdfstring{airQual\_init()}{airQual\_init()}}
@@ -68,6 +76,10 @@ function declarations
 \begin{DoxyAuthor}{Author}
 Oliver Olsen 
 \end{DoxyAuthor}
+
+
+Definition at line \mbox{\hyperlink{air_qual_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+
 \Hypertarget{air_qual_8h_a782c29a2d034b6aaa192f42d20574893}\index{airQual.h@{airQual.h}!airQual\_measurement@{airQual\_measurement}}
 \index{airQual\_measurement@{airQual\_measurement}!airQual.h@{airQual.h}}
 \doxysubsubsection{\texorpdfstring{airQual\_measurement()}{airQual\_measurement()}}
@@ -88,3 +100,7 @@ Oliver Olsen
 {\em humidity} & Measured humidity \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{air_qual_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{air_qual_8cpp_source}{air\+Qual.\+cpp}}.
+
