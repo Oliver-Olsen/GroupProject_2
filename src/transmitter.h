@@ -1,6 +1,7 @@
 /**
  * @file transmitter.h
  * @author Oliver Olsen
+ * @brief Funcions and guard
  * @version 0.1
  * @date 2025-01-22
  *

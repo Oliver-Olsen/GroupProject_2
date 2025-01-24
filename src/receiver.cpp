@@ -20,7 +20,7 @@
 unsigned short int seconds_15 = 15000; // ThingSpeak read/write speed (free subscription)
 
 
-int receive_web = 4;
+int receive_web = THINGSPEAK_WINDOW;
 
 
 /**
@@ -35,8 +35,8 @@ void receiverSetup()
 
 /**
  * @author Oliver Olsen
- * @brief Updates ThingSpeak or gets data from ThingSpeak
- * @section Updates ThingSpeak every 15 seconds if sending station. If receiving end, gets data every 15 seconds.
+ * @brief Gets data from ThingSpeak every 15 seconds
+ * @section Loop counter @param receive_web decides which data, to update in @p receiverModule_update()
  */
 void receiverMain()
 {
@@ -51,8 +51,8 @@ void receiverMain()
           break;
        }
 
-   if(receive_web >= 7){
-      receive_web = 4;
+   if(receive_web >= THINGSPEAK_RECEIVEMAX){
+      receive_web = THINGSPEAK_WINDOW;
       }
 
    delay(seconds_15);

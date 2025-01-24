@@ -1,7 +1,7 @@
 /**
  * @file transmitReceiveData.h
  * @author Oliver Olsen
- * @brief
+ * @brief Function declarations and guard
  * @version 0.1
  * @date 2025-01-22
  *
@@ -12,6 +12,7 @@
 #ifndef TRANSMITRECEIVEDATA_H
 #define TRANSMITRECEIVEDATA_H
 
+// Used for the switch in the transmitter/receiver loops. The number represents the field in Thingpeak
 #define THINGSPEAK_AIRQUALITY     1
 #define THINGSPEAK_MOTION         2
 #define THINGSPEAK_TEMPERATURE    3

@@ -22,7 +22,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2); // 16 by 2 display
 /**
  * @author Oliver Olsen
  * @brief Init
- * @section Initialization, and lcd layout setup
+ * @section Initialization, and lcd layout setup. Shows airquality, temperature and humidity
  */
 void dataLCD_setup()
 {
@@ -51,7 +51,7 @@ void dataLCD_setup()
  *
  * @author Oliver Olsen
  * @brief Prints measured data
- *
+ * @section Replaces the "N/A" parts from the @p dataLCD_setup() with the measured data
  * @param data sensor measurements
  * @param dataType type of data
  */

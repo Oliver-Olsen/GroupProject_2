@@ -1,6 +1,6 @@
 /**
  * @file sendData.cpp
- * @author Oliver Olsen, Marcus & Emil
+ * @author Oliver, Marcus & Emil
  * @brief Handles data to be sent
  * @section Can sent data with the function sendData_payload()
  *
@@ -13,14 +13,14 @@
 #include <ThingSpeak.h>
 #include "transmitReceiveData.h"
 
-#define CONNECT_PORT      80
-#define SEND_CHANNEL_NUMBER    2810501UL
-#define RECEIVE_CHANNEL_NUMBER 2815518UL
-const char Write_APIKey[] = "6475AR5ZBC5ZU3A7";
-const char Read_APIKey[]  = "AMPXQDNAKUDP9COD";
+#define CONNECT_PORT              80        // ThingSpeak Port
+#define SEND_CHANNEL_NUMBER       1234567UL // replace numers 1234567 with the channel number of Thingspeak
+#define RECEIVE_CHANNEL_NUMBER    1234567UL // replace numers 1234567 with the channel number of Thingspeak
+const char Write_APIKey[] = "WRITE_KEY";
+const char Read_APIKey[]  = "READ_KEY";
 
-const char *ssid  = "Galaxy S20 FEB9AE";
-const char *pswrd = "ckvd5478";
+const char *ssid  = "WIFI_NAME";
+const char *pswrd = "WIFI_PASSWORD";
 
 
 // WiFi Variables
@@ -56,7 +56,7 @@ void sendData_fieldValue(int field, float data)
  * @author Oliver Olsen
  * @brief Handles int to int
  *
- * @section The two functions @p sendData_fieldValue() ans @p sendData_fieldValue(). Deppending on if it's an int or a float, the correct function will be chosen automatically.
+ * @section The two functions @p sendData_fieldValue() and @p sendData_fieldValue(). Deppending on if it's an int or a float, the correct function will be chosen automatically.
  * @see works with @p sendData_fieldValue()
  * @param field
  * @param data
@@ -88,6 +88,7 @@ void sendData_payload(int field, int data, unsigned long channelID, const char *
  * @author Oliver Olsen
  * @brief Reads the field value
  * @section used to smoothly merge with recieverModule.cpp
+ * @see similar to @p sendData_payload
  * @param field Decides which data type is received
  * @return int
  */

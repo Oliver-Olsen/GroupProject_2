@@ -61,7 +61,7 @@ void transmitterMain()
    /**
     * @author Oliver Olsen
     * @brief Uodates a sensor pr. 30 seconds
-    *
+    *@section This means that it will take 2 minutes in total to update all sensor fields. The 30 seconds is to ensure all data is received and no package loss occures.
     */
    switch(transmit_web){
        case THINGSPEAK_AIRQUALITY:

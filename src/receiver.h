@@ -1,7 +1,7 @@
 /**
  * @file receiver.h
  * @author Nils Linus Metsälä Wulff
- * @brief
+ * @brief Functions and safety
  * @version 0.1
  * @date 2025-01-22
  *
